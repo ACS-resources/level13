@@ -269,17 +269,17 @@ define(['ash',
 		getRandomAnimalName: function (animalType) {
 			switch (animalType) {
 				case FollowerConstants.animalType.DOG:
-					return "dog";
+					return "狗狗";
 				case FollowerConstants.animalType.MULE:
-					return "mule";
+					return "麋鹿";
 				case FollowerConstants.animalType.BAT:
-					return "giant bat";
+					return "蝙蝠";
 				case FollowerConstants.animalType.OLM:
-					return "giant olm";
+					return "洞螈";
 				case FollowerConstants.animalType.RAVEN:
-					return "raven";
+					return "乌鸦";
 				default:
-					return "monitor lizard";
+					return "巨蜥";
 			}
 		},
 		
@@ -335,18 +335,18 @@ define(['ash',
 		
 		getAbilityTypeDisplayName: function (abilityType) {
 			switch (abilityType) {
-				case this.abilityType.ATTACK: return "attack";
-				case this.abilityType.DEFENCE: return "defence";
-				case this.abilityType.COST_MOVEMENT: return "trekking";
-				case this.abilityType.COST_SCAVENGE: return "scouring";
-				case this.abilityType.COST_SCOUT: return "scouting";
-				case this.abilityType.DETECT_HAZARDS: return "surveying (hazards)";
-				case this.abilityType.DETECT_SUPPLIES: return "surveying (supplies)";
-				case this.abilityType.DETECT_INGREDIENTS: return "surveying (ingredients)";
-				case this.abilityType.SCAVENGE_GENERAL: return "scavenging (general)";
-				case this.abilityType.SCAVENGE_INGREDIENTS: return "scavenging (ingredients)";
-				case this.abilityType.SCAVENGE_SUPPLIES: return "scavenging (supplies)";
-				case this.abilityType.SCAVENGE_CAPACITY: return "pack animal";
+				case this.abilityType.ATTACK: return "攻击";
+				case this.abilityType.DEFENCE: return "防御";
+				case this.abilityType.COST_MOVEMENT: return "跋涉";
+				case this.abilityType.COST_SCAVENGE: return "拾荒";
+				case this.abilityType.COST_SCOUT: return "探索";
+				case this.abilityType.DETECT_HAZARDS: return "调研(危害)";
+				case this.abilityType.DETECT_SUPPLIES: return "调研(补给)";
+				case this.abilityType.DETECT_INGREDIENTS: return "调研(材料)";
+				case this.abilityType.SCAVENGE_GENERAL: return "拾荒(所有资源)";
+				case this.abilityType.SCAVENGE_INGREDIENTS: return "拾荒(材料)";
+				case this.abilityType.SCAVENGE_SUPPLIES: return "拾荒(补给)";
+				case this.abilityType.SCAVENGE_CAPACITY: return "驮畜";
 				default:
 					log.w("no display name defined for abilityType: " + abilityType);
 					return abilityType;
@@ -355,9 +355,9 @@ define(['ash',
 		
 		getFollowerTypeDisplayName: function (followerType) {
 			switch (followerType) {
-				case this.followerType.FIGHTER: return "fighter";
-				case this.followerType.EXPLORER: return "explorer";
-				case this.followerType.SCAVENGER: return "scavenger";
+				case this.followerType.FIGHTER: return "打手";
+				case this.followerType.EXPLORER: return "探索者";
+				case this.followerType.SCAVENGER: return "拾荒者";
 				default:
 					log.w("no display name defined for follower type: " + type);
 					return "";
@@ -500,9 +500,9 @@ define(['ash',
 		},
 		
 		getPronoun: function (follower) {
-			if (this.isAnimal(follower.abilityType)) return "it";
-			if (follower.gender == CultureConstants.genders.FEMALE) return "she";
-			if (follower.gender == CultureConstants.genders.MALE) return "he";
+			if (this.isAnimal(follower.abilityType)) return "它";
+			if (follower.gender == CultureConstants.genders.FEMALE) return "她";
+			if (follower.gender == CultureConstants.genders.MALE) return "他";
 			return "they";
 		},
 		
