@@ -9,7 +9,7 @@ define(function () {
 	var TextBuilder = {
 		
 		// predefined variables
-		VAR_INDEFINITE_ARTICLE: "a",
+		VAR_INDEFINITE_ARTICLE: "",
 		
 		isDebugMode: false,
 		language: null,
@@ -47,7 +47,7 @@ define(function () {
 				}
 			}
 			
-			return result;
+			return result.split(" ").join("");
 		},
 		
 		isPredefinedVar: function (v) {
