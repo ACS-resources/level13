@@ -1488,7 +1488,7 @@ define(['ash',
       DescriptionMapper.add("sector-vision", { sectorType: t_I, buildingDensity: b13 }, "一个空荡的广场，有一些损坏的集装箱和巨大的生锈机械臂");
       DescriptionMapper.add("sector-vision", { sectorType: t_I, buildingDensity: b23 }, "一个[n-street]位于看起来像是[a-building]控制室和办公室的两栋建筑之间");
       DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个[a-street][n-street]在 一个[n-building]后面，低矮的天花板交错着旧电线和管道");
-      DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个荒凉的[n-street]，交错着破碎的电缆系统和维护管道的残骸"*);
+      DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个荒凉的[n-street]，交错着破碎的电缆系统和维护管道的残骸");
       DescriptionMapper.add("sector-vision", { sectorType: t_M, isSurfaceLevel: false }, "一个在巨大桥梁下的洪水通道，远处可见[a-building]建筑隐约可见");
       DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个在机器运行的城市设施之间被遗忘的空间，只有管道和管线打破了光滑的表面");
       DescriptionMapper.add("sector-vision", { sectorType: t_M, level: lold, buildingDensity: b13 }, "一个宽阔的广场，中间有一个控制室，旧电缆系统的线路向四面八方延伸");
