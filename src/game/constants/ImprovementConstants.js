@@ -13,7 +13,7 @@ define(['game/constants/CampConstants'], function (CampConstants) {
 			home: {
 				displayNames: [ "帐篷" ],
 				description: "营地之基",
-				useActionName: "Rest",
+				useActionName: "休息",
 				improvementLevelsPerTechLevel: 0,
 				sortScore: 10000,
 			},
