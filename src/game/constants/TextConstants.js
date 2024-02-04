@@ -376,11 +376,11 @@ define(['ash',
                 return "hole in the level " + (direction === PositionConstants.DIRECTION_UP ? "ceiling" : "floor");
               }
             default:
-              var status = isBuilt ? "修好" : "损坏";
+              var status = isBuilt ? "已修好" : "已损坏";
               if (passageVO.type === MovementConstants.PASSAGE_TYPE_BLOCKED) {
                 status = "修不了的"
               }
-              return "通往" + directionName + "的过道 (" + passageVO.name + ") (" + status + ")";
+              return "向" + directionName + "的过道 (" + passageVO.name + ") (" + status + ")";
           }
         } else {
           switch (passageVO.type) {
@@ -393,7 +393,7 @@ define(['ash',
             default:
               var name = passageVO.name + " " + directionName;
               var article = Text.getArticle(name);
-              var span = article + " " + makeHighlight(name);
+              var span = "一个" + makeHighlight(name);
               var state;
               if (isBuilt) {
                 state = "而它已经被修好了";
