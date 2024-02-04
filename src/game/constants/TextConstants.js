@@ -338,12 +338,12 @@ define(['ash',
               }
             }
           case MovementConstants.PASSAGE_TYPE_BLOCKED:
-            return "There seems to have been a staircase here once but it has been destroyed beyond repair.";
+            return "这里曾经似乎有一个楼梯，但它已经被毁了";
           default:
             if (isBuilt) {
-              return "这里有一个" + Text.addArticle(passageVO.name.toLowerCase());
+              return "这里有一个" + Text.addArticle(passageVO.name);
             } else {
-              return "这里曾经有一个" + Text.addArticle(passageVO.name.toLowerCase());
+              return "这里曾经有一个" + Text.addArticle(passageVO.name);
             }
         }
       },
@@ -360,7 +360,7 @@ define(['ash',
             return "有个向" + directionName + "的楼梯井已经修好, 位于" + sectorPosVO.getInGameFormat(includeLevelInPosition);
           default:
             log.w("Unknown passage type: [" + passageType + "]")
-            return "Passage " + directionName + " ready at " + sectorPosVO.getInGameFormat(includeLevelInPosition);
+            return "向" + directionName + "的过道已经修好, 位于" + sectorPosVO.getInGameFormat(includeLevelInPosition);
         }
       },
 
@@ -380,7 +380,7 @@ define(['ash',
               if (passageVO.type === MovementConstants.PASSAGE_TYPE_BLOCKED) {
                 status = "修不了的"
               }
-              return "通往" + directionName + "的过道 (" + passageVO.name.toLowerCase() + ") (" + status + ")";
+              return "通往" + directionName + "的过道 (" + passageVO.name + ") (" + status + ")";
           }
         } else {
           switch (passageVO.type) {
@@ -391,7 +391,7 @@ define(['ash',
                 return "有个" + makeHighlight("洞") + "在这个层级的" + (direction === PositionConstants.DIRECTION_UP ? "天花板" : "地板") + "上";
               }
             default:
-              var name = passageVO.name.toLowerCase() + " " + directionName;
+              var name = passageVO.name + " " + directionName;
               var article = Text.getArticle(name);
               var span = article + " " + makeHighlight(name);
               var state;
@@ -404,7 +404,7 @@ define(['ash',
               } else {
                 state = "但它得修一下";
               }
-              return "这里有个 " + span + ", 已经" + state + "了";
+              return "这里有个 " + span + state;
           }
         }
       },
@@ -1014,7 +1014,7 @@ define(['ash',
           var item = items[i];
           if (typeof loggedItems[item.id] === 'undefined') {
             msg += "$" + replacements.length + ", ";
-            replacements.push("#" + replacements.length + " " + item.name.toLowerCase());
+            replacements.push("#" + replacements.length + " " + item.name);
             values.push(1);
             loggedItems[item.id] = replacements.length - 1;
           } else {
