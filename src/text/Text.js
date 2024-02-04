@@ -16,11 +16,6 @@ define(function () {
 		},
 		
 		capitalize: function (string) {
-			for (let i = 0; i < string.length; i++) {
-				var c = string.charAt(i);
-				if (c == "[" || c == "]" || c == "(" || c == ")") continue;
-				return string.substr(0, i) + c.toUpperCase() + string.substr(i + 1);
-			}
 			return string;
 		},
 		
@@ -59,5 +54,5 @@ define(function () {
 		}
 		
 	};
-	return Text.split(" ").join("");
+	return Text;
 });
