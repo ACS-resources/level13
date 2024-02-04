@@ -1107,7 +1107,6 @@ define(['ash',
             modifier = "维护良好的";
             break;
         }
-      }
 
 				// nouns and special modifiers
         switch (locale.type) {
