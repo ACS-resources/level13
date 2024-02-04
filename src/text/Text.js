@@ -44,12 +44,6 @@ define(function () {
 		},
 		
 		getIrregularPlural: function (s) {
-			let parts = s.split(" ");
-			let w = parts[parts.length - 1];
-			if (Object.keys(this.irregularPlurals).indexOf(w) >= 0) {
-				parts[parts.length - 1] = this.irregularPlurals[w];
-				return parts.join(" ");
-			}
 			return null;
 		}
 		
