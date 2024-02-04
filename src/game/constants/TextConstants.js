@@ -404,7 +404,7 @@ define(['ash',
               } else {
                 state = "但它得修一下";
               }
-              return "这里有 " + span + state;
+              return "这里有" + span + state;
           }
         }
       },
