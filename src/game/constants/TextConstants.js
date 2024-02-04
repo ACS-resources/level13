@@ -1540,14 +1540,14 @@ define(['ash',
 
       DescriptionMapper.add("sector-novision", { sunlit: false, buildingDensity: b0 }, "城市内罕见的空地；没有地板或墙壁，没有建筑，什么也没有。只有广阔的空虚黑暗");
       DescriptionMapper.add("sector-novision", { sunlit: false, buildingDensity: b13 }, "一条宽阔的街道或走廊。在浩瀚的黑暗中很难找到任何东西");
-      DescriptionMapper.add("sector-novision", { sunlit: false, buildingDensity: b23, wear: b22 }, "一条或走廊带有被遗弃气息的街道。细节在黑暗中消失");
-      DescriptionMapper.add("sector-novision", { sunlit: false, buildingDensity: b23, wear: b12 }, "一条安静的街道或走廊。细节在黑暗中消失");
+      DescriptionMapper.add("sector-novision", { sunlit: false, buildingDensity: b23, wear: b22 }, "一条走廊或带有被遗弃气息的街道。黑暗中看不清细节");
+      DescriptionMapper.add("sector-novision", { sunlit: false, buildingDensity: b23, wear: b12 }, "一条安静的街道或走廊。黑暗中看不清细节");
       DescriptionMapper.add("sector-novision", { sunlit: false, buildingDensity: b33 }, "一个密集的通道，几乎没有足够的空间行走。你在黑暗中摸索前行");
       DescriptionMapper.add("sector-novision", { sunlit: false }, "城市内隐藏在黑暗中的空间");
       DescriptionMapper.add("sector-novision", { sunlit: true, buildingDensity: b0 }, "城市内罕见的空地；没有地板或墙壁，没有建筑，什么也没有。只有广阔的空虚");
       DescriptionMapper.add("sector-novision", { sunlit: true, buildingDensity: b13 }, "一条宽阔的街道或走廊。在刺眼的阳光下很难找到任何东西");
-      DescriptionMapper.add("sector-novision", { sunlit: true, buildingDensity: b23, wear: b22 }, "一条或走廊带有被遗弃气息的街道。细节在耀眼的光线中消失");
-      DescriptionMapper.add("sector-novision", { sunlit: true, buildingDensity: b23, wear: b12 }, "一条安静的街道或走廊。细节在阳光中消失");
+      DescriptionMapper.add("sector-novision", { sunlit: true, buildingDensity: b23, wear: b22 }, "一条走廊或带有被遗弃气息的街道。刺眼的光线中看不清细节");
+      DescriptionMapper.add("sector-novision", { sunlit: true, buildingDensity: b23, wear: b12 }, "一条安静的街道或走廊。刺眼的光线中看不清细节");
       DescriptionMapper.add("sector-novision", { sunlit: true, buildingDensity: b33 }, "一个密集的通道，几乎没有足够的空间行走。你在耀眼的光线中摸索前行");
       DescriptionMapper.add("sector-novision", { sunlit: true }, "城市内在耀眼的光线中模糊不清的空间");
 		}
