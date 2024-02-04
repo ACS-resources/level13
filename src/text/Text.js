@@ -29,11 +29,6 @@ define(function () {
 		},
 		
 		isPlural: function (s) {
-			if (s[s.length - 1] === "s") {
-				if (s[s.length - 1] === "e") return true;
-				// can't tell
-				return null;
-			}
 			return false;
 		},
 		
@@ -42,9 +37,9 @@ define(function () {
 			if (irregular) return irregular;
 			
 			if (s.endsWith("roach")) {
-				return s + "es";
+				return s;
 			} else if (s[s.length - 1] !== "s") {
-				return s + "s";
+				return s;
 			} else {
 				return s;
 			}
