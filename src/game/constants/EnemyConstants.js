@@ -47,7 +47,7 @@ function (Ash, EnemyVO, PerkConstants) {
 				verbsDefeated: ["清除", "杀死"],
 			},
 			bird: {
-				nouns: ["城市害虫", "鸟类", "动物", "攻击性动物", "敌对野生动物" ],
+				nouns: ["都市骇物", "鸟类", "动物", "攻击性动物", "敌对野生动物" ],
 				groupNouns: ["群", "片", "帮", "簇"],
 				verbsActive: ["充斥", "被感染", "被占领", "被守卫"],
 				verbsDefeated: ["杀死", "清除", "被驱逐"],
@@ -59,7 +59,7 @@ function (Ash, EnemyVO, PerkConstants) {
 				verbsDefeated: ["清除"],
 			},
 			fungi: {
-				nouns: ["城市害虫", "危险真菌", "敌对野生动物"],
+				nouns: ["都市骇物", "危险真菌", "敌对野生动物"],
 				groupNouns: ["簇", "片"],
 				verbsActive: ["感染", "覆盖", "充斥"],
 				verbsDefeated: ["清除", "杀死"],
@@ -77,7 +77,7 @@ function (Ash, EnemyVO, PerkConstants) {
 				verbsDefeated: ["被禁用", "清除", "被摧毁"],
 			},
 			small_animal: {
-				nouns: ["城市害虫", "攻击性动物", "野生动物", "动物", "敌对野生动物"],
+				nouns: ["都市骇物", "攻击性动物", "野生动物", "动物", "敌对野生动物"],
 				groupNouns: ["群体", "群", "片", "组", "大群"],
 				verbsActive: ["感染", "充斥" ],
 				verbsDefeated: ["杀死", "清除"],
