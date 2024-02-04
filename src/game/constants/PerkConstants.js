@@ -201,28 +201,28 @@ define(['ash', 'game/vos/PerkVO'], function (Ash, PerkVO) {
 		
 	};
 	
-	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.healthBonus1, "Healthy", "Health", 1.1, "img/items/health-positive.png"));
-	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.healthBonus2, "Augmented (L1)", "Health", 1.25, "img/items/health-positive.png"));
-	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.healthBonus3, "Augmented (L2)", "Health", 1.5, "img/items/health-positive.png"));
+	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.healthBonus1, "健康", "Health", 1.1, "img/items/health-positive.png"));
+	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.healthBonus2, "加强 (L1)", "Health", 1.25, "img/items/health-positive.png"));
+	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.healthBonus3, "加强 (L2)", "Health", 1.5, "img/items/health-positive.png"));
 	
-	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.hunger, "Hunger", "Health", 0.75, "img/items/health-negative.png"));
-	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.thirst, "Thirst", "Health", 0.75, "img/items/health-negative.png"));
-	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.hazardRadiation, "Radiation sickness", "Health", 0.25, "img/items/health-negative.png"));
-	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.hazardPoison, "Poisoned", "Health", 0.5, "img/items/health-negative.png"));
-	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.hazardCold, "Cold", "Health", 0.75, "img/items/health-negative.png"));
+	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.hunger, "饥饿", "Health", 0.75, "img/items/health-negative.png"));
+	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.thirst, "口渴", "Health", 0.75, "img/items/health-negative.png"));
+	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.hazardRadiation, "辐射症", "Health", 0.25, "img/items/health-negative.png"));
+	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.hazardPoison, "中毒", "Health", 0.5, "img/items/health-negative.png"));
+	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.hazardCold, "室温", "Health", 0.75, "img/items/health-negative.png"));
 	
-	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.encumbered, "Encumbered", "Movement", 1.5, "img/items/weight.png"));
+	PerkConstants.perkDefinitions.health.push(new PerkVO(PerkConstants.perkIds.encumbered, "劳累", "Movement", 1.5, "img/items/weight.png"));
 	
-	PerkConstants.perkDefinitions.stamina.push(new PerkVO(PerkConstants.perkIds.staminaBonus, "Energized", "Stamina", 1, "img/items/health-positive.png"));
-	PerkConstants.perkDefinitions.stamina.push(new PerkVO(PerkConstants.perkIds.staminaBonusPenalty, "Headache", "Stamina", 0.9, "img/items/health-negative.png"));
+	PerkConstants.perkDefinitions.stamina.push(new PerkVO(PerkConstants.perkIds.staminaBonus, "精力充沛", "Stamina", 1, "img/items/health-positive.png"));
+	PerkConstants.perkDefinitions.stamina.push(new PerkVO(PerkConstants.perkIds.staminaBonusPenalty, "头疼", "Stamina", 0.9, "img/items/health-negative.png"));
 	
-	PerkConstants.perkDefinitions.stamina.push(new PerkVO(PerkConstants.perkIds.lightBeacon, "Beacon", "Light", 20, "img/items/perk-light-beacon.png"));
+	PerkConstants.perkDefinitions.stamina.push(new PerkVO(PerkConstants.perkIds.lightBeacon, "信标照射", "Light", 20, "img/items/perk-light-beacon.png"));
 	
-	PerkConstants.perkDefinitions.luck.push(new PerkVO(PerkConstants.perkIds.blessed, "Blessed", "Luck", 20, "img/items/perk-blessed.png"));
-	PerkConstants.perkDefinitions.luck.push(new PerkVO(PerkConstants.perkIds.restartBonusSmall, "Dreams of past lives", "Luck", 10, "img/items/perk-restart.png"));
-	PerkConstants.perkDefinitions.luck.push(new PerkVO(PerkConstants.perkIds.restartBonusCompletion, "Dreams of escape", "Luck", 30, "img/items/perk-restart.png"));
+	PerkConstants.perkDefinitions.luck.push(new PerkVO(PerkConstants.perkIds.blessed, "幸运", "Luck", 20, "img/items/perk-blessed.png"));
+	PerkConstants.perkDefinitions.luck.push(new PerkVO(PerkConstants.perkIds.restartBonusSmall, "逝魂之梦", "Luck", 10, "img/items/perk-restart.png"));
+	PerkConstants.perkDefinitions.luck.push(new PerkVO(PerkConstants.perkIds.restartBonusCompletion, "逃脱之梦", "Luck", 30, "img/items/perk-restart.png"));
 	
-	PerkConstants.perkDefinitions.visualNegative.push(new PerkVO(PerkConstants.perkIds.tired, "Tired", "VisualN", 0, "img/items/perk-tired.png"));
+	PerkConstants.perkDefinitions.visualNegative.push(new PerkVO(PerkConstants.perkIds.tired, "疲惫", "VisualN", 0, "img/items/perk-tired.png"));
 	
 	let woundBodyParts = ["Leg", "Arm", "Head", "Foot", "Chest", "Hand"];
 	for (let i = 0; i < woundBodyParts.length; i++) {
@@ -230,46 +230,46 @@ define(['ash', 'game/vos/PerkVO'], function (Ash, PerkVO) {
 		let id = "wounded-" + bodyPart.toLowerCase();
 		
 		if (bodyPart != "Head") {
-			PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.SHARP, id, bodyPart + " wound (light)");
+			PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.SHARP, id, bodyPart + "伤口(轻伤)");
 		}
 		if (bodyPart != "Hand") {
-			PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.SHARP, id, bodyPart + " wound (medium)");
+			PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.SHARP, id, bodyPart + "伤口(中度)");
 		}
 		if (bodyPart != "Foot" && bodyPart != "Hand") {
-			PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.SHARP, id, bodyPart + " wound (serious)");
+			PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.SHARP, id, bodyPart + "伤口(严重)");
 		}
 	}
 	
-	let bruiseBodyParts = ["Leg", "Arm", "Shoulder", "Knee" ];
+	let bruiseBodyParts = ["Leg", "Arm", "Shoulder", "Knee"];
 	for (let i = 0; i < bruiseBodyParts.length; i++) {
 		let bodyPart = bruiseBodyParts[i];
 		let id = "bruised-" + bodyPart.toLowerCase();
 		
-		PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.BLUNT, id, "Bruised " + bodyPart + " (light)");
-		PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, id, "Bruised " + bodyPart + " (medium)");
+		PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.BLUNT, id, "瘀伤的" + bodyPart + "(轻伤)");
+		PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, id, "瘀伤的" + bodyPart + "(中度)");
 	}
 	
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.FIRE, "burn-fire", "Burn (light)");
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.FIRE, "burn-fire", "Burn (medium)");
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.FIRE, "burn-fire", "Burn (serious)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.FIRE, "burn-fire", "烧伤(轻伤)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.FIRE, "burn-fire", "烧伤(中度)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.FIRE, "burn-fire", "烧伤(严重)");
 	
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.CHEMICAL, "burn-chemical", "Chemical burn (light)");
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.CHEMICAL, "burn-chemical", "Chemical burn (medium)");
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.CHEMICAL, "burn-chemical", "Chemical burn (serious)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.CHEMICAL, "burn-chemical", "化学品烧伤(轻伤)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.CHEMICAL, "burn-chemical", "化学品烧伤(中度)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.CHEMICAL, "burn-chemical", "化学品烧伤(严重)");
 	
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, "sprained-ankle", "Sprained ankle (medium)");
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.BLUNT, "sprained-ankle", "Sprained ankle (serious)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, "sprained-ankle", "脚踝扭伤(中度)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.BLUNT, "sprained-ankle", "脚踝扭伤(严重)");
 	
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, "broken-wrist", "Broken wrist (medium)");
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.BLUNT, "broken-wrist", "Broken wrist (serious)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, "broken-wrist", "手腕骨裂(中度)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.BLUNT, "broken-wrist", "手腕骨折(严重)");
 	
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, "broken-thumb", "Broken thumb (medium)");
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, "broken-finger", "Broken finger (medium)");
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, "broken-toe", "Broken toe (medium)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, "broken-thumb", "大拇指骨折(中度)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, "broken-finger", "手指骨折(中度)");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, "broken-toe", "脚趾骨折(中度)");
 	
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, "dislocated-shoulder", "Dislocated shoulder");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, "dislocated-shoulder", "肩膀脱臼");
 	
-	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.BLUNT, "broken-rib", "Broken rib");
+	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.BLUNT, "broken-rib", "肋骨骨折");
 		
 	return PerkConstants;
 	
