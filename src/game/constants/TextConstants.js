@@ -22,7 +22,7 @@ define(['ash',
         if (s.length > 0) {
           if (s.endsWith(", ")) s = s.slice(0, -2);
           if (!this.isPunctuation(s[s.length - 1])) s = s + ".";
-          if (s[s.length - 1]!= " ") s = s + " ";
+          if (s[s.length - 1] != " ") s = s + " ";
         }
         return s;
       },
@@ -37,7 +37,7 @@ define(['ash',
 
       getActionName: function (baseActionID) {
         switch (baseActionID) {
-          case "scavenge_heap": return "搜寻";
+          case "scavenge_heap": return "搜寻材料";
           case "scout_locale_i":
           case "scout_locale_u":
             return "探索";
@@ -86,7 +86,7 @@ define(['ash',
         var type = hasVision ? "sector-vision" : "sector-novision";
         var template = DescriptionMapper.get(type, features);
         if (features.hasGrove) {
-          template = " 一个[a-street]park overrun by plant-life. In the middle there is a grove of tall trees. Though strange and wild, it also seems somehow peaceful";
+          template = " 一个[a-street]的被植被覆盖的公园, 在它中心有一丛茂盛的大树, 尽管看上去很奇怪, 但是有种莫名的平和";
         }
         var params = this.getSectorTextParams(features);
         var phrase = TextBuilder.build(template, params);
@@ -97,186 +97,186 @@ define(['ash',
         // 1) Collect options for each param based on several features
         var options = {};
         var addOptions = function (param, values) {
-          if (!options[param]) options[param]=[];
+          if (!options[param]) options[param] = [];
           for (let i = 0; i < values.length; i++) {
             options[param].push(values[i]);
           }
         };
         // - general: options always available
-        addOptions("a-street",["安静的"]);
-        addOptions("n-building",["建筑", "构筑物"]);
-        addOptions("n-buildings",["建筑"]);
-        addOptions("a-building",["顶天立地", "高", "昏暗", "废弃", "不可名状", "小", "常见", "庞大", "巨型", "巨大", "高大", "宏伟"]);
-        addOptions("an-decos",["坏掉的长凳", "损坏的电梯"]);
-        addOptions("an-items",["残骸"]);
+        addOptions("a-street", ["安静"]);
+        addOptions("n-building", ["建筑", "构筑物"]);
+        addOptions("n-buildings", ["建筑"]);
+        addOptions("a-building", ["顶天立地", "高", "昏暗", "废弃", "不可名状", "小", "常见", "庞大", "巨型", "巨大", "高大", "宏伟"]);
+        addOptions("an-decos", ["坏掉的长凳", "损坏的电梯"]);
+        addOptions("an-items", ["残骸"]);
         // - sector type: determines n-sector and affects many others
         switch (features.sectorType) {
           case SectorConstants.SECTOR_TYPE_RESIDENTIAL:
-            addOptions("n-sector",["公寓综合楼"]);
-            addOptions("a-street-past",["曾经美丽", "宁静", "有序", "放松"]);
-            addOptions("n-building",["居民楼楼", "公寓房", "带有无数相同阳台的住宅楼", "住宅区"]);
-            addOptions("n-buildings",["居民楼群", "公寓群", "楼楼群", "相同的居民楼"]);
-            addOptions("an-decos",["有轨电车轨道"]);
-            addOptions("a-building",["寂静", "规律", "巨大", "对称"]);
-            addOptions("an-items",["垃圾"]);
+            addOptions("n-sector", ["公寓综合楼"]);
+            addOptions("a-street-past", ["曾经美丽", "宁静", "有序", "放松"]);
+            addOptions("n-building", ["居民楼楼", "公寓房", "带有无数相同阳台的住宅楼", "住宅区"]);
+            addOptions("n-buildings", ["居民楼群", "公寓群", "楼楼群", "相同的居民楼"]);
+            addOptions("an-decos", ["有轨电车轨道"]);
+            addOptions("a-building", ["寂静", "规律", "巨大", "对称"]);
+            addOptions("an-items", ["垃圾"]);
             break;
           case SectorConstants.SECTOR_TYPE_INDUSTRIAL:
-            addOptions("n-sector",["工业综合楼"]);
-            addOptions("a-street",["简朴"]);
-            addOptions("a-street-past",["高安全"]);
-            addOptions("n-building",["发电厂", "工厂", "仓库", "车间"]);
-            addOptions("n-buildings",["工厂群", "车间群", "仓库群", "仓库", "车间", "炼油厂"]);
-            addOptions("a-building",["停用", "规律", "巨大", "奇怪"]);
-            addOptions("an-items",["损坏的机械"]);
+            addOptions("n-sector", ["工业综合楼"]);
+            addOptions("a-street", ["简朴"]);
+            addOptions("a-street-past", ["高安全"]);
+            addOptions("n-building", ["发电厂", "工厂", "仓库", "车间"]);
+            addOptions("n-buildings", ["工厂群", "车间群", "仓库群", "仓库", "车间", "炼油厂"]);
+            addOptions("a-building", ["停用", "规律", "巨大", "奇怪"]);
+            addOptions("an-items", ["损坏的机械"]);
             break;
           case SectorConstants.SECTOR_TYPE_MAINTENANCE:
-            addOptions("n-sector",["运输大厅", "维护区", "交通枢纽"]);
-            addOptions("a-street",["奇怪", "混乱", "杂乱", "空旷"]);
-            addOptions("a-street-past",["有序"]);
-            addOptions("n-building",["维护中心", "缆车站", "公用建筑", "水处理站"]);
-            addOptions("n-buildings",["公用建筑群", "数据中心", "控制室", "自动控制单元"]);
-            addOptions("a-building",["停用", "无法进入"]);
-            addOptions("an-decos",["破碎的管道", "损坏的电车"]);
-            addOptions("an-items",["电线"]);
+            addOptions("n-sector", ["运输大厅", "维护区", "交通枢纽"]);
+            addOptions("a-street", ["奇怪", "混乱", "杂乱", "空旷"]);
+            addOptions("a-street-past", ["有序"]);
+            addOptions("n-building", ["维护中心", "缆车站", "公用建筑", "水处理站"]);
+            addOptions("n-buildings", ["公用建筑群", "数据中心", "控制室", "自动控制单元"]);
+            addOptions("a-building", ["停用", "无法进入"]);
+            addOptions("an-decos", ["破碎的管道", "损坏的电车"]);
+            addOptions("an-items", ["电线"]);
             break;
           case SectorConstants.SECTOR_TYPE_COMMERCIAL:
-            addOptions("n-sector",["购物中心", "购物中心", "办公楼综合楼"]);
-            addOptions("a-street-past",["曾经繁华", "喧嚣", "充满活力"]);
-            addOptions("n-building",["购物中心", "百货公司", "办公楼", "咖啡馆", "酒吧"]);
-            addOptions("n-buildings",["购物楼", "购物中心", "商店", "商店", "办公室", "办公楼"]);
-            addOptions("a-building",["空置", "荒废", "被洗劫", "巨大", "古怪", "对称", "多彩"]);
-            addOptions("an-decos",["空的喷泉", "废弃的摊位"]);
-            addOptions("an-items",["破碎的玻璃"]);
+            addOptions("n-sector", ["购物中心", "购物中心", "办公楼综合楼"]);
+            addOptions("a-street-past", ["曾经繁华", "喧嚣", "充满活力"]);
+            addOptions("n-building", ["购物中心", "百货公司", "办公楼", "咖啡馆", "酒吧"]);
+            addOptions("n-buildings", ["购物楼", "购物中心", "商店", "商店", "办公室", "办公楼"]);
+            addOptions("a-building", ["空置", "荒废", "被洗劫", "巨大", "古怪", "对称", "多彩"]);
+            addOptions("an-decos", ["空的喷泉", "废弃的摊位"]);
+            addOptions("an-items", ["破碎的玻璃"]);
             break;
           case SectorConstants.SECTOR_TYPE_PUBLIC:
-            addOptions("n-sector",["监狱综合楼", "游乐园", "图书馆", "公园"]);
-            addOptions("a-street",["庄严", "肃穆", "宏伟", "普通"]);
-            addOptions("a-street-past",["休闲", "有序", "愉快"]);
-            addOptions("n-building",["图书馆", "监狱", "学校", "大学建筑", "公园", "公共广场", "运动场", "地铁站", "研究实验室", "政府大楼"]);
-            addOptions("n-buildings",["公共建筑", "政府建筑"]);
-            addOptions("a-building",["空置", "无法进入", "巨大", "怪异", "对称"]);
-            addOptions("an-decos",["枯萎的树木"]);
-            addOptions("an-items",["垃圾"]);
-            if (features.level > 13) addOptions("an-items",["研究样品"]);
+            addOptions("n-sector", ["监狱综合楼", "游乐园", "图书馆", "公园"]);
+            addOptions("a-street", ["庄严", "肃穆", "宏伟", "普通"]);
+            addOptions("a-street-past", ["休闲", "有序", "愉快"]);
+            addOptions("n-building", ["图书馆", "监狱", "学校", "大学建筑", "公园", "公共广场", "运动场", "地铁站", "研究实验室", "政府大楼"]);
+            addOptions("n-buildings", ["公共建筑", "政府建筑"]);
+            addOptions("a-building", ["空置", "无法进入", "巨大", "怪异", "对称"]);
+            addOptions("an-decos", ["枯萎的树木"]);
+            addOptions("an-items", ["垃圾"]);
+            if (features.level > 13) addOptions("an-items", ["研究样品"]);
             break;
           case SectorConstants.SECTOR_TYPE_SLUM:
-            addOptions("n-sector",["棚户区", "垃圾填埋场"]);
-            addOptions("a-street",["破旧", "混乱"]);
-            addOptions("a-street-past",["阴暗", "拥挤", "活跃"]);
-            addOptions("n-building",["公寓楼"]);
-            addOptions("a-building",["废弃", "粗糙", "压抑", "凌乱", "灰暗", "涂鸦覆盖"]);
-            addOptions("n-buildings",["简陋小屋", "棚屋", "贫民窟住宅", "公寓楼", "看起来从未接入电网的居民楼"]);
-            addOptions("an-decos",["倒塌的棚屋", "垃圾堆"]);
-            addOptions("an-items",["生锈的管道", "空罐头"]);
+            addOptions("n-sector", ["棚户区", "垃圾填埋场"]);
+            addOptions("a-street", ["破旧", "混乱"]);
+            addOptions("a-street-past", ["阴暗", "拥挤", "活跃"]);
+            addOptions("n-building", ["公寓楼"]);
+            addOptions("a-building", ["废弃", "粗糙", "压抑", "凌乱", "灰暗", "涂鸦覆盖"]);
+            addOptions("n-buildings", ["简陋小屋", "棚屋", "贫民窟住宅", "公寓楼", "看起来从未接入电网的居民楼"]);
+            addOptions("an-decos", ["倒塌的棚屋", "垃圾堆"]);
+            addOptions("an-items", ["生锈的管道", "空罐头"]);
             break;
         }
         // - 建筑密度
         if (features.buildingDensity < 3) {
-          addOptions("n-street",["区域", "空间", "广场"]);
+          addOptions("n-street", ["区域", "空间", "广场"]);
           if (features.sectorType == SectorConstants.SECTOR_TYPE_RESIDENTIAL || features.sectorType == SectorConstants.SECTOR_TYPE_COMMERCIAL)
-            addOptions("n-street",["广场", "庭院"]);
-          addOptions("a-street",["宽阔", "宽敞", "巨大"]);
+            addOptions("n-street", ["广场", "庭院"]);
+          addOptions("a-street", ["宽阔", "宽敞", "巨大"]);
         } else if (features.buildingDensity < 6) {
-          addOptions("n-street",["广场", "区域", "大厅"]);
+          addOptions("n-street", ["广场", "区域", "大厅"]);
           if (features.sectorType == SectorConstants.SECTOR_TYPE_RESIDENTIAL || features.sectorType == SectorConstants.SECTOR_TYPE_COMMERCIAL)
-            addOptions("n-street",["林荫大道", "大街"]);
+            addOptions("n-street", ["林荫大道", "大街"]);
           if (features.sectorType != SectorConstants.SECTOR_TYPE_SLUM)
-            addOptions("n-street",["通道"]);
-          addOptions("a-street",["宽阔", "宽敞"]);
+            addOptions("n-street", ["通道"]);
+          addOptions("a-street", ["宽阔", "宽敞"]);
         } else if (features.buildingDensity < 9) {
-          addOptions("n-street",["街道", "街道", "小巷", "综合楼", "区域"]);
-          addOptions("a-street",["狭窄"]);
+          addOptions("n-street", ["街道", "街道", "小巷", "综合楼", "区域"]);
+          addOptions("a-street", ["狭窄"]);
         } else {
-          addOptions("n-street",["走廊", "通道", "小巷"]);
-          addOptions("a-street",["狭窄", "拥挤", "密集", "低矮"]);
+          addOptions("n-street", ["走廊", "通道", "小巷"]);
+          addOptions("a-street", ["狭窄", "拥挤", "密集", "低矮"]);
         }
         // - 磨损和损坏
         switch (features.condition) {
           case SectorConstants.SECTOR_CONDITION_RUINED:
-            addOptions("a-street",["毁坏", "摇摇欲坠"]);
-            addOptions("n-buildings",["摇摇欲坠的废墟"]);
-            addOptions("n-buildings",["摇摇欲坠的废墟"]);
-            addOptions("a-building",["毁坏", "骨架"]);
+            addOptions("a-street", ["毁坏", "摇摇欲坠"]);
+            addOptions("n-buildings", ["摇摇欲坠的废墟"]);
+            addOptions("n-buildings", ["摇摇欲坠的废墟"]);
+            addOptions("a-building", ["毁坏", "骨架"]);
             break;
           case SectorConstants.SECTOR_CONDITION_DAMAGED:
-            addOptions("a-street",["损坏", "被摧毁", "破碎"]);
-            addOptions("a-building",["损坏"]);
-            addOptions("an-decos",["倒塌的隧道"]);
+            addOptions("a-street", ["损坏", "被摧毁", "破碎"]);
+            addOptions("a-building", ["损坏"]);
+            addOptions("an-decos", ["倒塌的隧道"]);
             break;
           case SectorConstants.SECTOR_CONDITION_ABANDONED:
-            addOptions("a-street",["荒凉", "阴郁"]);
-            addOptions("a-building",["腐朽", "荒废", "缓慢分解", "早已废弃", "摇摇欲坠"]);
+            addOptions("a-street", ["荒凉", "阴郁"]);
+            addOptions("a-building", ["腐朽", "荒废", "缓慢分解", "早已废弃", "摇摇欲坠"]);
             break;
           case SectorConstants.SECTOR_CONDITION_WORN:
-            addOptions("a-building",["荒凉", "废弃", "阴郁"]);
+            addOptions("a-building", ["荒凉", "废弃", "阴郁"]);
             break;
           case SectorConstants.SECTOR_CONDITION_RECENT:
-            addOptions("a-building",["保存良好", "现代"]);
+            addOptions("a-building", ["保存良好", "现代"]);
             break;
           case SectorConstants.SECTOR_CONDITION_MAINTAINED:
-            addOptions("a-street",["现代", "光滑"]);
+            addOptions("a-street", ["现代", "光滑"]);
             break;
         }
         // - 阳光
         if (features.sunlit) {
-          addOptions("a-street",["阳光照耀", "沐浴在阳光下", "耀眼", "明亮", "有风", ""]);
+          addOptions("a-street", ["阳光照耀", "沐浴在阳光下", "耀眼", "明亮", "有风", ""]);
           if (features.wear < 5 && features.damage < 5)
-            addOptions("a-street",["闪耀", "闪闪发光"]);
+            addOptions("a-street", ["闪耀", "闪闪发光"]);
           if (features.wear > 5)
-            addOptions("a-street",["杂草丛生"]);
-          addOptions("a-building",["充满活力", "阳光照耀"]);
-          addOptions("an-decos",["顽强的野草"]);
+            addOptions("a-street", ["杂草丛生"]);
+          addOptions("a-building", ["充满活力", "阳光照耀"]);
+          addOptions("an-decos", ["顽强的野草"]);
         } else {
-          addOptions("a-street",["黑暗", "黑暗", "阴暗", "阴影", "暗淡"]);
+          addOptions("a-street", ["黑暗", "黑暗", "阴暗", "阴影", "暗淡"]);
         }
         // - 危害
         if (features.hazards.cold > 0) {
-          addOptions("a-street",["寒冷"]);
+          addOptions("a-street", ["寒冷"]);
         }
         if (features.hazards.radiation > 0) {
-          addOptions("a-street",["荒凉"]);
-          addOptions("n-building",["核电站", "核废料仓库", "核废料处理单位"]);
-          addOptions("a-building",["被遗弃"]);
-          addOptions("na-items",["丢弃的安全设备"]);
+          addOptions("a-street", ["荒凉"]);
+          addOptions("n-building", ["核电站", "核废料仓库", "核废料处理单位"]);
+          addOptions("a-building", ["被遗弃"]);
+          addOptions("na-items", ["丢弃的安全设备"]);
         }
         if (features.hazards.poison > 0) {
-          addOptions("a-street",["污染"]);
-          addOptions("n-building",["化工厂", "炼油厂", "垃圾处理厂"]);
-          addOptions("a-building",["污染"]);
-          addOptions("na-items",["使用过的医用口罩"]);
+          addOptions("a-street", ["污染"]);
+          addOptions("n-building", ["化工厂", "炼油厂", "垃圾处理厂"]);
+          addOptions("a-building", ["污染"]);
+          addOptions("na-items", ["使用过的医用口罩"]);
         }
         if (features.hazards.debris) {
-          addOptions("a-street",["被摧毁", "损坏", "毁坏"]);
-          addOptions("n-building",["建筑"]);
-          addOptions("a-building",["被摧毁", "无法辨认", "空心"]);
-          addOptions("na-items",["碎片"]);
+          addOptions("a-street", ["被摧毁", "损坏", "毁坏"]);
+          addOptions("n-building", ["建筑"]);
+          addOptions("a-building", ["被摧毁", "无法辨认", "空心"]);
+          addOptions("na-items", ["碎片"]);
         }
         // - 人口水平
         if (features.populationFactor == 0) {
-          addOptions("a-street",["空无一人", "无人居住", "荒凉", "荒废", "尘土飞扬"])
-          addOptions("a-building",["长期废弃", "空无一人", "污染"]);
+          addOptions("a-street", ["空无一人", "无人居住", "荒凉", "荒废", "尘土飞扬"])
+          addOptions("a-building", ["长期废弃", "空无一人", "污染"]);
         } else if (features.populationFactor < 1) {
-          addOptions("a-street",["宁静"]);
-          addOptions("a-building",["空无一人"]);
+          addOptions("a-street", ["宁静"]);
+          addOptions("a-building", ["空无一人"]);
         } else {
-          addOptions("a-building",["最近被洗劫"]);
-          addOptions("na-items",["最近的捡荒者痕迹"]);
+          addOptions("a-building", ["最近被洗劫"]);
+          addOptions("na-items", ["最近的捡荒者痕迹"]);
         }
         // - 突袭危险因素
         if (features.raidDangerFactor > 1) {
-          addOptions("a-street",["被洗劫"]);
-          addOptions("a-building",["被洗劫", "损坏", "被掠夺", "被洗劫"]);
+          addOptions("a-street", ["被洗劫"]);
+          addOptions("a-building", ["被洗劫", "损坏", "被掠夺", "被洗劫"]);
         }
         // - 层次：建筑风格/年代
         if (features.level < 6) {
-          addOptions("a-street",["古老", "古朴"]);
-          addOptions("a-building",["古老", "过时", "古朴", "历史", "装饰华丽", "巴洛克风格"]);
+          addOptions("a-street", ["古老", "古朴"]);
+          addOptions("a-building", ["古老", "过时", "古朴", "历史", "装饰华丽", "巴洛克风格"]);
         } else if (features.level < 14) {
-          addOptions("a-street",["过时"]);
-          addOptions("a-building",["过时"]);
+          addOptions("a-street", ["过时"]);
+          addOptions("a-building", ["过时"]);
         } else if (features.level < 18) {
-          addOptions("a-street",["现代"]);
-          addOptions("a-building",["现代", "时尚", "功能性"]);
+          addOptions("a-street", ["现代"]);
+          addOptions("a-building", ["现代", "时尚", "功能性"]);
         }
 
         // 2) 构建最终结果通过选择选项
@@ -289,28 +289,28 @@ define(['ash',
           return validOptions[i];
         };
         var selectFromOptions = function (key, num) {
-          var selection =[];
+          var selection = [];
           for (let i = 0; i < num; i++) {
             var sel = pickRandom(options[key], selection);
             if (sel) {
               selection.push(sel);
             } else {
-              log.w("could not select valid[" + key + "]" + (i + 1) + "/" + num)
+              log.w("could not select valid [" + key + "] " + (i + 1) + "/" + num)
               log.w(options);
             }
           }
           return selection;
         };
-        result["a-sectortype"]= features.sectorType;
-        result["n-sector"]= selectFromOptions("n-sector", 1);
-        result["n-street"]= selectFromOptions("n-street", 1);
-        result["a-street"]= selectFromOptions("a-street", 2);
-        result["a-street-past"]= selectFromOptions("a-street-past", 1);
-        result["n-building"]= selectFromOptions("n-building", 2);
-        result["n-buildings"]= selectFromOptions("n-buildings", 2);
-        result["a-building"]= selectFromOptions("a-building", 2);
-        result["an-decos"]= selectFromOptions("an-decos", 2);
-        result["an-items"]= selectFromOptions("an-items", 2);
+        result["a-sectortype"] = features.sectorType;
+        result["n-sector"] = selectFromOptions("n-sector", 1);
+        result["n-street"] = selectFromOptions("n-street", 1);
+        result["a-street"] = selectFromOptions("a-street", 2);
+        result["a-street-past"] = selectFromOptions("a-street-past", 1);
+        result["n-building"] = selectFromOptions("n-building", 2);
+        result["n-buildings"] = selectFromOptions("n-buildings", 2);
+        result["a-building"] = selectFromOptions("a-building", 2);
+        result["an-decos"] = selectFromOptions("an-decos", 2);
+        result["an-items"] = selectFromOptions("an-items", 2);
 
         return result;
       },
@@ -359,7 +359,7 @@ define(['ash',
           case MovementConstants.PASSAGE_TYPE_STAIRWELL:
             return "有个向" + directionName + "的楼梯井已经修好, 位于" + sectorPosVO.getInGameFormat(includeLevelInPosition);
           default:
-            log.w("Unknown passage type:[" + passageType + "]")
+            log.w("Unknown passage type: [" + passageType + "]")
             return "Passage " + directionName + " ready at " + sectorPosVO.getInGameFormat(includeLevelInPosition);
         }
       },
@@ -427,7 +427,7 @@ define(['ash',
       getBookTextParams: function (features) {
         var result = {};
 
-        let levels =[];
+        let levels = [];
         switch (features.bookLevel) {
           case 1:
             levels.push("简单");
@@ -446,9 +446,9 @@ define(['ash',
             levels.push("沉重");
             break;
         }
-        result["a-level"]= DescriptionMapper.pickRandom(levels, features);
+        result["a-level"] = DescriptionMapper.pickRandom(levels, features);
 
-        let styles =[];
+        let styles = [];
         switch (features.bookType) {
           case ItemConstants.bookTypes.science:
           case ItemConstants.bookTypes.engineering:
@@ -485,9 +485,9 @@ define(['ash',
             styles.push("离奇");
             break;
         }
-        result["a-style"]= DescriptionMapper.pickRandom(styles, features);
+        result["a-style"] = DescriptionMapper.pickRandom(styles, features);
 
-        let goodAdjectives =[];
+        let goodAdjectives = [];
         goodAdjectives.push("雄辩");
         goodAdjectives.push("难忘");
         goodAdjectives.push("愉快");
@@ -509,9 +509,9 @@ define(['ash',
             goodAdjectives.push("吸引人");
             break;
         }
-        result["a-good"]= DescriptionMapper.pickRandom(goodAdjectives, features);
+        result["a-good"] = DescriptionMapper.pickRandom(goodAdjectives, features);
 
-        let badAdjectives =[];
+        let badAdjectives = [];
         badAdjectives.push("乏味");
         badAdjectives.push("单调");
         badAdjectives.push("枯燥");
@@ -528,9 +528,9 @@ define(['ash',
             badAdjectives.push("俗气");
             break;
         }
-        result["a-bad"]= DescriptionMapper.pickRandom(badAdjectives, features);
+        result["a-bad"] = DescriptionMapper.pickRandom(badAdjectives, features);
 
-        let topics =[];
+        let topics = [];
         switch (features.bookType) {
           case ItemConstants.bookTypes.science:
             topics.push("一种在放射性环境中茁壮成长的蛞蝓物种");
@@ -664,9 +664,9 @@ define(['ash',
             }
             break;
         }
-        result["n-topic"]= DescriptionMapper.pickRandom(topics, features);
+        result["n-topic"] = DescriptionMapper.pickRandom(topics, features);
 
-        let objects =[];
+        let objects = [];
         switch (features.bookType) {
           case ItemConstants.bookTypes.engineering:
             objects.push("晶体管");
@@ -693,9 +693,9 @@ define(['ash',
             }
             break;
         }
-        result["n-object"]= DescriptionMapper.pickRandom(objects, features);
+        result["n-object"] = DescriptionMapper.pickRandom(objects, features);
 
-        let themes =[];
+        let themes = [];
         switch (features.bookType) {
           case ItemConstants.bookTypes.fiction:
             themes.push("来自另一个大陆的难民");
@@ -723,9 +723,9 @@ define(['ash',
             themes.push("一个让人们忘记自己是谁的计算机程序");
             break;
         }
-        result["c-theme"]= DescriptionMapper.pickRandom(themes, features);
+        result["c-theme"] = DescriptionMapper.pickRandom(themes, features);
 
-        let facts =[];
+        let facts = [];
         switch (features.bookType) {
           case ItemConstants.bookTypes.science:
             facts.push("城市的人口在坠落前就已经开始下降了");
@@ -763,7 +763,7 @@ define(['ash',
             // facts.push("城市的最低层实际上是第X层");
             break;
         }
-        let events =[];
+        let events = [];
         switch (features.bookType) {
           case ItemConstants.bookTypes.history:
             events.push("城市几百年前对某个遥远文明发动的一场战争");
@@ -783,7 +783,7 @@ define(['ash',
             events.push("涉及一个有影响力的政治家的丑闻");
             break;
         }
-        result["c-event"]= DescriptionMapper.pickRandom(events, features);
+        result["c-event"] = DescriptionMapper.pickRandom(events, features);
 
         return result;
       },
@@ -804,7 +804,7 @@ define(['ash',
       getNewspaperTextParams: function (features) {
         let result = {};
 
-        let events =[];
+        let events = [];
         events.push("一场工人罢工");
         events.push("一个地方庆典");
         events.push("一群难民的到来");
@@ -832,9 +832,9 @@ define(['ash',
             events.push("一个地方体育赛事");
             break;
         }
-        result["c-event"]= DescriptionMapper.pickRandom(events, features);
+        result["c-event"] = DescriptionMapper.pickRandom(events, features);
 
-        let topics =[];
+        let topics = [];
         topics.push("地方政治");
         topics.push("地方八卦");
         topics.push("星座运势");
@@ -858,7 +858,7 @@ define(['ash',
             topics.push("道德问题");
             break;
         }
-        result["n-topic"]= DescriptionMapper.pickRandom(topics, features);
+        result["n-topic"] = DescriptionMapper.pickRandom(topics, features);
 
         return result;
       },
@@ -883,7 +883,7 @@ define(['ash',
       getResearchPaperTextParams: function (features) {
         let result = {};
 
-        let facts =[];
+        let facts = [];
         facts.push("城市比其当前人口可能维持的速度更快地分崩离析");
         facts.push("城市建在沼泽地上，正在慢慢下沉");
         facts.push("坠落前海洋流向正在改变");
@@ -897,9 +897,9 @@ define(['ash',
         facts.push("政府正在编制一份紧急疏散情况下的优先个人名单");
         facts.push("坠落前正在为某事准备的顶级秘密基因库");
         facts.push("城市政府想要隐藏大量燃料和建筑材料的囤积");
-        result["c-fact"]= DescriptionMapper.pickRandom(facts, features);
+        result["c-fact"] = DescriptionMapper.pickRandom(facts, features);
 
-        let topics =[];
+        let topics = [];
         topics.push("一次太空火箭发射失败对城市可能的后果");
         topics.push("可以住在宇宙飞船上的人数");
         topics.push("长距离太空旅行的可能性");
@@ -911,7 +911,7 @@ define(['ash',
         topics.push("通过歌唱控制天气的可能性");
         topics.push("开花植物对骰子掷出结果的影响");
 
-        result["n-topic"]= DescriptionMapper.pickRandom(topics, features);
+        result["n-topic"] = DescriptionMapper.pickRandom(topics, features);
 
         return result;
       },
@@ -938,7 +938,7 @@ define(['ash',
         let phrase = TextBuilder.build(template, params);
 
         result = phrase;
-        if (GameConstants.isDebugVersion) result += "[" + waymarkVO.toPosition + "]";
+        if (GameConstants.isDebugVersion) result += " [" + waymarkVO.toPosition + "]";
 
         return result;
       },
@@ -948,9 +948,9 @@ define(['ash',
 
         let tradePartner = TradeConstants.getTradePartner(features.campOrdinal);
 
-        result["n-target"]= "<span class='hl-functionality'>" + this.getWaymarkTargetName(waymarkVO) + "</span>";
-        result["direction"]= PositionConstants.getDirectionName(features.direction, false);
-        result["n-settlement-name"]= tradePartner ? tradePartner.name : null;
+        result["n-target"] = "<span class='hl-functionality'>" + this.getWaymarkTargetName(waymarkVO) + "</span>";
+        result["direction"] = PositionConstants.getDirectionName(features.direction, false);
+        result["n-settlement-name"] = tradePartner ? tradePartner.name : null;
         return result;
       },
       getWaymarkTargetName: function (waymarkVO) {
@@ -959,7 +959,7 @@ define(['ash',
           case SectorConstants.WAYMARK_TYPE_CAMP: return "安全";
           case SectorConstants.WAYMARK_TYPE_RADIATION: return "危险";
           case SectorConstants.WAYMARK_TYPE_POLLUTION: return "危险";
-          case SectorConstants.WAYMARK_TYPE_SETTLEMENT: return "贸易";
+          case SectorConstants.WAYMARK_TYPE_SETTLEMENT: return "贸易点";
           default:
             log.w("未知的路标类型: " + waymarkVO.type);
             return "安全";
@@ -990,8 +990,8 @@ define(['ash',
 
       getLogResourceText: function (resourcesVO) {
         var msg = "";
-        var replacements =[];
-        var values =[];
+        var replacements = [];
+        var values = [];
         for (let key in resourceNames) {
           let name = resourceNames[key];
           let amount = resourcesVO.getResource(name);
@@ -1007,16 +1007,16 @@ define(['ash',
 
       getLogItemsText: function (items) {
         var msg = "";
-        var replacements =[];
-        var values =[];
+        var replacements = [];
+        var values = [];
         var loggedItems = {};
         for (let i = 0; i < items.length; i++) {
           var item = items[i];
-          if (typeof loggedItems[item.id]=== 'undefined') {
+          if (typeof loggedItems[item.id] === 'undefined') {
             msg += "$" + replacements.length + ", ";
             replacements.push("#" + replacements.length + " " + item.name.toLowerCase());
             values.push(1);
-            loggedItems[item.id]= replacements.length - 1;
+            loggedItems[item.id] = replacements.length - 1;
           } else {
             values[loggedItems[item.id]]++;
           }
@@ -1173,7 +1173,7 @@ define(['ash',
             break;
           case localeTypes.camp:
           case localeTypes.tradingpartner:
-            modifier = "非本部落";
+            modifier = "非本组织";
             noun = "营地";
             break;
           case localeTypes.hut:
@@ -1267,7 +1267,7 @@ define(['ash',
               if (amount == WorldConstants.resourcePrevalence.RARE) amountDesc = "罕见";
               if (amount == WorldConstants.resourcePrevalence.DEFAULT) amountDesc = "稀有";
               if (amount == WorldConstants.resourcePrevalence.COMMON) amountDesc = "常见";
-              if (amount == WorldConstants.resourcePrevalence.ABUNDANT) amountDesc = "丰富";
+              if (amount == WorldConstants.resourcePrevalence.ABUNDANT) amountDesc = "充裕";
               if (GameConstants.isDebugVersion) amountDesc += " " + Math.round(amount);
               s += key + " (" + amountDesc + "), ";
             } else if (amount > 0 && knownResources.indexOf(name) >= 0) {
@@ -1280,7 +1280,7 @@ define(['ash',
         },
 
         getScaItemString: function (discoveredItems, knownItems, itemsScavengeable) {
-          let validItems =[];
+          let validItems = [];
           for (let i = 0; i < itemsScavengeable.length; i++) {
             let id = itemsScavengeable[i];
             if (knownItems.indexOf(id) < 0) continue;
@@ -1315,7 +1315,7 @@ define(['ash',
 
         getMovementBlockerAction: function (blockerVO, enemiesComponent, gangComponent) {
           switch (blockerVO.type) {
-            case MovementConstants.BLOCKER_TYPE_GAP: return "补上缺口";
+            case MovementConstants.BLOCKER_TYPE_GAP: return "连接缺口";
             case MovementConstants.BLOCKER_TYPE_WASTE_TOXIC: return "清理废物";
             case MovementConstants.BLOCKER_TYPE_WASTE_RADIOACTIVE: return "清理废物";
             case MovementConstants.BLOCKER_TYPE_GANG:
@@ -1325,7 +1325,7 @@ define(['ash',
         },
 
         getAllEnemies: function (enemiesComponent, gangComponent) {
-          let enemies =[];
+          let enemies = [];
           if (enemiesComponent && enemiesComponent.possibleEnemies) {
             enemies = enemiesComponent.possibleEnemies.concat();
           }
@@ -1352,15 +1352,15 @@ define(['ash',
       // if nothing common is found, defaultWord is returned
       // is allowSeveral, two common words can be returned if one doesn't cover all objects
       getCommonText: function (objectList, objectAttribute, objectDetailAttribute, defaultWord, allowSeveral, pluralify) {
-        var allWords =[];
-        var allDetails =[];
-        var minimumWords =[];
+        var allWords = [];
+        var allDetails = [];
+        var minimumWords = [];
         for (var i1 in objectList) {
           var o = objectList[i1];
           if (!o) continue;
           for (var j1 in o[objectAttribute]) {
-            var word = o[objectAttribute] [j1];
-            var detail = objectDetailAttribute ? o[objectDetailAttribute]: "";
+            var word = o[objectAttribute][j1];
+            var detail = objectDetailAttribute ? o[objectDetailAttribute] : "";
             if (!word) continue;
             if ($.inArray(word, allWords) < 0) allWords.push(word);
             if (objectDetailAttribute && $.inArray(detail, allDetails) < 0) allDetails.push(detail);
@@ -1368,7 +1368,7 @@ define(['ash',
           }
         }
 
-        var validWords =[];
+        var validWords = [];
         for (var i2 in allWords) {
           var word = allWords[i2];
           var valid = true;
@@ -1386,7 +1386,7 @@ define(['ash',
             var valid = true;
             for (var j3 in objectList) {
               var o = objectList[j3];
-              if (o[objectDetailAttribute]!= detail) valid = false;
+              if (o[objectDetailAttribute] != detail) valid = false;
             }
             if (valid) validDetail = detail;
           }
@@ -1400,7 +1400,7 @@ define(['ash',
         } else if (validWords.length > 0) {
           return pluralify ? Text.pluralify(validWords[0]) : validWords[0];
         } else if (allowSeveral && minimumWords.length > 1) {
-          return pluralify ? (Text.pluralify(minimumWords[0]) + "和" + Text.pluralify(minimumWords[1])) : (minimumWords[0]+ "和" + minimumWords[1]);
+          return pluralify ? (Text.pluralify(minimumWords[0]) + "和" + Text.pluralify(minimumWords[1])) : (minimumWords[0] + "和" + minimumWords[1]);
         } else {
           return defaultWord;
         }
@@ -1412,7 +1412,7 @@ define(['ash',
         } else if (list.length == 1) {
           return list[0];
         } else if (list.length == 2) {
-          return list[0]+ " and " + list[1];
+          return list[0] + " and " + list[1];
         } else if (max && list.length > max) {
           let displayedList = list.slice(0, max);
           let numHiddenItems = list.length - displayedList.length;
@@ -1434,86 +1434,86 @@ define(['ash',
       let t_P = SectorConstants.SECTOR_TYPE_PUBLIC;
       let t_S = SectorConstants.SECTOR_TYPE_SLUM;
 
-      let b0 =[0, 0];
-      let bfull =[10, 10];
-      let b12 =[0, 5];
-      let b22 =[5, 10];
-      let b13 =[0, 3];
-      let b23 =[4, 6];
-      let b33 =[7, 10];
+      let b0 = [0, 0];
+      let bfull = [10, 10];
+      let b12 = [0, 5];
+      let b22 = [5, 10];
+      let b13 = [0, 3];
+      let b23 = [4, 6];
+      let b33 = [7, 10];
 
-      let lmodern =[15, 100];
-      let lold =[10, 18];
+      let lmodern = [15, 100];
+      let lold = [10, 18];
 
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[n-street]在看起来像是 一个[a-building] [n-building]前");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street]位于两个[a-building] [n-buildings]之间");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street]位于两个[n-buildings]之间，两边各有一些[a-building] [n-buildings]");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street]与少数[a-building] [n-buildings]一同出现");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-sector]散布着[an-items]和[an-items]");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street]两旁是[a-building] [n-buildings]");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street]被[n-buildings]包围");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street]被[a-building] [n-buildings]包围");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[n-street]带有一些[an-decos]和[a-building] [n-buildings]");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street]位于一些[n-buildings]之间");
-      DescriptionMapper.add("sector-vision", { isSurfaceLevel: false }, "一个[n-street]位于一个巨大支柱的底部，该支柱支撑着上面的层级");
-      DescriptionMapper.add("sector-vision", { isSurfaceLevel: false, wear: b12, sunlit: false, debris: b0 }, "一个[a-street] [n-street]长期无人居住的建筑覆盖着奇异的苔藓");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[n-street] 在看起来像是 一个[a-building] [n-building] 前");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street] 位于两个 [a-building] [n-buildings] 之间");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street] 位于两个 [n-buildings] 之间，两边各有一些 [a-building] [n-buildings]");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street] 与少数 [a-building] [n-buildings] 一同出现");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-sector] 散布着 [an-items] 和 [an-items]");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street] 两旁是 [a-building] [n-buildings]");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street] 被 [n-buildings] 包围");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street] 被 [a-building] [n-buildings] 包围");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[n-street] 带有一些 [an-decos] 和 [a-building] [n-buildings]");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street] [n-street] 位于一些 [n-buildings] 之间");
+      DescriptionMapper.add("sector-vision", { isSurfaceLevel: false }, "一个[n-street] 位于一个巨大支柱的底部，该支柱支撑着上面的层级");
+      DescriptionMapper.add("sector-vision", { isSurfaceLevel: false, wear: b12, sunlit: false, debris: b0 }, "一个[a-street] [n-street] 长期无人居住的建筑覆盖着奇异的苔藓");
       DescriptionMapper.add("sector-vision", { buildingDensity: b0, isGroundLevel: false }, "连接几栋建筑的桥梁和通道系统围绕着令人眩晕的开口至下层-");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b12, isGroundLevel: false, campable: false }, "一个[a-street]桥梁跨越下方层级，为有轨电车轨道、公用设施和行人设置了不同的层级");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b22 }, "某种 一个[a-sectortype]复合体，有几条狭窄的通道");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b13 }, "一个宽阔的广场，一侧是 一个[a-building] [n-building]，另一侧似乎是 一个[a-building] [n-building]的遗迹");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b23, isSurfaceLevel: false, sunlit: false }, "一个[a-street] [n-street]在一座巨大的[n-building]下方");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b23, isSurfaceLevel: false }, "一个[n-street]的多层通道沿着周围[a-sectortype]建筑的墙壁爬行");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b33 }, "某种 一个[a-sectortype]走廊位于两座巨大[n-buildings]之间，几乎没有足够的空间行走");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b33 }, "一个[a-street] [n-street]挤满了[a-building] [n-buildings]和[an-decos]，几乎没有足够的空间通过");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b33 }, "一个[a-street]巷子位于两个[a-building] [n-buildings]之间");
-      DescriptionMapper.add("sector-vision", { wear: b13, sunlit: false, level: lmodern, debris: b0 }, "一个[a-street] [n-street]两旁是高大的[n-buildings]，排列着枯萎的树木，这些树木直到不久前还必须在人造光中茁壮成长");
-      DescriptionMapper.add("sector-vision", { wear: b13, level: lmodern, isSurfaceLevel: false }, "一条[n-street]位于一些还在建设中就被遗弃的骨架建筑之间");
-      DescriptionMapper.add("sector-vision", { wear: b23, damage: b0 }, "一个曾经的[n-sector]，带着其过去的[a-street-past]氛围");
-      DescriptionMapper.add("sector-vision", { wear: b23, damage: b0 }, "曾经是[a-street-past] [n-sector]，中间有一些[an-decos]和 一个[a-building] [n-building]");
-      DescriptionMapper.add("sector-vision", { wear: b33 }, "一个[a-building]建筑，很难确定其原始用途，被剥离至裸露的混凝土");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b22, wear: b33 }, "一个[a-street]走廊，散布着长时间居民留下的垃圾");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b12, isGroundLevel: false, campable: false }, "一个[a-street] 桥梁跨越下方层级，为有轨电车轨道、公用设施和行人设置了不同的层级");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b22 }, "某种 一个[a-sectortype] 复合体，有几条狭窄的通道");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b13 }, "一个宽阔的广场，一侧是 一个[a-building] [n-building]，另一侧似乎是 一个[a-building] [n-building] 的遗迹");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b23, isSurfaceLevel: false, sunlit: false }, "一个[a-street] [n-street] 在一座巨大的 [n-building] 下方");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b23, isSurfaceLevel: false }, "一个[n-street] 的多层通道沿着周围 [a-sectortype] 建筑的墙壁爬行");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b33 }, "某种 一个[a-sectortype] 走廊位于两座巨大 [n-buildings] 之间，几乎没有足够的空间行走");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b33 }, "一个[a-street] [n-street] 挤满了 [a-building] [n-buildings] 和 [an-decos]，几乎没有足够的空间通过");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b33 }, "一个[a-street] 巷子位于两个 [a-building] [n-buildings] 之间");
+      DescriptionMapper.add("sector-vision", { wear: b13, sunlit: false, level: lmodern, debris: b0 }, "一个[a-street] [n-street] 两旁是高大的 [n-buildings]，排列着枯萎的树木，这些树木直到不久前还必须在人造光中茁壮成长");
+      DescriptionMapper.add("sector-vision", { wear: b13, level: lmodern, isSurfaceLevel: false }, "一条 [n-street] 位于一些还在建设中就被遗弃的骨架建筑之间");
+      DescriptionMapper.add("sector-vision", { wear: b23, damage: b0 }, "一个曾经的 [n-sector]，带着其过去的 [a-street-past] 氛围");
+      DescriptionMapper.add("sector-vision", { wear: b23, damage: b0 }, "曾经是 [a-street-past] [n-sector]，中间有一些 [an-decos] 和 一个[a-building] [n-building]");
+      DescriptionMapper.add("sector-vision", { wear: b33 }, "一个[a-building] 建筑，很难确定其原始用途，被剥离至裸露的混凝土");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b22, wear: b33 }, "一个[a-street] 走廊，散布着长时间居民留下的垃圾");
       DescriptionMapper.add("sector-vision", { wear: b33, isSurfaceLevel: false }, "一个[a-street] [a-sectortype] [n-street]，几座巨大的无法识别的废墟在其上方隐约可见");
-      DescriptionMapper.add("sector-vision", { wear: b33 }, "一个完全被毁的[a-sectortype] [n-street]");
-      DescriptionMapper.add("sector-vision", { wear: b33 }, "一个被瓦砾覆盖的[n-street]，周围是[a-sectortype]建筑的摇摇欲坠的残骸");
-      DescriptionMapper.add("sector-vision", { damage: b22 }, "一个曾经的[a-sectortype]区域，[n-buildings]和[n-buildings]都已成为废墟");
-      DescriptionMapper.add("sector-vision", { damage: b33 }, "一个完全被摧毁的[a-sectortype] [n-street]");
-      DescriptionMapper.add("sector-vision", { damage: b22, buildingDensity: b12 }, "一条[a-street] [n-street]，两旁是被摧毁的建筑的外壳");
-      DescriptionMapper.add("sector-vision", { damage: b22, buildingDensity: b22 }, "一条[n-street]，满是瓦砾，难以通过");
-      DescriptionMapper.add("sector-vision", { sectorType: t_R }, "一条小[n-street]，位于一些[a-building]公寓塔楼之间");
-      DescriptionMapper.add("sector-vision", { sectorType: t_R, buildingDensity: b23, isSurfaceLevel: false }, "一条[a-street] [n-street]沿着一堵巨大的墙延伸至上方层级的天花板，点缀着[a-building]公寓");
-      DescriptionMapper.add("sector-vision", { sectorType: t_R, buildingDensity: b12, level:[6, 100]}, "一条[n-street]，两旁是几座相同的狭窄住宅塔楼");
-      DescriptionMapper.add("sector-vision", { sectorType: t_R, buildingDensity: b23 }, "一条[n-street]在一个带有令人眼花缭乱的几何图案阳台的[a-building]居民楼外");
+      DescriptionMapper.add("sector-vision", { wear: b33 }, "一个完全被毁的 [a-sectortype] [n-street]");
+      DescriptionMapper.add("sector-vision", { wear: b33 }, "一个被瓦砾覆盖的 [n-street]，周围是 [a-sectortype] 建筑的摇摇欲坠的残骸");
+      DescriptionMapper.add("sector-vision", { damage: b22 }, "一个曾经的 [a-sectortype] 区域，[n-buildings] 和 [n-buildings] 都已成为废墟");
+      DescriptionMapper.add("sector-vision", { damage: b33 }, "一个完全被摧毁的 [a-sectortype] [n-street]");
+      DescriptionMapper.add("sector-vision", { damage: b22, buildingDensity: b12 }, "一条 [a-street] [n-street]，两旁是被摧毁的建筑的外壳");
+      DescriptionMapper.add("sector-vision", { damage: b22, buildingDensity: b22 }, "一条 [n-street]，满是瓦砾，难以通过");
+      DescriptionMapper.add("sector-vision", { sectorType: t_R }, "一条小 [n-street]，位于一些 [a-building] 公寓塔楼之间");
+      DescriptionMapper.add("sector-vision", { sectorType: t_R, buildingDensity: b23, isSurfaceLevel: false }, "一条 [a-street] [n-street] 沿着一堵巨大的墙延伸至上方层级的天花板，点缀着 [a-building] 公寓");
+      DescriptionMapper.add("sector-vision", { sectorType: t_R, buildingDensity: b12, level: [6, 100] }, "一条 [n-street]，两旁是几座相同的狭窄住宅塔楼");
+      DescriptionMapper.add("sector-vision", { sectorType: t_R, buildingDensity: b23 }, "一条 [n-street] 在一个带有令人眼花缭乱的几何图案阳台的 [a-building] 居民楼外");
       DescriptionMapper.add("sector-vision", { sectorType: t_R, level: lmodern }, "一个广场，周围曾经是相当舒适的公寓塔楼");
-      DescriptionMapper.add("sector-vision", { sectorType: t_I }, "一条街道在一个巨大的[a-building]工业综合体外");
+      DescriptionMapper.add("sector-vision", { sectorType: t_I }, "一条街道在一个巨大的 [a-building] 工业综合体外");
       DescriptionMapper.add("sector-vision", { sectorType: t_I, buildingDensity: b13 }, "一个空荡的广场，有一些损坏的集装箱和巨大的生锈机械臂");
-      DescriptionMapper.add("sector-vision", { sectorType: t_I, buildingDensity: b23 }, "一个[n-street]位于看起来像是[a-building]控制室和办公室的两栋建筑之间");
-      DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个[a-street] [n-street]在 一个[n-building]后面，低矮的天花板交错着旧电线和管道");
-      DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个荒凉的[n-street]，交错着破碎的电缆系统和维护管道的残骸"*);
-      DescriptionMapper.add("sector-vision", { sectorType: t_M, isSurfaceLevel: false }, "一个在巨大桥梁下的洪水通道，远处可见[a-building]建筑隐约可见");
+      DescriptionMapper.add("sector-vision", { sectorType: t_I, buildingDensity: b23 }, "一个[n-street] 位于看起来像是 [a-building] 控制室和办公室的两栋建筑之间");
+      DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个[a-street] [n-street] 在 一个[n-building] 后面，低矮的天花板交错着旧电线和管道");
+      DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个荒凉的 [n-street]，交错着破碎的电缆系统和维护管道的残骸");
+      DescriptionMapper.add("sector-vision", { sectorType: t_M, isSurfaceLevel: false }, "一个在巨大桥梁下的洪水通道，远处可见 [a-building] 建筑隐约可见");
       DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个在机器运行的城市设施之间被遗忘的空间，只有管道和管线打破了光滑的表面");
       DescriptionMapper.add("sector-vision", { sectorType: t_M, level: lold, buildingDensity: b13 }, "一个宽阔的广场，中间有一个控制室，旧电缆系统的线路向四面八方延伸");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C }, "一个[a-street]购物街，遗留着各种商店和咖啡馆的残骸");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C }, "一条[n-street]，位于一些建筑之间，它们的[a-building]墙面覆盖着死屏的拼接");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C, wear: b12 }, "一条[a-street] [n-street]挤满了小商店、广告牌和多层次的小亭子");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b12, isSurfaceLevel: false }, "一条[n-street]，建筑像巨大的钟乳石一样附着在上方层级的天花板上");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b12, isSurfaceLevel: false }, "一个围绕着一座巨大雕像建造的广场，每一面都被[a-building]商店前面包围");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C }, "一个[a-street] 购物街，遗留着各种商店和咖啡馆的残骸");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C }, "一条 [n-street]，位于一些建筑之间，它们的 [a-building] 墙面覆盖着死屏的拼接");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C, wear: b12 }, "一条 [a-street] [n-street] 挤满了小商店、广告牌和多层次的小亭子");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b12, isSurfaceLevel: false }, "一条 [n-street]，建筑像巨大的钟乳石一样附着在上方层级的天花板上");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b12, isSurfaceLevel: false }, "一个围绕着一座巨大雕像建造的广场，每一面都被 [a-building] 商店前面包围");
       DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b13 }, "一个位于高架建筑下的广场，中间曾经有一个瀑布");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b13 }, "一个宽阔的围栏露台附着在一座巨大的塔楼上，俯瞰下方的[a-street]街道");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b13 }, "一个由[a-building]办公楼包围的圆形庭院");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b22, wear: b33 }, "一个[a-building]建筑，很难确定其原始用途，被剥离至混凝土，中间有一个令人印象深刻的螺旋楼梯");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b13 }, "一个宽阔的围栏露台附着在一座巨大的塔楼上，俯瞰下方的 [a-street] 街道");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b13 }, "一个由 [a-building] 办公楼包围的圆形庭院");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b22, wear: b33 }, "一个[a-building] 建筑，很难确定其原始用途，被剥离至混凝土，中间有一个令人印象深刻的螺旋楼梯");
       DescriptionMapper.add("sector-vision", { sectorType: t_P }, "一个[n-street]，由看起来曾经是某种公共设施的巨大建筑主导");
       DescriptionMapper.add("sector-vision", { sectorType: t_P }, "一段被一些较小建筑包围的废弃高速公路");
-      DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b12 }, "一个[a-street] [n-street]主导着一排庄严的雕像");
+      DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b12 }, "一个[a-street] [n-street] 主导着一排庄严的雕像");
       DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b12, wear: b22 }, "一个装饰性的大厅，似乎曾经是一个大型车站，有一个穹顶屋顶、巨大的吊灯和两侧的小亭子");
       DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b13 }, "一个开放的空间，看起来可能曾经专门用于某种运动");
-      DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b33 }, "一个[a-street] [n-street]位于两座巨大[n-buildings]之间，几乎没有足够的空间通过");
-      DescriptionMapper.add("sector-vision", { sectorType: t_S, buildingDensity: b33, wear: b22 }, "一个[a-street] [n-street]被[a-building]住宅包围（部分覆盖），这些建筑已经被遗弃了一段时间");
+      DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b33 }, "一个[a-street] [n-street] 位于两座巨大 [n-buildings] 之间，几乎没有足够的空间通过");
+      DescriptionMapper.add("sector-vision", { sectorType: t_S, buildingDensity: b33, wear: b22 }, "一个[a-street] [n-street] 被 [a-building] 住宅包围（部分覆盖），这些建筑已经被遗弃了一段时间");
       DescriptionMapper.add("sector-vision", { sectorType: t_S, buildingDensity: b13 }, "一个宽阔的广场，其墙壁支撑着一些临时搭建的棚屋");
       DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b13 }, "一个巨大的大厅，看起来曾经被用作某种存储区域，天花板上有生锈的自动手臂");
-      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b23 }, "一个[a-street]通道位于两个失效的、被墙壁封闭的核反应堆之间");
-      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b23 }, "一个[a-street] [n-street]在一个巨大的工业加工综合体外，所有入口都紧紧关闭");
-      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b33 }, "一个[a-street]通道似乎曾经用于在这一层的各种设施之间运输货物");
-      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b33 }, "一个[a-sectortype]走廊，曾经看起来很干净，但现在满是碎片");
+      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b23 }, "一个[a-street] 通道位于两个失效的、被墙壁封闭的核反应堆之间");
+      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b23 }, "一个[a-street] [n-street] 在一个巨大的工业加工综合体外，所有入口都紧紧关闭");
+      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b33 }, "一个[a-street] 通道似乎曾经用于在这一层的各种设施之间运输货物");
+      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b33 }, "一个[a-sectortype] 走廊，曾经看起来很干净，但现在满是碎片");
       DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b33 }, "一条设有窗户的走廊，位于一个核设施的废墟上方");
       DescriptionMapper.add("sector-vision", { isGroundLevel: true, buildingDensity: b13 }, "城市下方一个开阔的空间，泥土、草和其他植物通过混凝土地面的裂缝挤出来");
       DescriptionMapper.add("sector-vision", { isGroundLevel: true, buildingDensity: b13 }, "一个古老的广场，早已被遗忘，两侧有巨大的柱子支撑着上方的城市");
@@ -1569,12 +1569,12 @@ define(['ash',
       var wt_S = SectorConstants.WAYMARK_TYPE_SETTLEMENT;
 
       // brackets for values like building density, wear, damage
-      var b0 =[0, 0];
-      var b12 =[0, 5];
-      var b22 =[5, 10];
+      var b0 = [0, 0];
+      var b12 = [0, 5];
+      var b22 = [5, 10];
 
-      var lt1 =[0, 0.999];
-      var gte1 =[1, 100];
+      var lt1 = [0, 0.999];
+      var gte1 = [1, 100];
 
       DescriptionMapper.add("waymark", { sectorType: wildcard }, "一堵走廊旁的墙上画着一个指向[direction]的大的[n-target]符号");
       DescriptionMapper.add("waymark", { sectorType: wildcard }, "有一个涂鸦写着[n-target]和一个指向[direction]的箭头");
@@ -1622,10 +1622,10 @@ define(['ash',
       DescriptionMapper.add("book-description", { bookLevel: l_2 }, "它看起来是关于[n-topic]的好资源。");
       DescriptionMapper.add("book-description", { bookLevel: l_3 }, "它不容易理解，但教会了你很多关于[n-topic]的知识。");
 
-      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于[n-topic]的[a] [a-level]教科书。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于[n-topic]的[a] [a-style]教科书。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于[n-topic]的[a] [a-good]教科书。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于[n-topic]的[a] [a-bad]教科书，但你还是学到了新东西。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于[n-topic]的[a][a-level]教科书。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于[n-topic]的[a][a-style]教科书。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于[n-topic]的[a][a-good]教科书。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于[n-topic]的[a][a-bad]教科书，但你还是学到了新东西。");
       DescriptionMapper.add("book-description", { bookType: t_S }, "它描述了[n-topic]。");
       DescriptionMapper.add("book-description", { bookType: t_S }, "有几个关于[n-topic]的有趣段落。");
       DescriptionMapper.add("book-description", { bookType: t_S }, "这是一篇关于[n-topic]的相当枯燥的文本。");
@@ -1633,7 +1633,7 @@ define(['ash',
       DescriptionMapper.add("book-description", { bookType: t_S }, "你了解到[c-fact]。");
       DescriptionMapper.add("book-description", { bookType: t_S }, "你发现[c-fact]。");
       DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "这是一本关于[n-topic]的入门文本。");
-      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "这是一本关于[n-topic]的[a] [a-bad]书。");
+      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "这是一本关于[n-topic]的[a][a-bad]书。");
       DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "它包含了一些关于[n-topic]的基本信息。");
       DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "一篇关于精炼过程的描述提供了有关坠落前常用建筑材料的线索。");
       DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "它包含了一个已知的‘暗层’动物生活的目录。你认出了几个。");
@@ -1646,10 +1646,10 @@ define(['ash',
       DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_3 }, "它包含了关于[n-topic]的论文。");
       DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_3 }, "它包含了关于[n-topic]的深入信息。");
 
-      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于[n-topic]的[a] [a-level]教科书。");
-      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于[n-topic]的[a] [a-style]教科书。");
-      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于[n-topic]的[a] [a-good]教科书。");
-      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于[n-topic]的[a] [a-bad]教科书，但你还是学到了新东西。");
+      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于[n-topic]的[a][a-level]教科书。");
+      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于[n-topic]的[a][a-style]教科书。");
+      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于[n-topic]的[a][a-good]教科书。");
+      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于[n-topic]的[a][a-bad]教科书，但你还是学到了新东西。");
       DescriptionMapper.add("book-description", { bookType: t_E }, "有关于[n-object]的废弃计划。");
       DescriptionMapper.add("book-description", { bookType: t_E }, "它包含了对[n-object]的详细描述。");
       DescriptionMapper.add("book-description", { bookType: t_E }, "有一个图表详细解释了[n-object]是如何工作的。");
@@ -1668,15 +1668,15 @@ define(['ash',
       DescriptionMapper.add("book-description", { bookType: t_H }, "它描述了[n-topic]。");
       DescriptionMapper.add("book-description", { bookType: t_H }, "它描述了[c-event]。");
       DescriptionMapper.add("book-description", { bookType: t_H }, "这是一篇关于[n-topic]的相当枯燥的文本。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "这是一本关于[n-topic]的[a] [a-style]概述。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "这是一本关于[n-topic]的[a][a-style]概述。");
       DescriptionMapper.add("book-description", { bookType: t_H }, "这是一个非常[a-level]的关于[n-topic]的介绍。");
       DescriptionMapper.add("book-description", { bookType: t_H }, "你了解到[c-fact]。");
       DescriptionMapper.add("book-description", { bookType: t_H }, "看来[c-fact]。");
       DescriptionMapper.add("book-description", { bookType: t_H }, "你了解到[c-event]。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "有关[c-event]的[a] [a-style]章节引起了你的注意。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "有关[c-event]的[a][a-style]章节引起了你的注意。");
       DescriptionMapper.add("book-description", { bookType: t_H }, "有几处提到[c-event]。");
       DescriptionMapper.add("book-description", { bookType: t_H }, "这是一个非常[a-good]的关于[n-topic]的解释。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "虽然其他地方很枯燥，但有一个关于[n-topic]的[a] [a-good]章节。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "虽然其他地方很枯燥，但有一个关于[n-topic]的[a][a-good]章节。");
       DescriptionMapper.add("book-description", { bookType: t_H }, "提到“当前无人居住的层次”的参考为坠落前的城市提供了一个视角。");
       DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_1 }, "这是一本关于[n-topic]的入门文本。");
       DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_1 }, "它提到[c-event]。");
@@ -1686,16 +1686,16 @@ define(['ash',
       DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_3 }, "你找到了大量关于[n-topic]的信息。");
       DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_3 }, "你找到了关于[c-event]的详细时间线。");
 
-      DescriptionMapper.add("book-description", { bookType: t_F }, "有一个关于[c-theme]的[a] [a-good]故事。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "有一个关于[c-theme]的[a][a-good]故事。");
       DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于[c-theme]的故事。");
       DescriptionMapper.add("book-description", { bookType: t_F }, "它是关于[c-theme]的。");
       DescriptionMapper.add("book-description", { bookType: t_F }, "一个关于[c-theme]的故事让你印象深刻。");
       DescriptionMapper.add("book-description", { bookType: t_F }, "你被一个关于[c-theme]的诗所感动。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "它包含了关于[c-theme]的[a] [a-good]描述。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一部处理[n-topic]的[a] [a-style]小说。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于[n-topic]的[a] [a-style]故事。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "它包含了关于[c-theme]的[a][a-good]描述。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一部处理[n-topic]的[a][a-style]小说。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于[n-topic]的[a][a-style]故事。");
       DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于[n-topic]的非常[a-style]的描绘。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于[n-topic]的[a] [a-style]故事。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于[n-topic]的[a][a-style]故事。");
       DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于[n-topic]的[a-style]短篇故事集。");
       DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_1 }, "这是一本以[n-topic]为特色的儿童书。");
       DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_1 }, "这是一个关于[c-theme]的简单故事。");
