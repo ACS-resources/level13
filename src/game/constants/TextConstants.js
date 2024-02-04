@@ -1246,15 +1246,15 @@ define(['ash',
         },
 
         getEnemyGroupNoun: function (enemyList) {
-          return this.getCommonText(enemyList, "groupN", "", "群体", false)
+          return this.getCommonText(enemyList, "groupN", "", "群", false)
         },
 
         getEnemyActiveVerb: function (enemyList) {
-          return this.getCommonText(enemyList, "activeV", "", "被占领", false);
+          return this.getCommonText(enemyList, "activeV", "", "占领", false);
         },
 
         getEnemeyDefeatedVerb: function (enemyList) {
-          return this.getCommonText(enemyList, "defeatedV", "", "被击败", false);
+          return this.getCommonText(enemyList, "defeatedV", "", "击败", false);
         },
 
         getScaResourcesString: function (discoveredResources, knownResources, resourcesScavengable) {
@@ -1267,7 +1267,7 @@ define(['ash',
               if (amount == WorldConstants.resourcePrevalence.RARE) amountDesc = "罕见";
               if (amount == WorldConstants.resourcePrevalence.DEFAULT) amountDesc = "稀有";
               if (amount == WorldConstants.resourcePrevalence.COMMON) amountDesc = "常见";
-              if (amount == WorldConstants.resourcePrevalence.ABUNDANT) amountDesc = "充裕";
+              if (amount == WorldConstants.resourcePrevalence.ABUNDANT) amountDesc = "大量";
               if (GameConstants.isDebugVersion) amountDesc += " " + Math.round(amount);
               s += key + " (" + amountDesc + "), ";
             } else if (amount > 0 && knownResources.indexOf(name) >= 0) {
@@ -1315,7 +1315,7 @@ define(['ash',
 
         getMovementBlockerAction: function (blockerVO, enemiesComponent, gangComponent) {
           switch (blockerVO.type) {
-            case MovementConstants.BLOCKER_TYPE_GAP: return "连接缺口";
+            case MovementConstants.BLOCKER_TYPE_GAP: return "连接裂隙";
             case MovementConstants.BLOCKER_TYPE_WASTE_TOXIC: return "清理废物";
             case MovementConstants.BLOCKER_TYPE_WASTE_RADIOACTIVE: return "清理废物";
             case MovementConstants.BLOCKER_TYPE_GANG:
@@ -1507,7 +1507,7 @@ define(['ash',
       DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b12, wear: b22 }, "一个装饰性的大厅，似乎曾经是一个大型车站，有一个穹顶屋顶、巨大的吊灯和两侧的小亭子");
       DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b13 }, "一个开放的空间，看起来可能曾经专门用于某种运动");
       DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b33 }, "一个 [a-street] 的 [n-street] 位于两座巨大 [n-buildings] 之间，几乎没有足够的空间通过");
-      DescriptionMapper.add("sector-vision", { sectorType: t_S, buildingDensity: b33, wear: b22 }, "一个 [a-street] 的 [n-street] 被 [a-building] 住宅包围（部分覆盖），这些建筑已经被遗弃了一段时间");
+      DescriptionMapper.add("sector-vision", { sectorType: t_S, buildingDensity: b33, wear: b22 }, "一个 [a-street] 的 [n-street] 被 [a-building] 住宅包围（部分被覆盖），这些建筑已经被遗弃了一段时间");
       DescriptionMapper.add("sector-vision", { sectorType: t_S, buildingDensity: b13 }, "一个宽阔的广场，其墙壁支撑着一些临时搭建的棚屋");
       DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b13 }, "一个巨大的大厅，看起来曾经被用作某种存储区域，天花板上有生锈的自动手臂");
       DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b23 }, "一个 [a-street] 通道位于两个失效的、被墙壁封闭的核反应堆之间");
