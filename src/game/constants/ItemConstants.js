@@ -148,19 +148,19 @@ function (Ash, ItemData, PlayerActionConstants, ItemVO) {
 		getItemTypeDisplayName: function (type, short) {
 			switch (type) {
 				case ItemConstants.itemTypes.clothing_over:
-					return short ? "over" : "clothing (over)";
+					return short ? "外套" : "服装 (外套)";
 				case ItemConstants.itemTypes.clothing_upper:
-					return short ? "upper" : "clothing (upper body)";
+					return short ? "上衣" : "服装 (上衣)";
 				case ItemConstants.itemTypes.clothing_lower:
-					return short ? "lower" : "clothing (lower body)";
+					return short ? "裤子" : "服装 (裤子)";
 				case ItemConstants.itemTypes.clothing_hands:
-					return short ? "hands" : "clothing (hands)";
+					return short ? "手部" : "服装 (手部)";
 				case ItemConstants.itemTypes.clothing_head:
-					return short ? "head" : "clothing (head)";
+					return short ? "头部" : "服装 (头部)";
 				case ItemConstants.itemTypes.ingredient:
-					return short ? "ingredient" : "crafting ingredient";
+					return short ? "材料" : "合成用材料";
 				case ItemConstants.itemTypes.voucher:
-					return short ? "consumable" : "consumable";
+					return short ? "消耗品" : "消耗品";
 			}
 			return ItemConstants.itemTypes[type];
 		},
@@ -283,13 +283,13 @@ function (Ash, ItemData, PlayerActionConstants, ItemVO) {
 		},
 		
 		getUseItemVerb: function (item) {
-			if (item.id.startsWith("cache_metal")) return "Disassemble";
-			if (item.id.startsWith("cache_evidence")) return "Read";
-			if (item.id.startsWith("cache_rumours")) return "Read";
-			if (item.id.startsWith("cache_insight")) return "Read";
-			if (item.id.startsWith("cache_favour")) return "Donate";
-			if (item.id.startsWith("cache_robots")) return "Repair";
-			return "Use";
+			if (item.id.startsWith("cache_metal")) return "拆解";
+			if (item.id.startsWith("cache_evidence")) return "阅读";
+			if (item.id.startsWith("cache_rumours")) return "阅读";
+			if (item.id.startsWith("cache_insight")) return "阅读";
+			if (item.id.startsWith("cache_favour")) return "施舍";
+			if (item.id.startsWith("cache_robots")) return "修补";
+			return "使用";
 		},
 			
 		getItemDisplayName: function (item, short) {
@@ -301,7 +301,7 @@ function (Ash, ItemData, PlayerActionConstants, ItemVO) {
 		
 		getItemDescription: function (item) {
 			let result = item.description;
-			if (item.id.indexOf("consumable_weapon") >= 0) result += " (Only one per fight.)";
+			if (item.id.indexOf("consumable_weapon") >= 0) result += "(一次性用品)";
 			return result;
 		},
 		
