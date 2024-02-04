@@ -33,16 +33,7 @@ define(function () {
 		},
 		
 		pluralify: function (s) {
-			let irregular = this.getIrregularPlural(s);
-			if (irregular) return irregular;
-			
-			if (s.endsWith("roach")) {
-				return s;
-			} else if (s[s.length - 1] !== "s") {
-				return s;
-			} else {
-				return s;
-			}
+			return s;
 		},
 		
 		depluralify: function (s) {
@@ -54,8 +45,7 @@ define(function () {
 		},
 		
 		addArticle: function (s) {
-			if (this.isPlural(s)) return s;
-			return this.getArticle(s) + " " + s;
+			return s;
 		},
 		
 		getIrregularPlural: function (s) {
@@ -69,5 +59,5 @@ define(function () {
 		}
 		
 	};
-	return Text;
+	return Text.split(" ").join("");
 });
