@@ -4,13 +4,15 @@ define(['game/constants/CampConstants'], function (CampConstants) {
 
 		improvements: {
 			beacon: {
-				description: "Shines a light over a large area, making scavenging less dangerous.",
+				description: "发出亮光照亮一大片区域, 使得拾荒更加容易",
 			},
 			camp: {
+				displayNames: [ "营地" ],
 				canBeDismantled: false,
 			},
 			home: {
-				description: "Foundation of a camp.",
+				displayNames: [ "帐篷" ],
+				description: "营地之基",
 				useActionName: "Rest",
 				improvementLevelsPerTechLevel: 0,
 				sortScore: 10000,
@@ -30,6 +32,7 @@ define(['game/constants/CampConstants'], function (CampConstants) {
 				sortScore: 9000,
 			},
 			house2: {
+				displayNames: [ "小高层" ],
 				description: [ "可以住下" + CampConstants.POPULATION_PER_HOUSE2 + "人", "可以住下" + CampConstants.POPULATION_PER_HOUSE2_LEVEL_2 + "人" ],
 				sortScore: 9000,
 				improvementLevelsPerTechLevel: 1,
