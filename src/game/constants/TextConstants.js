@@ -56,25 +56,25 @@ define(['ash',
       },
 
       getSectorName: function (isScouted, features) {
-        var template = "[a-sectortype]的[n-street]";
+        var template = " [a-sectortype] 的 [n-street] ";
         var params = this.getSectorTextParams(features);
         var phrase = TextBuilder.build(template, params);
         return Text.capitalize(phrase);
       },
 
       getSectorHeader: function (hasVision, features) {
-        var template = "[a-street]的[a-sectortype]的[n-street]";
+        var template = " [a-street] 的 [a-sectortype] 的 [n-street] ";
         if (features.hasCamp) {
-          template = "有营地的[n-street]";
+          template = "有营地的 [n-street] ";
         }
         if (features.hasGrove) {
-          template = "[a-street]公园";
+          template = " [a-street] 公园";
         }
         if (!hasVision) {
           if (features.sunlit) {
-            template = "阳光下的[n-street]";
+            template = "阳光下的 [n-street] ";
           } else {
-            template = "黑暗中的[n-street]";
+            template = "黑暗中的 [n-street] ";
           }
         }
         var params = this.getSectorTextParams(features);
@@ -86,7 +86,7 @@ define(['ash',
         var type = hasVision ? "sector-vision" : "sector-novision";
         var template = DescriptionMapper.get(type, features);
         if (features.hasGrove) {
-          template = "一个[a-street]的被植被覆盖的公园, 在它中心有一丛茂盛的大树, 尽管看上去很奇怪, 但是有种莫名的平和";
+          template = "一个 [a-street] 的被植被覆盖的公园, 在它中心有一丛茂盛的大树, 尽管看上去很奇怪, 但是有种莫名的平和";
         }
         var params = this.getSectorTextParams(features);
         var phrase = TextBuilder.build(template, params);
@@ -404,7 +404,7 @@ define(['ash',
               } else {
                 state = "但它得修一下";
               }
-              return "这里有个 " + span + state;
+              return "这里有 " + span + state;
           }
         }
       },
@@ -1445,98 +1445,98 @@ define(['ash',
       let lmodern = [15, 100];
       let lold = [10, 18];
 
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[n-street]在一个[a-building]的[n-building]前");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street]的[n-street]位于两个[a-building]的[n-buildings]之间");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street]的[n-street位于两个[n-buildings]之间，两边各有一些[a-building]的[n-buildings]");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street]的[n-street]与少数[a-building]的[n-buildings]一同出现");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street]的[n-sector]散布着[an-items]和[an-items]");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street]的[n-street]两旁是[a-building]的[n-buildings]");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street]的[n-street]被[n-buildings]包围");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street]的[n-street]被[a-building]的[n-buildings]包围");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[n-street]带有一些[an-decos]和[a-building]的[n-buildings]");
-      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个[a-street]的[n-street]位于一些[n-buildings]之间");
-      DescriptionMapper.add("sector-vision", { isSurfaceLevel: false }, "一个[n-street]位于一个巨大支柱的底部，该支柱支撑着上面的层级");
-      DescriptionMapper.add("sector-vision", { isSurfaceLevel: false, wear: b12, sunlit: false, debris: b0 }, "一个[a-street]的[n-street]长期无人居住的建筑覆盖着奇异的苔藓");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个 [n-street] 在一个 [a-building] 的 [n-building] 前");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个 [a-street] 的 [n-street] 位于两个 [a-building] 的 [n-buildings] 之间");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个 [a-street] 的[n-street位于两个 [n-buildings] 之间，两边各有一些 [a-building] 的 [n-buildings] ");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个 [a-street] 的 [n-street] 与少数 [a-building] 的 [n-buildings] 一同出现");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个 [a-street] 的 [n-sector] 散布着 [an-items] 和 [an-items] ");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个 [a-street] 的 [n-street] 两旁是 [a-building] 的 [n-buildings] ");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个 [a-street] 的 [n-street] 被 [n-buildings] 包围");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个 [a-street] 的 [n-street] 被 [a-building] 的 [n-buildings] 包围");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个 [n-street] 带有一些 [an-decos] 和 [a-building] 的 [n-buildings] ");
+      DescriptionMapper.add("sector-vision", { sectorType: wildcard }, "一个 [a-street] 的 [n-street] 位于一些 [n-buildings] 之间");
+      DescriptionMapper.add("sector-vision", { isSurfaceLevel: false }, "一个 [n-street] 位于一个巨大支柱的底部，该支柱支撑着上面的层级");
+      DescriptionMapper.add("sector-vision", { isSurfaceLevel: false, wear: b12, sunlit: false, debris: b0 }, "一个 [a-street] 的 [n-street] 长期无人居住的建筑覆盖着奇异的苔藓");
       DescriptionMapper.add("sector-vision", { buildingDensity: b0, isGroundLevel: false }, "连接几栋建筑的桥梁和通道系统围绕着令人眩晕的开口至下层-");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b12, isGroundLevel: false, campable: false }, "一个[a-street]桥梁跨越下方层级，为有轨电车轨道、公用设施和行人设置了不同的层级");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b22 }, "[a-sectortype]综合体，有几条狭窄的通道");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b13 }, "一个宽阔的广场，一侧是一个[a-building]的[n-building]，另一侧似乎是一个[a-building]的[n-building]的遗迹");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b23, isSurfaceLevel: false, sunlit: false }, "一个[a-street]的[n-street]在一座巨大的[n-building]下方");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b23, isSurfaceLevel: false }, "一个[n-street]的多层通道沿着周围[a-sectortype]建筑的墙壁爬行");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b33 }, "一个[a-sectortype]走廊位于两座巨大[n-buildings]之间，几乎没有足够的空间行走");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b33 }, "一个[a-street]的[n-street]挤满了[a-building]的[n-buildings]和[an-decos]，几乎没有足够的空间通过");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b33 }, "一个[a-street]巷子位于两个[a-building]的[n-buildings]之间");
-      DescriptionMapper.add("sector-vision", { wear: b13, sunlit: false, level: lmodern, debris: b0 }, "一个[a-street]的[n-street]两旁是高大的[n-buildings]，排列着枯萎的树木，这些树木直到不久前还必须在人造光中茁壮成长");
-      DescriptionMapper.add("sector-vision", { wear: b13, level: lmodern, isSurfaceLevel: false }, "一条[n-street]位于一些还在建设中就被遗弃的骨架建筑之间");
-      DescriptionMapper.add("sector-vision", { wear: b23, damage: b0 }, "一个曾经的[n-sector]，带着其过去的[a-street-past]氛围");
-      DescriptionMapper.add("sector-vision", { wear: b23, damage: b0 }, "曾经是[a-street-past]的[n-sector]，中间有一些[an-decos]和一个[a-building]的[n-building]");
-      DescriptionMapper.add("sector-vision", { wear: b33 }, "一个[a-building]建筑，很难确定其原始用途，被剥离至裸露的混凝土");
-      DescriptionMapper.add("sector-vision", { buildingDensity: b22, wear: b33 }, "一个[a-street]走廊，散布着长时间居民留下的垃圾");
-      DescriptionMapper.add("sector-vision", { wear: b33, isSurfaceLevel: false }, "一个[a-street]的[a-sectortype]的[n-street]，几座巨大的无法识别的废墟在其上方隐约可见");
-      DescriptionMapper.add("sector-vision", { wear: b33 }, "一个完全被毁的[a-sectortype]的[n-street]");
-      DescriptionMapper.add("sector-vision", { wear: b33 }, "一个被瓦砾覆盖的[n-street]，周围是[a-sectortype]建筑的摇摇欲坠的残骸");
-      DescriptionMapper.add("sector-vision", { damage: b22 }, "一个曾经的[a-sectortype]区域，[n-buildings]和[n-buildings]都已成为废墟");
-      DescriptionMapper.add("sector-vision", { damage: b33 }, "一个完全被摧毁的[a-sectortype]的[n-street]");
-      DescriptionMapper.add("sector-vision", { damage: b22, buildingDensity: b12 }, "一条[a-street]的[n-street]，两旁是被摧毁的建筑的外壳");
-      DescriptionMapper.add("sector-vision", { damage: b22, buildingDensity: b22 }, "一条[n-street]，满是瓦砾，难以通过");
-      DescriptionMapper.add("sector-vision", { sectorType: t_R }, "一条小[n-street]，位于一些[a-building]公寓塔楼之间");
-      DescriptionMapper.add("sector-vision", { sectorType: t_R, buildingDensity: b23, isSurfaceLevel: false }, "一条[a-street]的[n-street]沿着一堵巨大的墙延伸至上方层级的天花板，点缀着[a-building]公寓");
-      DescriptionMapper.add("sector-vision", { sectorType: t_R, buildingDensity: b12, level:[6, 100] }, "一条[n-street]，两旁是几座相同的狭窄住宅塔楼");
-      DescriptionMapper.add("sector-vision", { sectorType: t_R, buildingDensity: b23 }, "一条[n-street]在一个带有令人眼花缭乱的几何图案阳台的[a-building]居民楼外");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b12, isGroundLevel: false, campable: false }, "一个 [a-street] 桥梁跨越下方层级，为有轨电车轨道、公用设施和行人设置了不同的层级");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b22 }, " [a-sectortype] 综合体，有几条狭窄的通道");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b13 }, "一个宽阔的广场，一侧是一个 [a-building] 的 [n-building] ，另一侧似乎是一个 [a-building] 的 [n-building] 的遗迹");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b23, isSurfaceLevel: false, sunlit: false }, "一个 [a-street] 的 [n-street] 在一座巨大的 [n-building] 下方");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b23, isSurfaceLevel: false }, "一个 [n-street] 的多层通道沿着周围 [a-sectortype] 建筑的墙壁爬行");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b33 }, "一个 [a-sectortype] 走廊位于两座巨大 [n-buildings] 之间，几乎没有足够的空间行走");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b33 }, "一个 [a-street] 的 [n-street] 挤满了 [a-building] 的 [n-buildings] 和 [an-decos] ，几乎没有足够的空间通过");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b33 }, "一个 [a-street] 巷子位于两个 [a-building] 的 [n-buildings] 之间");
+      DescriptionMapper.add("sector-vision", { wear: b13, sunlit: false, level: lmodern, debris: b0 }, "一个 [a-street] 的 [n-street] 两旁是高大的 [n-buildings] ，排列着枯萎的树木，这些树木直到不久前还必须在人造光中茁壮成长");
+      DescriptionMapper.add("sector-vision", { wear: b13, level: lmodern, isSurfaceLevel: false }, "一条 [n-street] 位于一些还在建设中就被遗弃的骨架建筑之间");
+      DescriptionMapper.add("sector-vision", { wear: b23, damage: b0 }, "一个曾经的 [n-sector] ，带着其过去的 [a-street-past] 氛围");
+      DescriptionMapper.add("sector-vision", { wear: b23, damage: b0 }, "曾经是 [a-street-past] 的 [n-sector] ，中间有一些 [an-decos] 和一个 [a-building] 的 [n-building] ");
+      DescriptionMapper.add("sector-vision", { wear: b33 }, "一个 [a-building] 建筑，很难确定其原始用途，被剥离至裸露的混凝土");
+      DescriptionMapper.add("sector-vision", { buildingDensity: b22, wear: b33 }, "一个 [a-street] 走廊，散布着长时间居民留下的垃圾");
+      DescriptionMapper.add("sector-vision", { wear: b33, isSurfaceLevel: false }, "一个 [a-street] 的 [a-sectortype] 的 [n-street] ，几座巨大的无法识别的废墟在其上方隐约可见");
+      DescriptionMapper.add("sector-vision", { wear: b33 }, "一个完全被毁的 [a-sectortype] 的 [n-street] ");
+      DescriptionMapper.add("sector-vision", { wear: b33 }, "一个被瓦砾覆盖的 [n-street] ，周围是 [a-sectortype] 建筑的摇摇欲坠的残骸");
+      DescriptionMapper.add("sector-vision", { damage: b22 }, "一个曾经的 [a-sectortype] 区域， [n-buildings] 和 [n-buildings] 都已成为废墟");
+      DescriptionMapper.add("sector-vision", { damage: b33 }, "一个完全被摧毁的 [a-sectortype] 的 [n-street] ");
+      DescriptionMapper.add("sector-vision", { damage: b22, buildingDensity: b12 }, "一条 [a-street] 的 [n-street] ，两旁是被摧毁的建筑的外壳");
+      DescriptionMapper.add("sector-vision", { damage: b22, buildingDensity: b22 }, "一条 [n-street] ，满是瓦砾，难以通过");
+      DescriptionMapper.add("sector-vision", { sectorType: t_R }, "一条小 [n-street] ，位于一些 [a-building] 公寓塔楼之间");
+      DescriptionMapper.add("sector-vision", { sectorType: t_R, buildingDensity: b23, isSurfaceLevel: false }, "一条 [a-street] 的 [n-street] 沿着一堵巨大的墙延伸至上方层级的天花板，点缀着 [a-building] 公寓");
+      DescriptionMapper.add("sector-vision", { sectorType: t_R, buildingDensity: b12, level:[6, 100] }, "一条 [n-street] ，两旁是几座相同的狭窄住宅塔楼");
+      DescriptionMapper.add("sector-vision", { sectorType: t_R, buildingDensity: b23 }, "一条 [n-street] 在一个带有令人眼花缭乱的几何图案阳台的 [a-building] 居民楼外");
       DescriptionMapper.add("sector-vision", { sectorType: t_R, level: lmodern }, "一个广场，周围曾经是相当舒适的公寓塔楼");
-      DescriptionMapper.add("sector-vision", { sectorType: t_I }, "一条街道在一个巨大的[a-building]工业综合体外");
+      DescriptionMapper.add("sector-vision", { sectorType: t_I }, "一条街道在一个巨大的 [a-building] 工业综合体外");
       DescriptionMapper.add("sector-vision", { sectorType: t_I, buildingDensity: b13 }, "一个空荡的广场，有一些损坏的集装箱和巨大的生锈机械臂");
-      DescriptionMapper.add("sector-vision", { sectorType: t_I, buildingDensity: b23 }, "一个[n-street]位于[a-building]控制室和办公室的两栋建筑之间");
-      DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个[a-street]的[n-street]在一个[n-building]后面，低矮的天花板交错着旧电线和管道");
-      DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个荒凉的[n-street]，交错着破碎的电缆系统和维护管道的残骸");
-      DescriptionMapper.add("sector-vision", { sectorType: t_M, isSurfaceLevel: false }, "一个在巨大桥梁下的洪水通道，远处可见[a-building]建筑隐约可见");
+      DescriptionMapper.add("sector-vision", { sectorType: t_I, buildingDensity: b23 }, "一个 [n-street] 位于 [a-building] 控制室和办公室的两栋建筑之间");
+      DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个 [a-street] 的 [n-street] 在一个 [n-building] 后面，低矮的天花板交错着旧电线和管道");
+      DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个荒凉的 [n-street] ，交错着破碎的电缆系统和维护管道的残骸");
+      DescriptionMapper.add("sector-vision", { sectorType: t_M, isSurfaceLevel: false }, "一个在巨大桥梁下的洪水通道，远处可见 [a-building] 建筑隐约可见");
       DescriptionMapper.add("sector-vision", { sectorType: t_M }, "一个在机器运行的城市设施之间被遗忘的空间，只有管道和管线打破了光滑的表面");
       DescriptionMapper.add("sector-vision", { sectorType: t_M, level: lold, buildingDensity: b13 }, "一个宽阔的广场，中间有一个控制室，旧电缆系统的线路向四面八方延伸");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C }, "一个[a-street]购物街，遗留着各种商店和咖啡馆的残骸");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C }, "一条[n-street]，位于一些建筑之间，它们的[a-building]墙面覆盖着死屏的拼接");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C, wear: b12 }, "一条[a-street]的[n-street]挤满了小商店、广告牌和多层次的小亭子");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b12, isSurfaceLevel: false }, "一条[n-street]，建筑像巨大的钟乳石一样附着在上方层级的天花板上");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b12, isSurfaceLevel: false }, "一个围绕着一座巨大雕像建造的广场，每一面都被[a-building]商店前面包围");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C }, "一个 [a-street] 购物街，遗留着各种商店和咖啡馆的残骸");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C }, "一条 [n-street] ，位于一些建筑之间，它们的 [a-building] 墙面覆盖着死屏的拼接");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C, wear: b12 }, "一条 [a-street] 的 [n-street] 挤满了小商店、广告牌和多层次的小亭子");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b12, isSurfaceLevel: false }, "一条 [n-street] ，建筑像巨大的钟乳石一样附着在上方层级的天花板上");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b12, isSurfaceLevel: false }, "一个围绕着一座巨大雕像建造的广场，每一面都被 [a-building] 商店前面包围");
       DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b13 }, "一个位于高架建筑下的广场，中间曾经有一个瀑布");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b13 }, "一个宽阔的围栏露台附着在一座巨大的塔楼上，俯瞰下方的[a-street]街道");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b13 }, "一个由[a-building]办公楼包围的圆形庭院");
-      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b22, wear: b33 }, "一个[a-building]建筑，很难确定其原始用途，被剥离至混凝土，中间有一个令人印象深刻的螺旋楼梯");
-      DescriptionMapper.add("sector-vision", { sectorType: t_P }, "一个[n-street]，看起来曾经是某种公共设施的巨大建筑在一旁");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b13 }, "一个宽阔的围栏露台附着在一座巨大的塔楼上，俯瞰下方的 [a-street] 街道");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b13 }, "一个由 [a-building] 办公楼包围的圆形庭院");
+      DescriptionMapper.add("sector-vision", { sectorType: t_C, buildingDensity: b22, wear: b33 }, "一个 [a-building] 建筑，很难确定其原始用途，被剥离至混凝土，中间有一个令人印象深刻的螺旋楼梯");
+      DescriptionMapper.add("sector-vision", { sectorType: t_P }, "一个 [n-street] ，看起来曾经是某种公共设施的巨大建筑在一旁");
       DescriptionMapper.add("sector-vision", { sectorType: t_P }, "一段被一些较小建筑包围的废弃高速公路");
-      DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b12 }, "一个[a-street]的[n-street]列着着一排庄严的雕像");
+      DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b12 }, "一个 [a-street] 的 [n-street] 列着着一排庄严的雕像");
       DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b12, wear: b22 }, "一个装饰性的大厅，似乎曾经是一个大型车站，有一个穹顶屋顶、巨大的吊灯和两侧的小亭子");
       DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b13 }, "一个开放的空间，看起来可能曾经专门用于某种运动");
-      DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b33 }, "一个[a-street]的[n-street]位于两座巨大[n-buildings]之间，几乎没有足够的空间通过");
-      DescriptionMapper.add("sector-vision", { sectorType: t_S, buildingDensity: b33, wear: b22 }, "一个[a-street]的[n-street]被[a-building]住宅包围（部分覆盖），这些建筑已经被遗弃了一段时间");
+      DescriptionMapper.add("sector-vision", { sectorType: t_P, buildingDensity: b33 }, "一个 [a-street] 的 [n-street] 位于两座巨大 [n-buildings] 之间，几乎没有足够的空间通过");
+      DescriptionMapper.add("sector-vision", { sectorType: t_S, buildingDensity: b33, wear: b22 }, "一个 [a-street] 的 [n-street] 被 [a-building] 住宅包围（部分覆盖），这些建筑已经被遗弃了一段时间");
       DescriptionMapper.add("sector-vision", { sectorType: t_S, buildingDensity: b13 }, "一个宽阔的广场，其墙壁支撑着一些临时搭建的棚屋");
       DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b13 }, "一个巨大的大厅，看起来曾经被用作某种存储区域，天花板上有生锈的自动手臂");
-      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b23 }, "一个[a-street]通道位于两个失效的、被墙壁封闭的核反应堆之间");
-      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b23 }, "一个[a-street]的[n-street]在一个巨大的工业加工综合体外，所有入口都紧紧关闭");
-      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b33 }, "一个[a-street]通道似乎曾经用于在这一层的各种设施之间运输货物");
-      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b33 }, "一个[a-sectortype]走廊，曾经看起来很干净，但现在满是碎片");
+      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b23 }, "一个 [a-street] 通道位于两个失效的、被墙壁封闭的核反应堆之间");
+      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b23 }, "一个 [a-street] 的 [n-street] 在一个巨大的工业加工综合体外，所有入口都紧紧关闭");
+      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b33 }, "一个 [a-street] 通道似乎曾经用于在这一层的各种设施之间运输货物");
+      DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b33 }, "一个 [a-sectortype] 走廊，曾经看起来很干净，但现在满是碎片");
       DescriptionMapper.add("sector-vision", { level: 14, buildingDensity: b33 }, "一条设有窗户的走廊，位于一个核设施的废墟上方");
       DescriptionMapper.add("sector-vision", { isGroundLevel: true, buildingDensity: b13 }, "城市下方一个开阔的空间，泥土、草和其他植物通过混凝土地面的裂缝挤出来");
       DescriptionMapper.add("sector-vision", { isGroundLevel: true, buildingDensity: b13 }, "一个古老的广场，早已被遗忘，两侧有巨大的柱子支撑着上方的城市");
       DescriptionMapper.add("sector-vision", { isGroundLevel: true, buildingDensity: b13 }, "一个开放的空间，可能曾经是一个公园，现在被奇怪的植物和蘑菇占据");
-      DescriptionMapper.add("sector-vision", { isGroundLevel: true, buildingDensity: b13, sectorType: t_R }, "一条辉煌的[a-street]，两旁是现代化的住宅楼】，现在都已荒废");
-      DescriptionMapper.add("sector-vision", { isGroundLevel: true, buildingDensity: b23 }, "一个[a-street]街道，两旁是摇摇欲坠的古老[a-sectortype]建筑");
+      DescriptionMapper.add("sector-vision", { isGroundLevel: true, buildingDensity: b13, sectorType: t_R }, "一条辉煌的 [a-street] ，两旁是现代化的住宅楼】，现在都已荒废");
+      DescriptionMapper.add("sector-vision", { isGroundLevel: true, buildingDensity: b23 }, "一个 [a-street] 街道，两旁是摇摇欲坠的古老 [a-sectortype] 建筑");
       DescriptionMapper.add("sector-vision", { isGroundLevel: true, buildingDensity: b23 }, "一个没有天花板的开放街道，城市的下一层楼高悬在上方，两边是废墟");
       DescriptionMapper.add("sector-vision", { isGroundLevel: true, buildingDensity: b33 }, "穿过一座古老建筑的通道");
       DescriptionMapper.add("sector-vision", { isGroundLevel: true, buildingDensity: b33 }, "一条狭窄的街道，路面有裂缝");
-      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b13 }, "一个曾经[a-street-past]的广场，周围环绕着玻璃穹顶的通道和小商店");
-      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b13 }, "一个宽阔的[n-street]，风吹动着散落的碎片");
+      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b13 }, "一个曾经 [a-street-past] 的广场，周围环绕着玻璃穹顶的通道和小商店");
+      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b13 }, "一个宽阔的 [n-street] ，风吹动着散落的碎片");
       DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b13, sectorType: t_P }, "一个华丽的公共建筑的中心的大广场");
-      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b23 }, "一个[a-street]街道，点缀着广告牌和死屏，周围是高楼");
+      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b23 }, "一个 [a-street] 街道，点缀着广告牌和死屏，周围是高楼");
       DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b23 }, "一个暴露的街道，两侧是高楼，被强风吹拂");
       DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b23 }, "一个多层的街道，下面有电车空间，再下面是行人和小商店的空间");
-      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b33 }, "一个[a-street]的[n-street]在高大、华丽的[n-buildings]之间");
-      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b33 }, "一个[a-street]通道在曾经的两个购物中心之间");
-      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b33 }, "一个[a-street]的[n-street]，风不断地在狭窄的通道中呼啸");
-      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, sectorType: t_C }, "一个[a-street]的[n-street]在曾经的两个购物中心之间");
+      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b33 }, "一个 [a-street] 的 [n-street] 在高大、华丽的 [n-buildings] 之间");
+      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b33 }, "一个 [a-street] 通道在曾经的两个购物中心之间");
+      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, buildingDensity: b33 }, "一个 [a-street] 的 [n-street] ，风不断地在狭窄的通道中呼啸");
+      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, sectorType: t_C }, "一个 [a-street] 的 [n-street] 在曾经的两个购物中心之间");
       DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, sectorType: t_C }, "一个令人印象深刻的购物中心，似乎曾满是出售奢侈品的商店");
-      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, sectorType: t_I }, "一个[a-street]与宏伟的办公楼");
-      DescriptionMapper.add("sector-vision", { debris: b22 }, "[n-street]满是碎片");
-      DescriptionMapper.add("sector-vision", { debris: b22, sectorType: t_R }, "一个[n-street]两侧是几栋完全被摧毁的住宅楼");
+      DescriptionMapper.add("sector-vision", { isSurfaceLevel: true, sectorType: t_I }, "一个 [a-street] 与宏伟的办公楼");
+      DescriptionMapper.add("sector-vision", { debris: b22 }, " [n-street] 满是碎片");
+      DescriptionMapper.add("sector-vision", { debris: b22, sectorType: t_R }, "一个 [n-street] 两侧是几栋完全被摧毁的住宅楼");
 
       DescriptionMapper.add("sector-novision", { sunlit: false, buildingDensity: b0 }, "城市内罕见的空地；没有地板或墙壁，没有建筑，什么也没有。只有广阔的空虚黑暗");
       DescriptionMapper.add("sector-novision", { sunlit: false, buildingDensity: b13 }, "一条宽阔的街道或走廊。在浩瀚的黑暗中很难找到任何东西");
@@ -1576,19 +1576,19 @@ define(['ash',
       var lt1 = [0, 0.999];
       var gte1 = [1, 100];
 
-      DescriptionMapper.add("waymark", { sectorType: wildcard }, "一堵走廊旁的墙上画着一个指向[direction]的大的[n-target]符号");
-      DescriptionMapper.add("waymark", { sectorType: wildcard }, "有一个涂鸦写着[n-target]和一个指向[direction]的箭头");
-      DescriptionMapper.add("waymark", { buildingDensity: b12 }, "一些砖块被排列成一个指向[direction]的箭头和一个可能意味着[n-target]的粗糙符号");
-      DescriptionMapper.add("waymark", { waymarkType: wt_C }, "你发现了几个带有指向[direction]的箭头和‘安全’、‘避难所’等字样的涂鸦");
-      DescriptionMapper.add("waymark", { waymarkType: wt_R }, "朝向[direction]的路上墙上有多个骷髅标志");
-      DescriptionMapper.add("waymark", { waymarkType: wt_P }, "朝向[direction]的路上墙上有多个骷髅标志");
-      DescriptionMapper.add("waymark", { waymarkType: wt_S }, "在通往[direction]的通道旁的墙上有一块金属牌，上面写着‘[n-settlement-name]’");
-      DescriptionMapper.add("waymark", { waymarkType: wt_W }, "街道上有一个指向[direction]的蓝色箭头");
-      DescriptionMapper.add("waymark", { sectorType: t_C }, "一块商店广告牌被画上了一个指向[direction]的箭头和[n-target]字样");
-      DescriptionMapper.add("waymark", { sectorType: t_I }, "一个带有方向的街道标志被涂改。朝向[direction]的地方写着[n-target]");
-      DescriptionMapper.add("waymark", { sectorType: t_M }, "天花板附近的管道上画有箭头。指向[direction]的旁边是[n-target]的符号");
-      DescriptionMapper.add("waymark", { sectorType: t_P }, "一个雕像手持一个粗糙的标志，上面说有[n-target]在[direction]");
-      DescriptionMapper.add("waymark", { sectorType: t_S }, "有几张破旧的海报显示有[n-target]在[direction]");
+      DescriptionMapper.add("waymark", { sectorType: wildcard }, "一堵走廊旁的墙上画着一个指向  [direction]  的大的 [n-target] 符号");
+      DescriptionMapper.add("waymark", { sectorType: wildcard }, "有一个涂鸦写着 [n-target] 和一个指向 [direction] 的箭头");
+      DescriptionMapper.add("waymark", { buildingDensity: b12 }, "一些砖块被排列成一个指向 [direction] 的箭头和一个可能意味着 [n-target] 的粗糙符号");
+      DescriptionMapper.add("waymark", { waymarkType: wt_C }, "你发现了几个带有指向 [direction] 的箭头和‘安全’、‘避难所’等字样的涂鸦");
+      DescriptionMapper.add("waymark", { waymarkType: wt_R }, "朝向 [direction] 的路上墙上有多个骷髅标志");
+      DescriptionMapper.add("waymark", { waymarkType: wt_P }, "朝向 [direction] 的路上墙上有多个骷髅标志");
+      DescriptionMapper.add("waymark", { waymarkType: wt_S }, "在通往 [direction] 的通道旁的墙上有一块金属牌，上面写着‘ [n-settlement-name] ’");
+      DescriptionMapper.add("waymark", { waymarkType: wt_W }, "街道上有一个指向 [direction] 的蓝色箭头");
+      DescriptionMapper.add("waymark", { sectorType: t_C }, "一块商店广告牌被画上了一个指向 [direction] 的箭头和 [n-target] 字样");
+      DescriptionMapper.add("waymark", { sectorType: t_I }, "一个带有方向的街道标志被涂改。朝向 [direction] 的地方写着 [n-target] ");
+      DescriptionMapper.add("waymark", { sectorType: t_M }, "天花板附近的管道上画有箭头。指向 [direction] 的旁边是 [n-target] 的符号");
+      DescriptionMapper.add("waymark", { sectorType: t_P }, "一个雕像手持一个粗糙的标志，上面说有 [n-target] 在 [direction] ");
+      DescriptionMapper.add("waymark", { sectorType: t_S }, "有几张破旧的海报显示有 [n-target] 在 [direction] ");
     }
 
     function initBookTexts() {
@@ -1613,96 +1613,96 @@ define(['ash',
       DescriptionMapper.add("book-intro", { bookType: t_H }, "你快速浏览这本书。");
       DescriptionMapper.add("book-intro", { bookType: t_E }, "你研究这本书。");
 
-      DescriptionMapper.add("book-description", { bookType: wildcard }, "一个描述[n-topic]的段落吸引了你的注意。");
-      DescriptionMapper.add("book-description", { bookType: wildcard }, "一个描述[n-topic]的部分似乎很有趣。");
-      DescriptionMapper.add("book-description", { bookType: wildcard }, "你学到了一些关于[n-topic]的知识。");
-      DescriptionMapper.add("book-description", { bookType: wildcard }, "它相当[a-bad]，但你还是学到了一些东西。");
+      DescriptionMapper.add("book-description", { bookType: wildcard }, "一个描述 [n-topic] 的段落吸引了你的注意。");
+      DescriptionMapper.add("book-description", { bookType: wildcard }, "一个描述 [n-topic] 的部分似乎很有趣。");
+      DescriptionMapper.add("book-description", { bookType: wildcard }, "你学到了一些关于 [n-topic] 的知识。");
+      DescriptionMapper.add("book-description", { bookType: wildcard }, "它相当 [a-bad] ，但你还是学到了一些东西。");
 
-      DescriptionMapper.add("book-description", { bookLevel: l_1 }, "它给了你一些关于[n-topic]的见解。");
-      DescriptionMapper.add("book-description", { bookLevel: l_2 }, "它看起来是关于[n-topic]的好资源。");
-      DescriptionMapper.add("book-description", { bookLevel: l_3 }, "它不容易理解，但教会了你很多关于[n-topic]的知识。");
+      DescriptionMapper.add("book-description", { bookLevel: l_1 }, "它给了你一些关于 [n-topic] 的见解。");
+      DescriptionMapper.add("book-description", { bookLevel: l_2 }, "它看起来是关于 [n-topic] 的好资源。");
+      DescriptionMapper.add("book-description", { bookLevel: l_3 }, "它不容易理解，但教会了你很多关于 [n-topic] 的知识。");
 
-      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于[n-topic]的一个[a-level]教科书。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于[n-topic]的一个[a-style]教科书。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于[n-topic]的一个[a-good]教科书。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于[n-topic]的一个[a-bad]教科书，但你还是学到了新东西。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "它描述了[n-topic]。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "有几个关于[n-topic]的有趣段落。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一篇关于[n-topic]的相当枯燥的文本。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "它包含了对[n-topic]的描述。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "你了解到[c-fact]。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "你发现[c-fact]。");
-      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "这是一本关于[n-topic]的入门文本。");
-      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "这是一本关于[n-topic]的一个[a-bad]书。");
-      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "它包含了一些关于[n-topic]的基本信息。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于 [n-topic] 的一个 [a-level] 教科书。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于 [n-topic] 的一个 [a-style] 教科书。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于 [n-topic] 的一个 [a-good] 教科书。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一本关于 [n-topic] 的一个 [a-bad] 教科书，但你还是学到了新东西。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "它描述了 [n-topic] 。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "有几个关于 [n-topic] 的有趣段落。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "这是一篇关于 [n-topic] 的相当枯燥的文本。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "它包含了对 [n-topic] 的描述。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "你了解到 [c-fact] 。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "你发现 [c-fact] 。");
+      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "这是一本关于 [n-topic] 的入门文本。");
+      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "这是一本关于 [n-topic] 的一个 [a-bad] 书。");
+      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "它包含了一些关于 [n-topic] 的基本信息。");
       DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "一篇关于精炼过程的描述提供了有关坠落前常用建筑材料的线索。");
       DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_1 }, "它包含了一个已知的‘暗层’动物生活的目录。你认出了几个。");
       DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_2 }, "你注意到了关于每天暴露于阳光下的人与否的旧普查数据。");
       DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_2 }, "它包含了一个你不熟悉的基于太阳的日历系统的详细描述。");
-      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_2 }, "你找到了关于[n-topic]的细节。");
-      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_2 }, "它包含了关于[n-topic]的详细信息。");
+      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_2 }, "你找到了关于 [n-topic] 的细节。");
+      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_2 }, "它包含了关于 [n-topic] 的详细信息。");
       DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_3 }, "你被地面上丰富植物生活的描述所吸引。");
-      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_3 }, "它包含了关于[n-topic]的大量信息。");
-      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_3 }, "它包含了关于[n-topic]的论文。");
-      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_3 }, "它包含了关于[n-topic]的深入信息。");
+      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_3 }, "它包含了关于 [n-topic] 的大量信息。");
+      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_3 }, "它包含了关于 [n-topic] 的论文。");
+      DescriptionMapper.add("book-description", { bookType: t_S, bookLevel: l_3 }, "它包含了关于 [n-topic] 的深入信息。");
 
-      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于[n-topic]的一个[a-level]教科书。");
-      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于[n-topic]的一个[a-style]教科书。");
-      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于[n-topic]的一个[a-good]教科书。");
-      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于[n-topic]的一个[a-bad]教科书，但你还是学到了新东西。");
+      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于 [n-topic] 的一个 [a-level] 教科书。");
+      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于 [n-topic] 的一个 [a-style] 教科书。");
+      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于 [n-topic] 的一个 [a-good] 教科书。");
+      DescriptionMapper.add("book-description", { bookType: t_E }, "这是一本关于 [n-topic] 的一个 [a-bad] 教科书，但你还是学到了新东西。");
       DescriptionMapper.add("book-description", { bookType: t_E }, "有关于[n-object]的废弃计划。");
       DescriptionMapper.add("book-description", { bookType: t_E }, "它包含了对[n-object]的详细描述。");
       DescriptionMapper.add("book-description", { bookType: t_E }, "有一个图表详细解释了[n-object]是如何工作的。");
       DescriptionMapper.add("book-description", { bookType: t_E }, "这是[n-object]的操作手册。");
       DescriptionMapper.add("book-description", { bookType: t_E }, "你学到了很多关于[n-object]的知识。");
-      DescriptionMapper.add("book-description", { bookType: t_E }, "你了解到[c-fact]。");
-      DescriptionMapper.add("book-description", { bookType: t_S }, "你发现[c-fact]。");
+      DescriptionMapper.add("book-description", { bookType: t_E }, "你了解到 [c-fact] 。");
+      DescriptionMapper.add("book-description", { bookType: t_S }, "你发现 [c-fact] 。");
       DescriptionMapper.add("book-description", { bookType: t_E, bookLevel: l_1 }, "有一个关于[n-object]的有趣图表。");
-      DescriptionMapper.add("book-description", { bookType: t_E, bookLevel: l_1 }, "它包含了一些关于[n-topic]的基本信息。");
-      DescriptionMapper.add("book-description", { bookType: t_E, bookLevel: l_2 }, "它包含了许多关于[n-topic]有用的信息。");
-      DescriptionMapper.add("book-description", { bookType: t_E, bookLevel: l_2 }, "它包含了关于[n-topic]的详细信息。");
+      DescriptionMapper.add("book-description", { bookType: t_E, bookLevel: l_1 }, "它包含了一些关于 [n-topic] 的基本信息。");
+      DescriptionMapper.add("book-description", { bookType: t_E, bookLevel: l_2 }, "它包含了许多关于 [n-topic] 有用的信息。");
+      DescriptionMapper.add("book-description", { bookType: t_E, bookLevel: l_2 }, "它包含了关于 [n-topic] 的详细信息。");
       DescriptionMapper.add("book-description", { bookType: t_E, bookLevel: l_3 }, "有关于[n-object]的技术图纸");
-      DescriptionMapper.add("book-description", { bookType: t_E, bookLevel: l_3 }, "它包含了关于[n-topic]的深入信息。");
+      DescriptionMapper.add("book-description", { bookType: t_E, bookLevel: l_3 }, "它包含了关于 [n-topic] 的深入信息。");
 
-      DescriptionMapper.add("book-description", { bookType: t_H }, "你找到了关于[n-topic]的细节。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "它描述了[n-topic]。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "它描述了[c-event]。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "这是一篇关于[n-topic]的相当枯燥的文本。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "这是一本关于[n-topic]的一个[a-style]概述。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "这是一个非常[a-level]的关于[n-topic]的介绍。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "你了解到[c-fact]。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "看来[c-fact]。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "你了解到[c-event]。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "有关[c-event]的一个[a-style]章节引起了你的注意。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "有几处提到[c-event]。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "这是一个非常[a-good]的关于[n-topic]的解释。");
-      DescriptionMapper.add("book-description", { bookType: t_H }, "虽然其他地方很枯燥，但有一个关于[n-topic]的一个[a-good]章节。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "你找到了关于 [n-topic] 的细节。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "它描述了 [n-topic] 。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "它描述了 [c-event] 。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "这是一篇关于 [n-topic] 的相当枯燥的文本。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "这是一本关于 [n-topic] 的一个 [a-style] 概述。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "这是一个非常 [a-level] 的关于 [n-topic] 的介绍。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "你了解到 [c-fact] 。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "看来 [c-fact] 。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "你了解到 [c-event] 。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "有关 [c-event] 的一个 [a-style] 章节引起了你的注意。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "有几处提到 [c-event] 。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "这是一个非常 [a-good] 的关于 [n-topic] 的解释。");
+      DescriptionMapper.add("book-description", { bookType: t_H }, "虽然其他地方很枯燥，但有一个关于 [n-topic] 的一个 [a-good] 章节。");
       DescriptionMapper.add("book-description", { bookType: t_H }, "提到“当前无人居住的层次”的参考为坠落前的城市提供了一个视角。");
-      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_1 }, "这是一本关于[n-topic]的入门文本。");
-      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_1 }, "它提到[c-event]。");
-      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_2 }, "有一个关于[c-event]的长节。");
-      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_2 }, "这是一次关于[n-topic]的详细探索。");
-      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_3 }, "你找到了大量关于[c-event]的信息。");
-      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_3 }, "你找到了大量关于[n-topic]的信息。");
-      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_3 }, "你找到了关于[c-event]的详细时间线。");
+      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_1 }, "这是一本关于 [n-topic] 的入门文本。");
+      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_1 }, "它提到 [c-event] 。");
+      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_2 }, "有一个关于 [c-event] 的长节。");
+      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_2 }, "这是一次关于 [n-topic] 的详细探索。");
+      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_3 }, "你找到了大量关于 [c-event] 的信息。");
+      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_3 }, "你找到了大量关于 [n-topic] 的信息。");
+      DescriptionMapper.add("book-description", { bookType: t_H, bookLevel: l_3 }, "你找到了关于 [c-event] 的详细时间线。");
 
-      DescriptionMapper.add("book-description", { bookType: t_F }, "有一个关于[c-theme]的一个[a-good]故事。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于[c-theme]的故事。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "它是关于[c-theme]的。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "一个关于[c-theme]的故事让你印象深刻。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "你被一个关于[c-theme]的诗所感动。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "它包含了关于[c-theme]的一个[a-good]描述。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一部处理[n-topic]的一个[a-style]小说。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于[n-topic]的一个[a-style]故事。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于[n-topic]的非常[a-style]的描绘。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于[n-topic]的一个[a-style]故事。");
-      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于[n-topic]的[a-style]短篇故事集。");
-      DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_1 }, "这是一本以[n-topic]为特色的儿童书。");
-      DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_1 }, "这是一个关于[c-theme]的简单故事。");
-      DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_2 }, "这是一部关于[n-topic]的经典小说。");
-      DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_2 }, "这是一本关于[c-theme]的[a-style]小说。");
-      DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_3 }, "这是一本关于[n-topic]的相当沉重的书。");
-      DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_3 }, "这是一个关于[n-theme]的[a-good]故事。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "有一个关于 [c-theme] 的一个 [a-good] 故事。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于 [c-theme] 的故事。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "它是关于 [c-theme] 的。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "一个关于 [c-theme] 的故事让你印象深刻。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "你被一个关于 [c-theme] 的诗所感动。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "它包含了关于 [c-theme] 的一个 [a-good] 描述。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一部处理 [n-topic] 的一个 [a-style] 小说。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于 [n-topic] 的一个 [a-style] 故事。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于 [n-topic] 的非常 [a-style] 的描绘。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于 [n-topic] 的一个 [a-style] 故事。");
+      DescriptionMapper.add("book-description", { bookType: t_F }, "这是一个关于 [n-topic] 的 [a-style] 短篇故事集。");
+      DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_1 }, "这是一本以 [n-topic] 为特色的儿童书。");
+      DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_1 }, "这是一个关于 [c-theme] 的简单故事。");
+      DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_2 }, "这是一部关于 [n-topic] 的经典小说。");
+      DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_2 }, "这是一本关于 [c-theme] 的 [a-style] 小说。");
+      DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_3 }, "这是一本关于 [n-topic] 的相当沉重的书。");
+      DescriptionMapper.add("book-description", { bookType: t_F, bookLevel: l_3 }, "这是一个关于 [n-theme] 的 [a-good] 故事。");
     }
 
     function initNewspaperTexts() {
@@ -1712,11 +1712,11 @@ define(['ash',
       let l_2 = 2;
       let l_3 = 3;
 
-      DescriptionMapper.add("newspaper-description", { itemLevel: wildcard }, "有一篇关于[n-topic]的社论。");
-      DescriptionMapper.add("newspaper-description", { itemLevel: wildcard }, "有一篇关于[n-topic]的评论文章。");
-      DescriptionMapper.add("newspaper-description", { itemLevel: wildcard }, "有一个关于[c-event]的大新闻。");
-      DescriptionMapper.add("newspaper-description", { itemLevel: wildcard }, "该问题围绕[c-event]展开。");
-      DescriptionMapper.add("newspaper-description", { itemLevel: l_3 }, "有一篇关于[n-topic]的调查性报道。");
+      DescriptionMapper.add("newspaper-description", { itemLevel: wildcard }, "有一篇关于 [n-topic] 的社论。");
+      DescriptionMapper.add("newspaper-description", { itemLevel: wildcard }, "有一篇关于 [n-topic] 的评论文章。");
+      DescriptionMapper.add("newspaper-description", { itemLevel: wildcard }, "有一个关于 [c-event] 的大新闻。");
+      DescriptionMapper.add("newspaper-description", { itemLevel: wildcard }, "该问题围绕 [c-event] 展开。");
+      DescriptionMapper.add("newspaper-description", { itemLevel: l_3 }, "有一篇关于 [n-topic] 的调查性报道。");
     }
 
     function initResearchPaperTexts() {
@@ -1726,13 +1726,13 @@ define(['ash',
       let l_2 = 2;
       let l_3 = 3;
 
-      DescriptionMapper.add("researchpaper-description", { itemLevel: wildcard }, "它讲述了[n-topic]。");
-      DescriptionMapper.add("researchpaper-description", { itemLevel: wildcard }, "你了解到[c-fact]。");
-      DescriptionMapper.add("researchpaper-description", { itemLevel: wildcard }, "你推断出[c-fact]。");
-      DescriptionMapper.add("researchpaper-description", { itemLevel: wildcard }, "看来[c-fact]。");
-      DescriptionMapper.add("researchpaper-description", { itemLevel: l_1 }, "这是关于[n-topic]的基础概述。");
-      DescriptionMapper.add("researchpaper-description", { itemLevel: l_2 }, "这是关于[n-topic]的大纲。");
-      DescriptionMapper.add("researchpaper-description", { itemLevel: l_3 }, "这是关于[n-topic]的详细分析。");
+      DescriptionMapper.add("researchpaper-description", { itemLevel: wildcard }, "它讲述了 [n-topic] 。");
+      DescriptionMapper.add("researchpaper-description", { itemLevel: wildcard }, "你了解到 [c-fact] 。");
+      DescriptionMapper.add("researchpaper-description", { itemLevel: wildcard }, "你推断出 [c-fact] 。");
+      DescriptionMapper.add("researchpaper-description", { itemLevel: wildcard }, "看来 [c-fact] 。");
+      DescriptionMapper.add("researchpaper-description", { itemLevel: l_1 }, "这是关于 [n-topic] 的基础概述。");
+      DescriptionMapper.add("researchpaper-description", { itemLevel: l_2 }, "这是关于 [n-topic] 的大纲。");
+      DescriptionMapper.add("researchpaper-description", { itemLevel: l_3 }, "这是关于 [n-topic] 的详细分析。");
     }
 
     initSectorTexts();
