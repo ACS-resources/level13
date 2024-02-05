@@ -763,6 +763,8 @@ define(['ash',
             // facts.push("城市的最低层实际上是第X层");
             break;
         }
+        result["c-fact"] = DescriptionMapper.pickRandom(facts, features);
+			
         let events = [];
         switch (features.bookType) {
           case ItemConstants.bookTypes.history:
