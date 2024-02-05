@@ -122,19 +122,19 @@ function (Ash, MathUtils, CampConstants, GameConstants) {
 		},
 		
 		getRaidDefenceString: function (improvements, soldiers, soldierLevel) {
-			let result = "Base: " + CampConstants.CAMP_BASE_DEFENCE;
+			let result = "基础: " + CampConstants.CAMP_BASE_DEFENCE;
 			
 			let fortificationsPoints = this.getFortificationsDefencePoints(improvements);
 			let fortificationsPointsWithoutDamaged = this.getFortificationsDefencePoints(improvements, true);
 			let fortificationsPointsDiff = fortificationsPoints - fortificationsPointsWithoutDamaged;
 			if (fortificationsPointsWithoutDamaged > 0) {
-				result += "<br/>Fortifications: " + fortificationsPointsWithoutDamaged;
+				result += "<br/>要塞: " + fortificationsPointsWithoutDamaged;
 				if (fortificationsPoints != fortificationsPointsWithoutDamaged) {
-					result += "<br/>Damage: -" + fortificationsPointsDiff;
+					result += "<br/>损坏: -" + fortificationsPointsDiff;
 				}
 			}
 			let soldierPoints = this.getSoldierDefencePoints(soldiers, soldierLevel, improvements.getLevel(improvementNames.barracks));
-			if (soldierPoints > 0) result += "<br/>Soldiers:" + soldierPoints;
+			if (soldierPoints > 0) result += "<br/>士兵:" + soldierPoints;
 			
 			return result;
 		},
