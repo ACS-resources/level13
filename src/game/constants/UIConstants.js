@@ -42,22 +42,22 @@ define(['ash',
 
 		names: {
 			resources: {
-				stamina: "stamina",
-				resource_metal: "metal",
-				resource_fuel: "fuel",
-				resource_rubber: "rubber",
-				resource_rope: "rope",
-				resource_food: "food",
-				resource_water: "water",
-				resource_concrete: "concrete",
-				resource_herbs: "herbs",
-				resource_medicine: "medicine",
-				resource_tools: "tools",
-				resource_robots: "robots",
-				item_exploration_1: "lock pick",
-				rumours: "rumours",
-				evidence: "evidence",
-				insight: "insight",
+				stamina: "耐力",
+				resource_metal: "金属",
+				resource_fuel: "燃料",
+				resource_rubber: "橡胶",
+				resource_rope: "绳子",
+				resource_food: "食物",
+				resource_water: "水",
+				resource_concrete: "水泥",
+				resource_herbs: "药草",
+				resource_medicine: "药品",
+				resource_tools: "工具",
+				resource_robots: "机器人",
+				item_exploration_1: "撬锁钳",
+				rumours: "传闻",
+				evidence: "证据",
+				insight: "洞察",
 			}
 		},
 		
@@ -164,20 +164,20 @@ define(['ash',
 
 				if (bagOptions.canRepair) {
 					var action = "repair_item_" + item.itemID;
-					options += makeButton(action, "Repair");
+					options += makeButton(action, "修复");
 				}
 
 				if (bagOptions.canEquip) {
 					var action = "equip_" + item.itemID;
-					options += makeButton(action, "Equip");
+					options += makeButton(action, "装配");
 				} else if (bagOptions.canUnequip) {
 					var action = "unequip_" + item.id;
-					options += makeButton(action, "Unequip");
+					options += makeButton(action, "卸下");
 				}
 
 				if (bagOptions.canDiscard) {
 					var action = "discard_" + item.id;
-					options += makeButton(action, "Discard");
+					options += makeButton(action, "放弃");
 				}
 
 				options += "</div>";
@@ -242,11 +242,11 @@ define(['ash',
 				};
 
 				var options = "<div class='item-bag-options'>";
-				options += makeButton("dismiss_follower_" + follower.id, "Dismiss");
+				options += makeButton("dismiss_follower_" + follower.id, "遣散");
 				if (!follower.inParty) {
-					options += makeButton("select_follower_" + follower.id, "Add to party");
+					options += makeButton("select_follower_" + follower.id, "加入小队");
 				} else {
-					options += makeButton("deselect_follower_" + follower.id, "Switch out");
+					options += makeButton("deselect_follower_" + follower.id, "换出");
 				}
 				options += "</div>";
 				result += options;
@@ -261,34 +261,34 @@ define(['ash',
 				case FollowerConstants.abilityType.DEFENCE:
 					let att = FollowerConstants.getFollowerItemBonus(follower, ItemConstants.itemBonusTypes.fight_att);
 					let def = FollowerConstants.getFollowerItemBonus(follower, ItemConstants.itemBonusTypes.fight_def);
-					return "attack +" + att + ", defence +" + def;
+					return "攻 +" + att + ", 防 +" + def;
 				case FollowerConstants.abilityType.COST_MOVEMENT:
 					let movementCostReduction = FollowerConstants.getFollowerItemBonus(follower, ItemConstants.itemBonusTypes.movement);
-					return "movement cost -" + UIConstants.getMultiplierBonusDisplayValue(movementCostReduction);
+					return "移动成本 -" + UIConstants.getMultiplierBonusDisplayValue(movementCostReduction);
 				case FollowerConstants.abilityType.COST_SCAVENGE:
 					let scavengeCostReduction = FollowerConstants.getFollowerItemBonus(follower, ItemConstants.itemBonusTypes.scavenge_cost);
-					return "scavenge cost -" + UIConstants.getMultiplierBonusDisplayValue(scavengeCostReduction);
+					return "拾荒成本 -" + UIConstants.getMultiplierBonusDisplayValue(scavengeCostReduction);
 				case FollowerConstants.abilityType.COST_SCOUT:
 					let scoutCostReduction = FollowerConstants.getFollowerItemBonus(follower, ItemConstants.itemBonusTypes.scout_cost);
-					return "scout cost -" + UIConstants.getMultiplierBonusDisplayValue(scoutCostReduction);
+					return "探索成本 -" + UIConstants.getMultiplierBonusDisplayValue(scoutCostReduction);
 				case FollowerConstants.abilityType.DETECT_HAZARDS:
-					return "foresee hazards in unvisited sectors";
+					return "了解未到达区域的危害";
 				case FollowerConstants.abilityType.DETECT_SUPPLIES:
-					return "foresee supplies found in current and neighbouring sectors";
+					return "了解未到达当前区域及相邻区域的补给";
 				case FollowerConstants.abilityType.DETECT_INGREDIENTS:
-					return "foresee crafting ingredients found in current and neighbouring sectors";
+					return "了解未到达当前区域及相邻区域的合成材料";
 				case FollowerConstants.abilityType.SCAVENGE_GENERAL:
 					let scaBonus = FollowerConstants.getFollowerItemBonus(follower, ItemConstants.itemBonusTypes.scavenge_general);
-					return "+" + UIConstants.getMultiplierBonusDisplayValue(scaBonus) + " chance for extra loot when scavenging";
+					return "+" + UIConstants.getMultiplierBonusDisplayValue(scaBonus) + " 拾荒获得额外物品概率";
 				case FollowerConstants.abilityType.SCAVENGE_INGREDIENTS:
 					let ingredientBonus = FollowerConstants.getFollowerItemBonus(follower, ItemConstants.itemBonusTypes.scavenge_ingredients);
-					return "+" + UIConstants.getMultiplierBonusDisplayValue(ingredientBonus) + " chance to find ingredients when scavenging";
+					return "+" + UIConstants.getMultiplierBonusDisplayValue(ingredientBonus) + " 拾荒获得合成材料概率";
 				case FollowerConstants.abilityType.SCAVENGE_SUPPLIES:
 					let suppliesBonus = FollowerConstants.getFollowerItemBonus(follower, ItemConstants.itemBonusTypes.scavenge_supplies);
-					return "+" + UIConstants.getMultiplierBonusDisplayValue(suppliesBonus) + " chance to find more supplies when scavenging";
+					return "+" + UIConstants.getMultiplierBonusDisplayValue(suppliesBonus) + " 拾荒获得额外补给概率";
 				case FollowerConstants.abilityType.SCAVENGE_CAPACITY:
 					let capacityBonus = FollowerConstants.getFollowerItemBonus(follower, ItemConstants.itemBonusTypes.bag);
-					return "+" + capacityBonus + " carry capacity";
+					return "+" + capacityBonus + " 物品容量";
 				default:
 					log.w("no display name defined for abilityType: " + follower.abilityType);
 					return follower.abilityType;
@@ -391,25 +391,25 @@ define(['ash',
 
 		getItemBonusName: function (bonusType, short) {
 			switch (bonusType) {
-				case ItemConstants.itemBonusTypes.light: return "max vision";
-				case ItemConstants.itemBonusTypes.fight_att: return "attack";
-				case ItemConstants.itemBonusTypes.fight_def: return "defence";
-				case ItemConstants.itemBonusTypes.fight_shield: return "shield";
-				case ItemConstants.itemBonusTypes.fight_speed: return "attack speed";
-				case ItemConstants.itemBonusTypes.movement: return "movement cost";
-				case ItemConstants.itemBonusTypes.scavenge_cost: return "scavenge cost";
-				case ItemConstants.itemBonusTypes.scavenge_general: return "scavenge bonus";
-				case ItemConstants.itemBonusTypes.scavenge_supplies: return "scavenge bonus";
-				case ItemConstants.itemBonusTypes.scavenge_ingredients: return "scavenge bonus";
-				case ItemConstants.itemBonusTypes.scout_cost: return "scouting cost";
-				case ItemConstants.itemBonusTypes.bag: return "bag size";
-				case ItemConstants.itemBonusTypes.res_cold: return "warmth";
-				case ItemConstants.itemBonusTypes.res_radiation: return short ? "radiation prot" : "radiation protection";
-				case ItemConstants.itemBonusTypes.res_poison: return short ? "poison prot" : "poison protection";
-				case ItemConstants.itemBonusTypes.shade: return short ? "sun prot" : "sunblindness protection";
-				case ItemConstants.itemBonusTypes.detect_hazards: return short ? "hazards" : "surveying (hazards)";
-				case ItemConstants.itemBonusTypes.detect_supplies: return short ? "supplies" : "surveying (supplies)";
-				case ItemConstants.itemBonusTypes.detect_ingredients: return short ? "ingredients" : "surveying (ingredients)";
+				case ItemConstants.itemBonusTypes.light: return "最大视野";
+				case ItemConstants.itemBonusTypes.fight_att: return "攻";
+				case ItemConstants.itemBonusTypes.fight_def: return "防";
+				case ItemConstants.itemBonusTypes.fight_shield: return "盾";
+				case ItemConstants.itemBonusTypes.fight_speed: return "攻速";
+				case ItemConstants.itemBonusTypes.movement: return "移动消耗";
+				case ItemConstants.itemBonusTypes.scavenge_cost: return "拾荒效率";
+				case ItemConstants.itemBonusTypes.scavenge_general: return "拾荒加成";
+				case ItemConstants.itemBonusTypes.scavenge_supplies: return "拾荒加成";
+				case ItemConstants.itemBonusTypes.scavenge_ingredients: return "拾荒加成";
+				case ItemConstants.itemBonusTypes.scout_cost: return "探索加成";
+				case ItemConstants.itemBonusTypes.bag: return "背包大小";
+				case ItemConstants.itemBonusTypes.res_cold: return "温暖";
+				case ItemConstants.itemBonusTypes.res_radiation: return short ? "辐射物保护" : "辐射物保护";
+				case ItemConstants.itemBonusTypes.res_poison: return short ? "有毒物保护" : "有毒物保护";
+				case ItemConstants.itemBonusTypes.shade: return short ? "阳光防护" : "阳光致盲防护";
+				case ItemConstants.itemBonusTypes.detect_hazards: return short ? "危害" : "调研(危害)";
+				case ItemConstants.itemBonusTypes.detect_supplies: return short ? "补给" : "调研(补给)";
+				case ItemConstants.itemBonusTypes.detect_ingredients: return short ? "材料" : "调研(材料)";
 				default:
 					log.w("no display name defined for item bonus type: " + bonusType);
 					return "";
@@ -479,14 +479,14 @@ define(['ash',
 			let effect = perk.type;
 			switch (perk.type) {
 				case PerkConstants.perkTypes.movement:
-					effect = "movement cost";
+					effect = "移动消耗";
 					break;
 				case PerkConstants.perkTypes.injury:
 				case PerkConstants.perkTypes.health:
-					effect = "health";
+					effect = "健康";
 					break;
 				case PerkConstants.perkTypes.luck:
-					return "Lower probability of negative random events when exploring";
+					return "减少随机负面事件在探索之中出现的效率";
 			}
 
 			return effect + " " + value;
@@ -504,7 +504,7 @@ define(['ash',
 					result += "<span class='action-cost action-cost-" + key + "'>" + name + ": <span class='action-cost-value'>" + UIConstants.getDisplayValue(value) + "</span><br/></span>";
 				}
 			} else if (this.isActionFreeCostShown(action)) {
-				result += "<span class='action-cost p-meta'>free</span><br />";
+				result += "<span class='action-cost p-meta'>自由</span><br />";
 			}
 			return result;
 		},
@@ -752,22 +752,22 @@ define(['ash',
 				html += "<br/>";
 			};
 			
-			addValue("Base reputation", baseReputation);
+			addValue("基础名誉", baseReputation);
 			
-			addValue("Max evidence", milestone.maxEvidence);
-			addValue("Max rumours", milestone.maxRumours);
+			addValue("线索最大值", milestone.maxEvidence);
+			addValue("传闻最大值", milestone.maxRumours);
 			
 			if (milestone.maxFavour && hasDeity) {
-				addValue("Max favour", milestone.maxFavour);
+				addValue("神佑最大值", milestone.maxFavour);
 			}
 			
 			if (milestone.maxInsight && hasInvestigate) {
-				addValue("Max insight", milestone.maxInsight);
+				addValue("洞察最大值", milestone.maxInsight);
 			}
 			
 			if (isNew) {
 				addGroup("", milestone.unlockedFeatures, UIConstants.getUnlockedFeatureDisplayName);
-				addGroup("New events", milestone.unlockedEvents);
+				addGroup("新事件", milestone.unlockedEvents);
 				
 				let unlockedUpgrades = GameGlobals.milestoneEffectsHelper.getUnlockedUpgrades(milestone.index);
 				addGroup("Unlocked upgrades", unlockedUpgrades, (upgradeID) => {
@@ -807,32 +807,32 @@ define(['ash',
 
 			var interval = Math.floor(seconds / 31536000);
 			if (interval > 1) {
-				return interval + " years";
+				return interval + " 年";
 			}
 			interval = Math.floor(seconds / 2592000);
 			if (interval > 1) {
-				return interval + " months";
+				return interval + " 月";
 			}
 			interval = Math.floor(seconds / 86400);
 			if (interval > 1) {
-				return interval + " days";
+				return interval + " 日";
 			}
 			interval = Math.floor(seconds / 3600);
 			if (interval > 1) {
-				return interval + " hours";
+				return interval + " 时";
 			}
 			interval = Math.floor(seconds / 60);
 			if (interval > 1) {
-				return interval + " minutes";
+				return interval + " 分";
 			}
 			if (interval === 1) {
-				return interval + " minute";
+				return interval + " 秒";
 			}
 			if (seconds < 10) {
-				return "a few seconds";
+				return "几秒";
 			}
 
-			return "less than a minute";
+			return "小于一分钟";
 		},
 
 		getInGameDate: function (gameTime) {
@@ -858,14 +858,14 @@ define(['ash',
 
 		getUnlockedFeatureDisplayName: function (featureID) {
 			switch (featureID) {
-				case UIConstants.UNLOCKABLE_FEATURE_MAP_MODES: return "map modes";
-				case UIConstants.UNLOCKABLE_FEATURE_WORKER_AUTO_ASSIGNMENT: return "worker auto-assignment";
+				case UIConstants.UNLOCKABLE_FEATURE_MAP_MODES: return "地图节点";
+				case UIConstants.UNLOCKABLE_FEATURE_WORKER_AUTO_ASSIGNMENT: return "自动分配工人";
 			}
 			return featureID;
 		},
 
 		getCampDisplayName: function (campNode, short) {
-			return "camp on level " + campNode.position.level;
+			return "在" + campNode.position.level + "层的营地";
 		},
 
 		roundValue: function (value, showDecimalsWhenSmall, showDecimalsAlways, decimalDivisor) {
@@ -929,7 +929,7 @@ define(['ash',
 
 		getBagCapacityDisplayValue: function (bagComponent, isSimple) {
 			if (bagComponent.bonusCapacity > 0 && !isSimple) {
-				return bagComponent.baseCapacity + " +" + bagComponent.bonusCapacity;
+				return bagComponent.baseCapacity + " + " + bagComponent.bonusCapacity;
 			} else {
 				return bagComponent.totalCapacity;
 			}
