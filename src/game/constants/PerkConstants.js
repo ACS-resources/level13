@@ -225,28 +225,30 @@ define(['ash', 'game/vos/PerkVO'], function (Ash, PerkVO) {
 	PerkConstants.perkDefinitions.visualNegative.push(new PerkVO(PerkConstants.perkIds.tired, "疲惫", "VisualN", 0, "img/items/perk-tired.png"));
 	
 	let woundBodyParts = ["Leg", "Arm", "Head", "Foot", "Chest", "Hand"];
+	let woundBodyPartsCN = ["腿部", "手臂", "头部", "脚部","胸部","手部"];
 	for (let i = 0; i < woundBodyParts.length; i++) {
 		let bodyPart = woundBodyParts[i];
 		let id = "wounded-" + bodyPart.toLowerCase();
-		
+		let bodyPartCN = woundBodyPartsCN[i];
 		if (bodyPart != "Head") {
-			PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.SHARP, id, bodyPart + "伤口(轻伤)");
+			PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.SHARP, id, bodyPartCN + "伤口(轻伤)");
 		}
 		if (bodyPart != "Hand") {
-			PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.SHARP, id, bodyPart + "伤口(中度)");
+			PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.SHARP, id, bodyPartCN + "伤口(中度)");
 		}
 		if (bodyPart != "Foot" && bodyPart != "Hand") {
-			PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.SHARP, id, bodyPart + "伤口(严重)");
+			PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.SERIOUS, PerkConstants.injuryType.SHARP, id, bodyPartCN + "伤口(严重)");
 		}
 	}
 	
 	let bruiseBodyParts = ["Leg", "Arm", "Shoulder", "Knee"];
+	let bruiseBodyPartsCN = ["腿", "手臂", "肩膀", "膝盖"];
 	for (let i = 0; i < bruiseBodyParts.length; i++) {
 		let bodyPart = bruiseBodyParts[i];
 		let id = "bruised-" + bodyPart.toLowerCase();
-		
-		PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.BLUNT, id, "瘀伤的" + bodyPart + "(轻伤)");
-		PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, id, "瘀伤的" + bodyPart + "(中度)");
+		let bodyPartCN = bruiseBodyPartsCN[i];
+		PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.BLUNT, id, "瘀伤的" + bodyPartCN + "(轻伤)");
+		PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.MEDIUM, PerkConstants.injuryType.BLUNT, id, "瘀伤的" + bodyPartCN + "(中度)");
 	}
 	
 	PerkConstants.addInjuryDefinition(PerkConstants.injuryLevel.LIGHT, PerkConstants.injuryType.FIRE, "burn-fire", "烧伤(轻伤)");
