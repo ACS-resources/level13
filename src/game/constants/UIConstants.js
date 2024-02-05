@@ -177,7 +177,7 @@ define(['ash',
 
 				if (bagOptions.canDiscard) {
 					var action = "discard_" + item.id;
-					options += makeButton(action, "放弃");
+					options += makeButton(action, "丢弃");
 				}
 
 				options += "</div>";
@@ -230,7 +230,7 @@ define(['ash',
 			let followerType = FollowerConstants.getFollowerTypeForAbilityType(follower.abilityType);
 			let result = "<b>" + follower.name + "</b>";
 			if (isRecruited) {
-				result += "<br/>In party: " + (follower.inParty ? "yes" : "no");
+				result += "<br/>是否在小队中: " + (follower.inParty ? "yes" : "no");
 			}
 			result += "<br/>Type: " + FollowerConstants.getFollowerTypeDisplayName(followerType);
 			result += "<br/>Ability: " + FollowerConstants.getAbilityTypeDisplayName(follower.abilityType)
@@ -321,8 +321,8 @@ define(['ash',
 
 		getCurrencyLi: function (amount, simple) {
 			var classes = "res item-with-count";
-			var div = "<div class='" + classes + "' data-resourcename='currency'>";
-			div += "<div class='info-callout-target info-callout-target-small' description='silver'>";
+			var div = "<div class='" + classes + "' data-resourcename='货币'>";
+			div += "<div class='info-callout-target info-callout-target-small' description='银'>";
 			div += this.getResourceImg("currency");
 			div += "<div class='item-count lvl13-box-1'>" + Math.floor(amount) + "x </div>";
 			div += "</div>";
@@ -344,7 +344,7 @@ define(['ash',
 		getBlueprintPieceLI: function (upgradeID) {
 			var upgradeDefinition = UpgradeConstants.upgradeDefinitions[upgradeID];
 			var name = upgradeDefinition.name;
-			return "<li><div class='info-callout-target' description='Blueprint (" + name + ")'>" + this.getBlueprintPieceIcon(upgradeID) + " blueprint</li>";
+			return "<li><div class='info-callout-target' description='蓝图 (" + name + ")'>" + this.getBlueprintPieceIcon(upgradeID) + " 蓝图</li>";
 		},
 
 		getResourceList: function (resourceVO) {
@@ -486,7 +486,7 @@ define(['ash',
 					effect = "健康";
 					break;
 				case PerkConstants.perkTypes.luck:
-					return "减少随机负面事件在探索之中出现的效率";
+					return "减少随机负面事件在探索之中出现的概率";
 			}
 
 			return effect + " " + value;
