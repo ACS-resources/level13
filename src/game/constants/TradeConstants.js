@@ -19,13 +19,13 @@ function (Ash, PlayerActionConstants, ItemConstants, UpgradeConstants, BagConsta
 		MAX_ITEMS_TO_TRADE_PER_CARAVAN: 10,
 		
 		TRADING_PARTNERS: [
-			new TradingPartnerVO(3, "Bone Crossing", [resourceNames.rope], [resourceNames.metal], false, true, [ "weapon" ], [ "weapon", "clothing_over", "clothing_upper", "clothing_lower", "clothing_hands", "clothing_head", "exploration" ]),
-			new TradingPartnerVO(4, "Slugger Town", [resourceNames.food], [resourceNames.metal], false, true, [], ["exploration", "shoes" ]),
-			new TradingPartnerVO(6, "Old Waterworks", [resourceNames.fuel], [], true, false, [], [ "clothing_over", "clothing_upper", "clothing_lower", "clothing_hands", "clothing_head" ]),
-			new TradingPartnerVO(7, "Mill Road Academy", [resourceNames.water, resourceNames.food], [resourceNames.metal], true, false, [], [ "weapon", "artefact" ]),
-			new TradingPartnerVO(10, "Pinewood", [resourceNames.medicine, resourceNames.herbs, resourceNames.rubber], [], true, false, [], [ "artefact", "exploration" ]),
-			new TradingPartnerVO(12, "Highgate", [resourceNames.tools], [resourceNames.metal], true, false, [], [ "clothing_over", "clothing_upper", "clothing_lower", "clothing_hands", "clothing_head" ]),
-			new TradingPartnerVO(14, "Factory 32", [resourceNames.concrete], [resourceNames.metal], true, false, [], [ "exploration" ]),
+			new TradingPartnerVO(3, "骨交叉", [resourceNames.rope], [resourceNames.metal], false, true, [ "weapon" ], [ "weapon", "clothing_over", "clothing_upper", "clothing_lower", "clothing_hands", "clothing_head", "exploration" ]),
+			new TradingPartnerVO(4, "打手镇", [resourceNames.food], [resourceNames.metal], false, true, [], ["exploration", "shoes" ]),
+			new TradingPartnerVO(6, "老水厂", [resourceNames.fuel], [], true, false, [], [ "clothing_over", "clothing_upper", "clothing_lower", "clothing_hands", "clothing_head" ]),
+			new TradingPartnerVO(7, "磨路院", [resourceNames.water, resourceNames.food], [resourceNames.metal], true, false, [], [ "weapon", "artefact" ]),
+			new TradingPartnerVO(10, "青松木", [resourceNames.medicine, resourceNames.herbs, resourceNames.rubber], [], true, false, [], [ "artefact", "exploration" ]),
+			new TradingPartnerVO(12, "海格特", [resourceNames.tools], [resourceNames.metal], true, false, [], [ "clothing_over", "clothing_upper", "clothing_lower", "clothing_hands", "clothing_head" ]),
+			new TradingPartnerVO(14, "32号工厂", [resourceNames.concrete], [resourceNames.metal], true, false, [], [ "exploration" ]),
 		],
 		
 		traderType: {
