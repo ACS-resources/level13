@@ -127,7 +127,7 @@ define(function () {
 				}
 			});
 
-			return result;
+			return result.split(" ").join("");
 		},
 
 		addStyles: function (text) {
@@ -147,61 +147,31 @@ define(function () {
 		},
 		
 		capitalize: function (string) {
-			for (let i = 0; i < string.length; i++) {
-				var c = string.charAt(i);
-				if (c == "[" || c == "]" || c == "(" || c == ")") continue;
-				return string.substr(0, i) + c.toUpperCase() + string.substr(i + 1);
-			}
 			return string;
 		},
 		
 		getArticle: function (s) {
-			return this.language.getIndefiniteArticle(s);
+			return "";
 		},
 		
 		isPlural: function (s) {
-			if (s[s.length - 1] === "s") {
-				if (s[s.length - 1] === "e") return true;
-				// can't tell
-				return null;
-			}
-			return false;
+			return 0;
 		},
 		
 		pluralify: function (s) {
-			let irregular = this.getIrregularPlural(s);
-			if (irregular) return irregular;
-			
-			if (s.endsWith("roach")) {
-				return s + "es";
-			} else if (s[s.length - 1] !== "s") {
-				return s + "s";
-			} else {
-				return s;
-			}
+			return s.split(" ").join("");
 		},
 		
 		depluralify: function (s) {
-			if (s[s.length - 1] === "s") {
-				return s.substr(0, s.length - 1);
-			}
-			
-			return s;
+			return s.split(" ").join("");
 		},
 		
 		addArticle: function (s) {
-			if (this.isPlural(s)) return s;
-			return this.getArticle(s) + " " + s;
+			return s.split(" ").join("");
 		},
 		
 		getIrregularPlural: function (s) {
-			let parts = s.split(" ");
-			let w = parts[parts.length - 1];
-			if (Object.keys(this.irregularPlurals).indexOf(w) >= 0) {
-				parts[parts.length - 1] = this.irregularPlurals[w];
-				return parts.join(" ");
-			}
-			return null;
+			return s.split(" ").join("");
 		}
 		
 	};
