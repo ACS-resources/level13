@@ -12,204 +12,204 @@ define(['ash'], function (Ash) {
 			TUTORIAL_BUILT_TRAP: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a trap. It will catch food.",
+				logMessage: "建造了一个陷阱。它可以用来捕捉食物。",
 				conditions: { improvements: { collector_food: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_BUCKET: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a bucket. It will collect water.",
+				logMessage: "建造了水桶。它可以收集水资源。",
 				conditions: { improvements: { collector_water: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_HUT: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a hut. People will come if they hear about the camp.",
+				logMessage: "建造了棚屋。听说这里有营地后，人们会陆续前来。",
 				conditions: { improvements: { house: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_BEACON: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Beacon is ready. Its pale light paints the surroundings in sharp and fixed lines.",
+				logMessage: "信标已就绪。它那苍白的光芒将周围环境勾勒出锐利而固定的轮廓。",
 				conditions: { improvements: { beacon: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_TOWER_BLOCK: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Repaired an old tower block. It can house several households.",
+				logMessage: "修复了旧塔楼。这里可以容纳多个家庭居住。",
 				conditions: { improvements: { house2: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_GENERATOR: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Set up a generator. It will make life in the camp more comfortable.",
+				logMessage: "发电机已安装。它将为营地生活提供更多便利。",
 				conditions: { improvements: { generator: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_STORAGE: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a storage.",
+				logMessage: "仓库建造完成。",
 				conditions: { improvements: { storage: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_AQUEDUCT: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built an aqueduct.",
+				logMessage: "输水管道建造完成。",
 				conditions: { improvements: { aqueduct: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_STABLE: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a caravan stable. We can now send out traders of our own.",
+				logMessage: "建造了商队马厩。我们现在可以派出自己的贸易队伍了。",
 				conditions: { improvements: { stable: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_BARRACKS: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a barracks. We can now recruit soldiers to defend the camp.",
+				logMessage: "兵营建造完成。现在可以招募士兵来保卫营地了。",
 				conditions: { improvements: { barracks: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_SMITHY: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a smithy.",
+				logMessage: "铁匠铺建造完成。",
 				conditions: { improvements: { smithy: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_APOTHECARY: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built an apothecary.",
+				logMessage: "药剂店建造完成。",
 				conditions: { improvements: { apothecary: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_CEMENT_MILL: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a cement mill for making concrete.",
+				logMessage: "水泥厂建造完成，可以生产混凝土了。",
 				conditions: { improvements: { cementmill: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_ROBOT_FACTORY: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Robot Factory is ready for workers.",
+				logMessage: "机器人工厂已就绪，随时可以投入生产。",
 				conditions: { improvements: { robotFactory: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_ROBOT_RADIO: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a radio tower.",
+				logMessage: "无线电塔建造完成。",
 				conditions: { improvements: { radiotower: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_CAMPFIRE: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a campfire. Here, ideas are shared and discussed.",
+				logMessage: "营火已点燃。这里是分享和讨论想法的聚集地。",
 				conditions: { improvements: { campfire: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_DARKFARM: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a snail farm. It will produce food.",
+				logMessage: "建造了蜗牛农场。这里将稳定产出食物。",
 				conditions: { improvements: { darkfarm: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_HOSPITAL: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a clinic.",
+				logMessage: "医疗诊所建造完成。",
 				conditions: { improvements: { hospital: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_LIBRARY: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a library.",
+				logMessage: "图书馆建造完成。",
 				conditions: { improvements: { library: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_MARKET: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a market.",
+				logMessage: "市场建造完成。",
 				conditions: { improvements: { market: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_INN: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built an inn. Maybe it will attract visitors.",
+				logMessage: "旅店建造完成。或许会吸引外来访客。",
 				conditions: { improvements: { inn: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_SQUARE: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a square. The camp feels more like a town within the City already.",
+				logMessage: "中央广场建造完成。营地已初具城镇规模。",
 				conditions: { improvements: { square: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_SHRINE: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a shrine to the strange powers of the Earth.",
+				logMessage: "为大地之神建造了祭坛。",
 				conditions: { improvements: { shrine: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_GARDEN: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a moss garden. It is a soothing place amid the jagged metal edges of the City.",
+				logMessage: "苔藓花园建造完成。在钢铁都市的棱角之间，这里宛如一片绿洲。",
 				conditions: { improvements: { garden: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_TEMPLE: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a temple. Here, people can explore this new religion together.",
+				logMessage: "神庙建造完成。人们可以在此共同探索新的信仰。",
 				conditions: { improvements: { temple: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_RESEARCH_CENTER: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a research center, rivaling those old ones built by the Surfacers.",
+				logMessage: "研究中心建造完成，其规模可与旧日地表文明相媲美。",
 				conditions: { improvements: { researchcenter: [ 1, 2 ] } }
 			},
 			TUTORIAL_BUILT_TRADEPOST_1: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "The trading post is ready, but we need to build another one to trade with.",
+				logMessage: "贸易站已就绪，但需要再建造一个才能进行贸易。",
 				conditions: { tribe: { improvements: { tradepost: [ 1, 2 ] } } }
 			},
 			TUTORIAL_BUILT_TRADEPOST_2: {
 				triggers: [ "action_build" ],
 				repeats: "NEVER",
-				logMessage: "Built a trading post. Our two camps now share resources and storage.",
+				logMessage: "第二个贸易站建造完成。现在两个营地可以共享资源。",
 				conditions: { tribe: { improvements: { tradepost: [ 2, 3 ] } } }
 			},
 			TUTORIAL_USED_HOSPITAL: {
 				triggers: [ "action_any" ],
 				repeats: "NEVER",
 				delay: 1000,
-				logMessage: "Healed all injuries.",
+				logMessage: "已治愈所有伤患。",
 				conditions: { perkEffects: { "Injury": [ -1, 0 ] } }
 			},
 			TUTORIAL_PRODUCED_ROBOT: {
 				triggers: [ "feature_unlocked", "action_any" ],
 				repeats: "NEVER",
 				delay: 1000,
-				logMessage: "Our first worker robot is ready. It will help inhabitants with their tasks.",
+				logMessage: "首台工作机器人已就绪。它将协助居民完成日常工作。",
 				conditions: { featureUnlocked: { resource_robots: true }, inCamp: true, campInventory: { resource_robots: [ 1, -1 ] } }
 			},
 			TUTORIAL_CAN_MAKE_LIGHT: {
 				triggers: [ "change_inventory" ],
 				repeats: "COOLDOWN",
 				delay: 1500,
-				logMessage: "Collected enough metal to craft a Lantern",
+				logMessage: "已收集足够金属材料，可以制造提灯了",
 				conditions: { maxVision: [-1, 50], actionsAvailable: ["craft_light1"], featureUnlocked: { bag: true } }
 			},
 			TUTORIAL_CAN_BUILD_SHRINE: {
 				triggers: [ "change_inventory", "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "We can now build Shrines to the Spirits",
+				logMessage: "现在可以建造神灵祭坛了",
 				conditions: { inCamp: true, deity: true }
 			},
 			TUTORIAL_CAN_BUILD_TEMPLE: {
 				triggers: [ "change_inventory", "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "We now have enough materials to build a Temple",
+				logMessage: "材料已齐备，可以建造神庙了",
 				conditions: { inCamp: true, actionsAvailable: ["build_in_temple"] }
 			},
 			TUTORIAL_ENCOUNTER_BLOCKER_TYPE_GAP_NO_TECH: {
@@ -217,7 +217,7 @@ define(['ash'], function (Ash) {
 				triggers: [ "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "There is a huge gap here. Need to figure out how to bridge it.",
+				logMessage: "此处有巨大裂缝。需要寻找架桥方法才能通过。",
 				conditions: { sector: { blockers: { 1: true } }, upgrades: { "unlock_building_bridge": false } },
 			},
 			TUTORIAL_ENCOUNTER_BLOCKER_TYPE_GAP_HAS_TECH: {
@@ -225,28 +225,28 @@ define(['ash'], function (Ash) {
 				triggers: [ "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "There is a huge gap here, but workers from the camp can bridge it.",
+				logMessage: "此处有巨大裂缝，但营地工人可以架桥通过。",
 				conditions: { sector: { blockers: { 1: true } }, upgrades: { "unlock_building_bridge": true } },
 			},
 			TUTORIAL_ENCOUNTER_BLOCKER_TYPE_GANG: {
 				triggers: [ "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "There are some pests blocking the way.",
+				logMessage: "有劫掠者挡住了去路。",
 				conditions: { sector: { blockers: { 3: true } } },
 			},
 			TUTORIAL_ENCOUNTER_BLOCKER_TYPE_DEBRIS: {
 				triggers: [ "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "There is too much debris blocking the path. Workers from the camp can clear it.",
+				logMessage: "瓦砾堵塞了道路。营地工人可以前来清理。",
 				conditions: { sector: { blockers: { 4: true } } }
 			},
 			TUTORIAL_ENCOUNTER_BLOCKER_TYPE_EXPLOSIVES: {
 				triggers: [ "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "There are explosives from an old war here, blocking the way. Workers from the camp can clear them.",
+				logMessage: "旧战争遗留的爆炸物阻挡了道路。需要营地工人清理。",
 				conditions: { sector: { blockers: { 7: true } } }
 			},
 			TUTORIAL_ENCOUNTER_BLOCKER_TYPE_WASTE_RADIOACTIVE_NO_TECH: {
@@ -254,7 +254,7 @@ define(['ash'], function (Ash) {
 				triggers: [ "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "There is too much radiactive waste to continue. Need to learn more before you can clear it.",
+				logMessage: "放射性废料堆积如山，需掌握更多技术才能清理。",
 				conditions: { sector: { blockers: { 5: true } }, upgrades: { "unlock_action_clear_waste_r": false } },
 			},
 			TUTORIAL_ENCOUNTER_BLOCKER_TYPE_WASTE_RADIOACTIVE_HAS_TECH: {
@@ -262,7 +262,7 @@ define(['ash'], function (Ash) {
 				triggers: [ "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "There is too much radiactive waste to continue, but it can be cleared.",
+				logMessage: "存在放射性废料，但现有技术已可处理。",
 				conditions: { sector: { blockers: { 5: true } }, upgrades: { "unlock_action_clear_waste_r": true } },
 			},
 			TUTORIAL_ENCOUNTER_BLOCKER_TYPE_WASTE_TOXIC_NO_TECH: {
@@ -270,7 +270,7 @@ define(['ash'], function (Ash) {
 				triggers: [ "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "There is too much toxic waste to continue. Need to figure out how to clean it up.",
+				logMessage: "剧毒废料阻断道路，需研发清理技术。",
 				conditions: { sector: { blockers: { 6: true } }, upgrades: { "unlock_action_clear_waste_t": false } },
 			},
 			TUTORIAL_ENCOUNTER_BLOCKER_TYPE_WASTE_TOXIC_HAS_TECH: {
@@ -278,34 +278,34 @@ define(['ash'], function (Ash) {
 				triggers: [ "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "There is too much toxic waste to continue without cleaning it up first.",
+				logMessage: "剧毒废料区域，必须净化后方可通过。",
 				conditions: { sector: { blockers: { 6: true } }, upgrades: { "unlock_action_clear_waste_t": true } },
 			},
 			TUTORIAL_ENCOUNTER_LEVEL_14_RADIATION: {
 				triggers: [ "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "This area is dangerous. Will require much better equipment to explore.",
+				logMessage: "此区域辐射严重，需要更精良的装备才能探索。",
 				conditions: { sector: { hazards: { radiation: [ 1, -1 ] } }, player: { affectedByHazard: true, position: { level: 14 } } },
 			},
 			TUTORIAL_ENCOUNTER_HAZARD_DEBRIS: {
 				triggers: [ "change_position" ],
 				repeats: "NEVER",
 				delay: 1500,
-				logMessage: "These streets are full of debris, making them difficult to traverse.",
+				logMessage: "街道上遍布瓦砾，行进异常艰难。",
 				conditions: { sector: { hazards: { debris: [ 1, -1 ] } } },
 			},
 			TUTORIAL_ENCOUNTER_SPRING: {
 				triggers: [ "action_scout" ],
 				repeats: "NEVER",
-				logMessage: "There is a reliable source of water here.",
+				logMessage: "此处发现稳定水源。",
 				conditions: { sector: { spring: true } },
 			},
 			TUTORIAL_ENCOUNTER_INGREDIENT_SECTOR: {
 				triggers: [ "action_scout" ],
 				repeats: "NEVER",
 				delay: 500,
-				logMessage: "Seems like the kind of place where you might find crafting ingredients.",
+				logMessage: "这类区域可能藏有制作材料。",
 				conditions: { sector: { scavengeableItems: { count: [ 1, -1 ] } } },
 			},
 			TUTORIAL_ENCOUNTER_SECTOR_ENEMIES: {
