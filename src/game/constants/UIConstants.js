@@ -508,7 +508,7 @@ define(['ash',
 					if (perk.effect > 0) {
 						return "降低探索时遇到负面事件的概率";
 					} else { 
-						return "提高降低探索时遇到负面事件的概率";
+						return "提高探索时遇到负面事件的概率";
 					}
 			}
 
