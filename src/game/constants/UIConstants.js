@@ -42,22 +42,22 @@ define(['ash',
 
 		names: {
 			resources: {
-				stamina: "耐力",
-				resource_metal: "铁",
-				resource_fuel: "燃料",
-				resource_rubber: "橡胶",
-				resource_rope: "绳子",
-				resource_food: "食物",
-				resource_water: "水",
-				resource_concrete: "水泥",
-				resource_herbs: "药草",
-				resource_medicine: "药物",
-				resource_tools: "工具",
-				resource_robots: "机器人",
-				item_exploration_1: "撬锁钳",
-				rumours: "传闻",
-				evidence: "证据",
-				insight: "洞察",
+				stamina: "stamina",
+				resource_metal: "metal",
+				resource_fuel: "fuel",
+				resource_rubber: "rubber",
+				resource_rope: "rope",
+				resource_food: "food",
+				resource_water: "water",
+				resource_concrete: "concrete",
+				resource_herbs: "herbs",
+				resource_medicine: "medicine",
+				resource_tools: "tools",
+				resource_robots: "robots",
+				item_exploration_1: "lock pick",
+				rumours: "rumours",
+				evidence: "evidence",
+				insight: "insight",
 			}
 		},
 		
@@ -139,12 +139,12 @@ define(['ash',
 			var weight = BagConstants.getItemCapacity(item);
 			let itemName = ItemConstants.getItemDisplayName(item);
 			var itemCalloutContent = "<b>" + itemName + "</b><br/>Type: " + ItemConstants.getItemTypeDisplayName(item.type, false) + " " + detail;
-			itemCalloutContent += "</br>Weight: " + weight;
+			itemCalloutContent += "</br>重量: " + weight;
 			if (ItemConstants.hasItemTypeQualityLevels(item.type)) {
 				let quality = ItemConstants.getItemQuality(item);
-				itemCalloutContent += "</br>Quality: " + ItemConstants.getQualityDisplayName(quality);
+				itemCalloutContent += "</br>质量: " + ItemConstants.getQualityDisplayName(quality);
 			}
-			if (item.broken) itemCalloutContent += "<br><span class='warning'>Broken</span>";
+			if (item.broken) itemCalloutContent += "<br><span class='warning'>损坏</span>";
 			itemCalloutContent += "</br>" + ItemConstants.getItemDescription(item);
 			if (smallCallout) itemCalloutContent = itemName + (detail.length > 0 ? " " + detail : "");
 			
@@ -473,9 +473,9 @@ define(['ash',
 			if (perk.removeTimer >= 0) {
 				var factor = PerkConstants.getRemoveTimeFactor(perk, isResting);
 				var timeleft = perk.removeTimer / factor;
-				return "time left: " + this.getTimeToNum(timeleft);
+				return "剩余时间: " + this.getTimeToNum(timeleft);
 			} else if (perk.startTimer >= 0) {
-				return "time to full: " + this.getTimeToNum(perk.startTimer);
+				return "充满时间: " + this.getTimeToNum(perk.startTimer);
 			} else {
 				return null;
 			}
@@ -525,7 +525,7 @@ define(['ash',
 					result += "<span class='action-cost action-cost-" + key + "'>" + name + ": <span class='action-cost-value'>" + UIConstants.getDisplayValue(value) + "</span><br/></span>";
 				}
 			} else if (this.isActionFreeCostShown(action)) {
-				result += "<span class='action-cost p-meta'>free</span><br />";
+				result += "<span class='action-cost p-meta'>无消耗</span><br />";
 			}
 			return result;
 		},
@@ -663,11 +663,11 @@ define(['ash',
 				
 				if (showDetails) {
 					if (change > 0 && (storage - value > 0)) {
-						$indicator.children(".forecast").text("(" + this.getTimeToNum((storage - value) / change) + " to cap)");
+						$indicator.children(".forecast").text("(" + this.getTimeToNum((storage - value) / change) + "充满)");
 					} else if (change < 0 && value > 0) {
-						$indicator.children(".forecast").text("(" + this.getTimeToNum(value / change) + " to 0)");
+						$indicator.children(".forecast").text("(" + this.getTimeToNum(value / change) + "清空)");
 					} else if (value >= storage) {
-						$indicator.children(".forecast").text("(full)");
+						$indicator.children(".forecast").text("(已满)");
 					} else {
 						$indicator.children(".forecast").text("");
 					}
@@ -775,25 +775,25 @@ define(['ash',
 				html += "<br/>";
 			};
 			
-			addValue("Base reputation", baseReputation);
+			addValue("基础知名度", baseReputation);
 			
-			addValue("Max evidence", milestone.maxEvidence);
-			addValue("Max rumours", milestone.maxRumours);
+			addValue("证据最大容量", milestone.maxEvidence);
+			addValue("传闻最大容量", milestone.maxRumours);
 			
 			if (milestone.maxHope && hasDeity) {
-				addValue("Max hope", milestone.maxHope);
+				addValue("希望最大容量", milestone.maxHope);
 			}
 			
 			if (milestone.maxInsight && hasInvestigate) {
-				addValue("Max insight", milestone.maxInsight);
+				addValue("洞察最大容量", milestone.maxInsight);
 			}
 			
 			if (isNew) {
 				addGroup("", milestone.unlockedFeatures, UIConstants.getUnlockedFeatureDisplayName);
-				addGroup("New events", milestone.unlockedEvents);
+				addGroup("新事件", milestone.unlockedEvents);
 				
 				let unlockedUpgrades = GameGlobals.milestoneEffectsHelper.getUnlockedUpgrades(milestone.index);
-				addGroup("Unlocked upgrades", unlockedUpgrades, (upgradeID) => {
+				addGroup("解锁升级", unlockedUpgrades, (upgradeID) => {
 					let upgrade = UpgradeConstants.upgradeDefinitions[upgradeID];
 					let name = Text.t(UpgradeConstants.getDisplayNameTextKey(upgradeID));
 					let isOtherRequirementsMet = GameGlobals.playerActionsHelper.isRequirementsMet(upgradeID, null, [ PlayerActionConstants.DISABLED_REASON_MILESTONE ]);
@@ -816,13 +816,13 @@ define(['ash',
 			var days = hours / 24;
 
 			if (days > 2) {
-				return Math.floor(days) + "days";
+				return Math.floor(days) + "天";
 			} else if (hours > 2) {
-				return Math.floor(hours) + "h";
+				return Math.floor(hours) + "小时";
 			} else if (minutes > 2) {
-				return Math.floor(minutes) + "min";
+				return Math.floor(minutes) + "分";
 			} else {
-				return Math.round(seconds) + "s";
+				return Math.round(seconds) + "秒";
 			}
 		},
 
@@ -831,32 +831,32 @@ define(['ash',
 
 			var interval = Math.floor(seconds / 31536000);
 			if (interval > 1) {
-				return interval + " years";
+				return interval + " 年";
 			}
 			interval = Math.floor(seconds / 2592000);
 			if (interval > 1) {
-				return interval + " months";
+				return interval + " 月";
 			}
 			interval = Math.floor(seconds / 86400);
 			if (interval > 1) {
-				return interval + " days";
+				return interval + " 日";
 			}
 			interval = Math.floor(seconds / 3600);
 			if (interval > 1) {
-				return interval + " hours";
+				return interval + " 小时";
 			}
 			interval = Math.floor(seconds / 60);
 			if (interval > 1) {
-				return interval + " minutes";
+				return interval + " 分";
 			}
 			if (interval === 1) {
-				return interval + " minute";
+				return interval + " 分";
 			}
 			if (seconds < 10) {
-				return "a few seconds";
+				return "几秒内";
 			}
 
-			return "less than a minute";
+			return "一分钟内";
 		},
 
 		getInGameDate: function (gameTime) {
@@ -889,7 +889,7 @@ define(['ash',
 		},
 
 		getCampDisplayName: function (campNode, short) {
-			return "camp on level " + campNode.position.level;
+			return "在" + campNode.position.level + "层的营地";
 		},
 
 		getCostDisplayName: function (name) {
