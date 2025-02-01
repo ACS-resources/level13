@@ -393,7 +393,7 @@ define([
 			
 			if (isScouted) {
 				if (sectorStatus.graffiti) {
-					description += "There is a graffiti here: " + sectorStatus.graffiti;
+					description += "这里有片涂鸦: " + sectorStatus.graffiti;
 					description += "</p><p>";
 				}
 			}
@@ -408,21 +408,21 @@ define([
 			
 			// sector static description
 			var features = GameGlobals.sectorHelper.getTextFeatures(sector);
-			var desc = TextConstants.getSectorDescription(hasVision, features) + ". ";
+			var desc = TextConstants.getSectorDescription(hasVision, features).split(" ").join("") + ". ";
 
 			// light / darkness description
 			if (featuresComponent.sunlit) {
-				if (hasVision) desc += "The area is swathed in relentless <span class='hl-functionality'>daylight</span>. ";
-				else desc += "The area is swathed in blinding <span class='hl-functionality'>sunlight</span>. ";
+				if (hasVision) desc += "<span class='hl-functionality'>阳光</span>洒满了这里. ";
+				else desc += "<span class='hl-functionality'>sunlight</span>有些刺眼. ";
 			} else {
 				if (sectorStatus.glowStickSeconds > -5) {
 					if (sectorStatus.glowStickSeconds < 5)
-						desc += "The glowstick fades out.";
+						desc += "荧光棒渐渐熄灭";
 					else
-						desc += "A glowstick casts a sickly <span class='hl-functionality'>light</span>.";
+						desc += "荧光棒发出暗淡的<span class='hl-functionality'>光</span>. ";
 				} else {
 					if (hasVision) desc += "";
-					else desc += "There is no <span class='hl-functionality'>light</span>. ";
+					else desc += "这里没有<span class='hl-functionality'>光照</span>. ";
 				}
 			}
 			
@@ -433,7 +433,7 @@ define([
 					if (locale.type == localeTypes.tradingpartner) {
 						var partner = TradeConstants.getTradePartner(campOrdinal);
 						if (partner) {
-							desc += "<span class='hl-functionality'>" + partner.name + "</span> is located here. ";
+							desc += "<span class='hl-functionality'>" + partner.name + "</span>的营地在这里. ";
 						}
 					}
 				}
@@ -455,7 +455,7 @@ define([
 			var description = "";
 
 			if (isScouted && featuresComponent.hasSpring) {
-				description += "There is a <span class='hl-functionality'>" + TextConstants.getSpringName(featuresComponent) + "</span> here. ";
+				description += "这里有个<span class='hl-functionality'>" + TextConstants.getSpringName(featuresComponent) + "</span>. ";
 			}
 
 			if (isScouted) {
@@ -463,15 +463,15 @@ define([
 				let canTrap = featuresComponent.resourcesCollectable.food > 0;
 				
 				if (canBucket && canTrap) {
-					description += "Both <span class='hl-functionality'>water</span> and <span class='hl-functionality'>food</span> can be collected here. ";
+					description += "这里可以收集<span class='hl-functionality'>水</span>和<span class='hl-functionality'>食物</span>. ";
 				} else if (canBucket) {
 					if (featuresComponent.sunlit) {
-						description += "It looks like <span class='hl-functionality'>rainwater</span> could be collected here. ";
+						description += "这里看上去可以收集<span class='hl-functionality'>雨水</span>. ";
 					} else {
-						description += "There is a bit of <span class='hl-functionality'>water</span> leaking here that could be collected. ";
+						description += "可以收集一点漏下的<span class='hl-functionality'>水</span>. ";
 					}
 				} else if (canTrap) {
-					description += "It might be worthwhile to install <span class='hl-functionality'>traps</span> here. ";
+					description += "这里或许值得搭一个<span class='hl-functionality'>陷阱</span>. ";
 				}
 
 				if (featuresComponent.heapResource) {
@@ -481,9 +481,9 @@ define([
 						"</span>";
 					let resourceDisplayName = TextConstants.getResourceDisplayName(featuresComponent.heapResource);
 					if (sectorStatus.getHeapScavengedPercent() >= 100) {
-						description += "There is " + heapDisplayName + ", but it has been picked clean. ";
+						description += "这里有个" + heapDisplayName + ", 不过已经被清空了. ";
 					} else {
-						description += "There is " + heapDisplayName + ", which can be scavenged for " + resourceDisplayName + ". ";
+						description += "这里有个" + heapDisplayName + ", 可以到里面收集" + resourceDisplayName + ". ";
 					}
 				}
 			}
@@ -491,10 +491,10 @@ define([
 			if (hasCampHere) {
 				let campOrdinal = GameGlobals.gameState.getCampOrdinal(position.level);
 				let isOutpost = GameGlobals.campBalancingHelper.isOutpost(campOrdinal);
-				let campTerm = "camp";
-				if (isOutpost) campTerm = "small camp";
+				let campTerm = "营地";
+				if (isOutpost) campTerm = "小型营地";
 
-				description += "There is a <span class='hl-functionality'>" + campTerm + "</span> here. ";
+				description += "这里有个<span class='hl-functionality'>" + campTerm + "</span>. ";
 			}
 
 			if (isScouted && featuresComponent.examineSpots.length > 0) {
@@ -502,28 +502,28 @@ define([
 					let spotID = featuresComponent.examineSpots[i];
 					let spotDef = StoryConstants.getSectorExampineSpot(spotID);
 					if (!spotDef) continue;
-					description += "There is a " + spotDef.name + " here. ";
+					description += "这里有个" + spotDef.name + ". ";
 				}
 			}
 
 			if (isScouted && workshopComponent && workshopComponent.isClearable) {
 				var workshopName = TextConstants.getWorkshopName(workshopComponent.resource);
 				var workshopControl = sectorControlComponent.hasControlOfLocale(LocaleConstants.LOCALE_ID_WORKSHOP);
-				var workshopStatus = workshopControl ? "cleared for use" : "not cleared";
-				description += "There is <span class='hl-functionality'>" + Text.addArticle(workshopName) + "</span> here (" + workshopStatus + "). ";
+				var workshopStatus = workshopControl ? "已清理" : "未清理";
+				description += "这里有个<span class='hl-functionality'>" + Text.addArticle(workshopName) + "</span> (" + workshopStatus + "). ";
 			}
 
 			if (isScouted && improvements.getCount(improvementNames.greenhouse) > 0) {
-				description += "There is a <span class='hl-functionality'>greenhouse</span> here. ";
+				description += "这里有个<span class='hl-functionality'>温室</span>. ";
 			}
 			
 			let luxuryResource = GameGlobals.sectorHelper.getLuxuryResourceOnSector(this.playerLocationNodes.head.entity, true);
 			if (isScouted && luxuryResource) {
-				description += "There is a source of <span class='hl-functionality'>" + TribeConstants.getLuxuryDisplayName(luxuryResource) + "</span> here. ";
+				description += "这里是<span class='hl-functionality'>" + TribeConstants.getLuxuryDisplayName(luxuryResource) + "</span>的来源. ";
 			}
 			
 			if (isScouted && GameGlobals.levelHelper.isFirstScoutedSectorWithFeatureOnLevel(this.playerLocationNodes.head.entity, "hasTradeConnectorSpot")) {
-				description += "There is space here for a bigger building project. ";
+				description += "可以在这里建一个大型工程";
 			}
 
 			return description;
@@ -554,7 +554,7 @@ define([
 			// Camp
 			if (isScouted && hasVision && !hasCampHere && !hasCampOnLevel) {
 				if (featuresComponent.canHaveCamp() && !hasEnemies && !passagesComponent.passageUp && !passagesComponent.passageDown)
-					description += "This would be a good place for a <span class='hl-functionality'>camp</span>. ";
+					description += "这里适合建一个<span class='hl-functionality'>营地</span>. ";
 			}
 
 			return description;
@@ -647,26 +647,26 @@ define([
 							case MovementConstants.BLOCKER_TYPE_DEBRIS:
 							case MovementConstants.BLOCKER_TYPE_WASTE_TOXIC:
 							case MovementConstants.BLOCKER_TYPE_WASTE_RADIOACTIVE:
-								description += "Passage to the " + directionName + " is blocked by <span class='hl-functionality'>" + blockerName + "</span>. ";
+								description += "向" + directionName + "的通道被<span class='hl-functionality'>" + blockerName + "</span>堵住. ";
 								break;
 							default:
-								description += "Passage to the " + directionName + " is blocked by a <span class='hl-functionality'>" + blockerName + "</span>. ";
+								description += "向" + directionName + "的通道被<span class='hl-functionality'>" + blockerName + "</span>堵住. ";
 								break;
 						}
 					} else {
 						var gang = GameGlobals.levelHelper.getGang(position, direction);
 						if (blocker.type == MovementConstants.BLOCKER_TYPE_DEBRIS) {
-							description += "Debris to the " + directionName + " has been cleared away. ";
+							description += "堵住" + directionName + "方向通路的残骸被清除了. ";
 						} else if (blocker.type == MovementConstants.BLOCKED_TYPE_EXPLOSIVES) {
-							description += "Old explosives to the " + directionName + " have been cleared away. ";
+							description += "堆积在" + directionName + "的爆炸物被清除了. ";
 						} else if (blocker.type == MovementConstants.BLOCKER_TYPE_GANG) {
 							if (gang) {
-								description += "A " + blockerName + " to the " + directionName + " has been " + TextConstants.getUnblockedVerb(blocker.type) + ". ";
+								description += directionName + "方向的" + blockerName + "已经被" + TextConstants.getUnblockedVerb(blocker.type) + ". ";
 							} else {
 								log.w("gang blocker but no gang component at " + position, this);
 							}
 						} else {
-							description += "A " + blockerName + " to the " + directionName + " has been " + TextConstants.getUnblockedVerb(blocker.type) + ". ";
+							description += directionName + "方向的" + blockerName + "已经被" + TextConstants.getUnblockedVerb(blocker.type) + ". ";
 						}
 					}
 				}
@@ -699,27 +699,27 @@ define([
 					switch (featuresComponent.notCampableReason) {
 						case LevelConstants.UNCAMPABLE_LEVEL_TYPE_RADIATION:
 							if (inhabited && featuresComponent.wear < 6)
-								notCampableDesc = "Many entrances have big yellow warning signs on them, with the text 'KEEP OUT' and a <span class='hl-functionality'>radiation</span> sign. ";
+								notCampableDesc = "许多入口挂着显眼的黄色示警标志, 上面写着\"请勿靠近\", 还有<span class='hl-functionality'>辐射</span>图标. ";
 							else if (inhabited && featuresComponent.buildingDensity > 5)
-								notCampableDesc = "Walls are covered in graffiti warning about <span class='hl-functionality'>radiation</span>. ";
+								notCampableDesc = "墙壁上涂满了警示<span class='hl-functionality'>辐射</span>的涂鸦. ";
 							else
-								notCampableDesc = "There is an eerie air as if the place has been <span class='hl-functionality'>abandoned</span> in a hurry. ";
+								notCampableDesc = "古怪的气氛让人不禁推测这里之前被突然<span class='hl-functionality'>荒废</span>了. ";
 							break;
 
 						case LevelConstants.UNCAMPABLE_LEVEL_TYPE_POLLUTION:
 							if (inhabited && featuresComponent.wear < 6)
-								notCampableDesc = "Many entrances have big red warning signs on them with a <span class='hl-functionality'>skull sign</span> and the text 'KEEP OUT'. ";
+								notCampableDesc = "许多入口挂着大红色的<span class='hl-functionality'>骷髅头</span>警示标志, 上面写着\"请勿靠近\". ";
 							else if (inhabited && featuresComponent.buildingDensity > 5)
-								notCampableDesc = "Walls are covered in graffiti warning about some kind of <span class='hl-functionality'>pollution</span>. ";
+								notCampableDesc = "墙壁上涂满了某种警示<span class='hl-functionality'>污染</span>的涂鸦. ";
 							else
-								notCampableDesc = "A <span class='hl-functionality'>noxious smell</span> hangs in the air. ";
+								notCampableDesc = "一股<span class='hl-functionality'>刺鼻的气味</span>在空中飘荡. ";
 							break;
 
 						case LevelConstants.UNCAMPABLE_LEVEL_TYPE_SUPERSTITION:
 							if (inhabited)
-								notCampableDesc = "There aren't any signs of recent human <span class='hl-functionality'>habitation</span>. ";
+								notCampableDesc = "这里没有近期<span class='hl-functionality'>人类活动</span>的迹象. ";
 							else
-								notCampableDesc = "An unnerving <span class='hl-functionality'>silence</span> blankets the streets. ";
+								notCampableDesc = "令人不安的<span class='hl-functionality'>死寂</span>笼罩在街道上空. ";
 							break;
 					}
 				}
@@ -730,20 +730,20 @@ define([
 			var hazardDesc = "";
 			if (hasHazards) {
 				if (hazards.radiation > 0) {
-					hazardDesc += "This place is <span class='hl-functionality'>radioactive</span> (" + hazards.radiation + "). ";
+					hazardDesc += "这里有<span class='hl-functionality'>辐射</span> (" + hazards.radiation + "). ";
 				}
 				if (hazards.poison > 0) {
-					hazardDesc += "This place is dangerously <span class='hl-functionality'>polluted</span> (" + hazards.poison + "). ";
+					hazardDesc += "这里被严重<span class='hl-functionality'>污染</span> (" + hazards.poison + "). ";
 				}
 				if (hazards.cold > 0) {
-					let coldAdjective = hazards.cold < 20 ? "quite" : hazards.cold < 50 ? "very" : "extremely";
-					hazardDesc += "It's " + coldAdjective + " <span class='hl-functionality'>cold</span> here (" + hazards.cold + "). ";
+					let coldAdjective = hazards.cold < 20 ? "有点" : hazards.cold < 50 ? "非常" : "极其";
+					hazardDesc += "这里" + coldAdjective + "<span class='hl-functionality'>冷</span> (" + hazards.cold + "). ";
 				}
 				if (hazards.flooded > 0) {
-					hazardDesc += "This place is <span class='hl-functionality'>flooded</span>. ";
+					hazardDesc += "这里被<span class='hl-functionality'>淹没</span>了. ";
 				}
 				if (hazards.debris > 0) {
-					hazardDesc += "It difficult to move around here due to the amount of <span class='hl-functionality'>debris</span>.";
+					hazardDesc += "这里的<span class='hl-functionality'>残骸</span>太多, 难以移动.";
 				}
 			}
 
@@ -860,14 +860,14 @@ define([
 				if (locale.type == localeTypes.tradingpartner) {
 					let partner = TradeConstants.getTradePartner(data.campOrdinal);
 					if (partner) {
-						info += "Already scouted (" + partner.name + ")";
+						info += "已探索 (" + partner.name + ")";
 					} else {
-						info += "Already scouted";
+						info += "已探索";
 					}
 				} else if (locale.luxuryResource != null) {
-					info += "Already scouted (" + TribeConstants.getLuxuryDisplayName(locale.luxuryResource) + ")";
+					info += "已探索 (" + TribeConstants.getLuxuryDisplayName(locale.luxuryResource) + ")";
 				} else {
-					info += "Already scouted";
+					info += "已探索";
 				}
 			}
 			li.$info.html(info);
