@@ -186,7 +186,7 @@ define(['ash', 'text/Text', 'game/constants/TextConstants', 'game/constants/Item
 		getMergedMsgText: function (mergedId) {
 			switch (mergedId) {
 				case "SCAVENGE-SCOUT-SCOUT":
-					return "Continued exploring.";
+					return "继续探索. ";
 
 				default:
 					log.w("text not defined for merged log message: " + mergedId);
@@ -196,17 +196,17 @@ define(['ash', 'text/Text', 'game/constants/TextConstants', 'game/constants/Item
 
 		getLostItemMessage: function (resultVO) {
 			var template = TextConstants.getLogItemsText(resultVO.lostItems);
-			template.msg = "Lost " + template.msg + ". ";
+			template.msg = "丢失了" + template.msg + ". ";
 
 			var intros = [];
 			switch (resultVO.action) {
 				default:
-					intros.push("Nearly fell into an unexpected crack in the street");
-					intros.push("Fell through a rotten floor");
-					intros.push("Dropped an item while climbing a fence");
-					intros.push("Stumbled on some wrecked pipes");
-					intros.push("Left a bag pocket open and some items fell out");
-					intros.push("Got spooked of the shadows and ran, leaving some items behind");
+					intros.push("差点掉进一个街上的裂缝里面");
+					intros.push("从烂地板里掉了下去");
+					intros.push("翻栅栏的时候掉了一个东西");
+					intros.push("在一些废管子上绊倒了");
+					intros.push("口袋开了, 一些东西掉了出去");
+					intros.push("被一些影子吓跑了, 一些东西也掉了");
 					break;
 			}
 			var intro = intros[Math.floor(Math.random() * intros.length)];
@@ -218,16 +218,16 @@ define(['ash', 'text/Text', 'game/constants/TextConstants', 'game/constants/Item
 
 		getBrokeItemMessage: function (resultVO) {
 			var template = TextConstants.getLogItemsText(resultVO.brokenItems);
-			template.msg = "Broke " + template.msg + ". ";
+			template.msg = "弄坏了" + template.msg + ". ";
 
 			var intros = [];
 			switch (resultVO.action) {
 				default:
-					intros.push("Nearly fell into an unexpected crack in the street");
-					intros.push("Fell through a rotten floor");
-					intros.push("Dropped an item while climbing a fence");
-					intros.push("Stumbled on some wrecked pipes");
-					intros.push("Fell while climbing");
+					intros.push("差点掉进一个街上的裂缝里面");
+					intros.push("从烂地板里掉了下去");
+					intros.push("翻栅栏的时候掉了一个东西");
+					intros.push("在一些废管子上绊倒了");
+					intros.push("攀爬时掉了下来");
 					break;
 			}
 			var intro = intros[Math.floor(Math.random() * intros.length)];
@@ -238,7 +238,7 @@ define(['ash', 'text/Text', 'game/constants/TextConstants', 'game/constants/Item
 		},
 
 		getLostPerksMessage: function (resultVO) {
-			return "Lost an augmentation.";
+			return "丢失了强化.";
 		},
 
 		getDespairMessage: function (despairType) {
@@ -255,7 +255,7 @@ define(['ash', 'text/Text', 'game/constants/TextConstants', 'game/constants/Item
 				return null;
 			}
 			if (despairType == MovementConstants.DESPAIR_TYPE_MOVEMENT) {
-				return "There is nowhere to go.";
+				return "无处可去了.";
 			}
 
 			return null;
@@ -263,14 +263,14 @@ define(['ash', 'text/Text', 'game/constants/TextConstants', 'game/constants/Item
 
 		getCantMoveMessage: function (despairType) {		
 			if (despairType == MovementConstants.DESPAIR_TYPE_STAMINA) {
-				return "Too tired to go on.";
+				return "走不动了.";
 			}
 
 			if (despairType == MovementConstants.DESPAIR_TYPE_THIRST) {
-				return "Can't go any further without water.";
+				return "没水了, 走不了了.";
 			}
 			if (despairType == MovementConstants.DESPAIR_TYPE_HUNGRER) {
-				return "Can't go any further without food.";
+				return "没食物了, 走不了了.";
 			}
 
 			return null;
@@ -280,11 +280,11 @@ define(['ash', 'text/Text', 'game/constants/TextConstants', 'game/constants/Item
 			var itemDetails = "";
 			switch (itemVO.id) {
 				case ItemConstants.itemDefinitions.light[0].id:
-					itemDetails = " Light will make scavenging safer.";
+					itemDetails = "光会让拾荒更加安全.";
 					break;
 			}
 			let itemName = ItemConstants.getItemDisplayName(itemVO);
-			return "Made " + Text.addArticle(itemName).toLowerCase() + "." + itemDetails;
+			return "合成了" + Text.addArticle(itemName).toLowerCase() + "." + itemDetails;
 		},
 
 	}
