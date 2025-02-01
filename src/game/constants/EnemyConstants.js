@@ -22,7 +22,7 @@ function (Ash, EnemyVO, PerkConstants) {
 		    },
 		    bird: {
 			nouns: ["城市害鸟", "鸟群", "动物", "具有攻击性的动物", "敌对生物" ],
-			groupNouns: ["群", "群", "帮", "团"],
+			groupNouns: ["群", "伙", "帮", "团"],
 			verbsActive: ["遍布", "滋生", "占据", "守卫"],
 			verbsDefeated: ["被消灭", "被清除", "被驱逐"],
 		    },
@@ -52,7 +52,7 @@ function (Ash, EnemyVO, PerkConstants) {
 		    },
 		    small_animal: {
 			nouns: ["城市害兽", "具有攻击性的动物", "野生动物", "动物", "敌对生物"],
-			groupNouns: ["群", "群", "团", "群", "群"],
+			groupNouns: ["伙", "帮", "团", "群", "些"],
 			verbsActive: ["滋生", "遍布" ],
 			verbsDefeated: ["被消灭", "被清除"],
 		    },
