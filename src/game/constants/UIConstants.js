@@ -166,20 +166,20 @@ define(['ash',
 
 				if (bagOptions.canRepair) {
 					var action = "repair_item_" + item.itemID;
-					options += makeButton(action, "Repair");
+					options += makeButton(action, "修复");
 				}
 
 				if (bagOptions.canEquip) {
 					var action = "equip_" + item.itemID;
-					options += makeButton(action, "Equip");
+					options += makeButton(action, "装备");
 				} else if (bagOptions.canUnequip) {
 					var action = "unequip_" + item.id;
-					options += makeButton(action, "Unequip");
+					options += makeButton(action, "取下");
 				}
 
 				if (bagOptions.canDiscard) {
 					var action = "discard_" + item.id;
-					options += makeButton(action, "Discard");
+					options += makeButton(action, "丢弃");
 				}
 
 				options += "</div>";
@@ -232,10 +232,10 @@ define(['ash',
 			let explorerType = ExplorerConstants.getExplorerTypeForAbilityType(explorer.abilityType);
 			let result = "<b>" + explorer.name + "</b>";
 			if (isRecruited) {
-				result += "<br/>In party: " + (explorer.inParty ? "yes" : "no");
+				result += "<br/>状态: " + (explorer.inParty ? "处于小队" : "不在队内");
 			}
-			result += "<br/>Type: " + ExplorerConstants.getExplorerTypeDisplayName(explorerType);
-			result += "<br/>Ability: " + ExplorerConstants.getAbilityTypeDisplayName(explorer.abilityType)
+			result += "<br/>类型: " + ExplorerConstants.getExplorerTypeDisplayName(explorerType);
+			result += "<br/>技能: " + ExplorerConstants.getAbilityTypeDisplayName(explorer.abilityType)
 				+ " (" + UIConstants.getExplorerAbilityDescription(explorer) + ")";
 			
 			if (isRecruited && isInCamp) {
@@ -244,11 +244,11 @@ define(['ash',
 				};
 
 				var options = "<div class='item-bag-options'>";
-				options += makeButton("dismiss_explorer_" + explorer.id, "Dismiss");
+				options += makeButton("dismiss_explorer_" + explorer.id, "遣散");
 				if (!explorer.inParty) {
-					options += makeButton("select_explorer_" + explorer.id, "Add to party");
+					options += makeButton("select_explorer_" + explorer.id, "加入小队");
 				} else {
-					options += makeButton("deselect_explorer_" + explorer.id, "Switch out");
+					options += makeButton("deselect_explorer_" + explorer.id, "退出小队");
 				}
 				options += "</div>";
 				result += options;
@@ -263,34 +263,34 @@ define(['ash',
 				case ExplorerConstants.abilityType.DEFENCE:
 					let att = ExplorerConstants.getExplorerItemBonus(explorer, ItemConstants.itemBonusTypes.fight_att);
 					let def = ExplorerConstants.getExplorerItemBonus(explorer, ItemConstants.itemBonusTypes.fight_def);
-					return "attack +" + att + ", defence +" + def;
+					return "攻击 +" + att + ", 防御 +" + def;
 				case ExplorerConstants.abilityType.COST_MOVEMENT:
 					let movementCostReduction = ExplorerConstants.getExplorerItemBonus(explorer, ItemConstants.itemBonusTypes.movement);
-					return "movement cost -" + UIConstants.getMultiplierBonusDisplayValue(movementCostReduction);
+					return "移速 -" + UIConstants.getMultiplierBonusDisplayValue(movementCostReduction);
 				case ExplorerConstants.abilityType.COST_SCAVENGE:
 					let scavengeCostReduction = ExplorerConstants.getExplorerItemBonus(explorer, ItemConstants.itemBonusTypes.scavenge_cost);
-					return "scavenge cost -" + UIConstants.getMultiplierBonusDisplayValue(scavengeCostReduction);
+					return "拾荒消耗 -" + UIConstants.getMultiplierBonusDisplayValue(scavengeCostReduction);
 				case ExplorerConstants.abilityType.COST_SCOUT:
 					let scoutCostReduction = ExplorerConstants.getExplorerItemBonus(explorer, ItemConstants.itemBonusTypes.scout_cost);
-					return "scout cost -" + UIConstants.getMultiplierBonusDisplayValue(scoutCostReduction);
+					return "探索消耗 -" + UIConstants.getMultiplierBonusDisplayValue(scoutCostReduction);
 				case ExplorerConstants.abilityType.DETECT_HAZARDS:
-					return "foresee hazards in unvisited sectors";
+					return "预知未探索区域的自然危害";
 				case ExplorerConstants.abilityType.DETECT_SUPPLIES:
-					return "foresee supplies found in current and neighbouring sectors";
+					return "预知本区域和相邻区域的补给类型";
 				case ExplorerConstants.abilityType.DETECT_INGREDIENTS:
-					return "foresee crafting ingredients found in current and neighbouring sectors";
+					return "预知本区域和相邻区域可以找到的合成材料";
 				case ExplorerConstants.abilityType.SCAVENGE_GENERAL:
 					let scaBonus = ExplorerConstants.getExplorerItemBonus(explorer, ItemConstants.itemBonusTypes.scavenge_general);
-					return "+" + UIConstants.getMultiplierBonusDisplayValue(scaBonus) + " chance for extra loot when scavenging";
+					return "+" + UIConstants.getMultiplierBonusDisplayValue(scaBonus) + " 概率找到额外战利品";
 				case ExplorerConstants.abilityType.SCAVENGE_INGREDIENTS:
 					let ingredientBonus = ExplorerConstants.getExplorerItemBonus(explorer, ItemConstants.itemBonusTypes.scavenge_ingredients);
-					return "+" + UIConstants.getMultiplierBonusDisplayValue(ingredientBonus) + " chance to find ingredients when scavenging";
+					return "+" + UIConstants.getMultiplierBonusDisplayValue(ingredientBonus) + " 概率在拾荒时找到合成材料";
 				case ExplorerConstants.abilityType.SCAVENGE_SUPPLIES:
 					let suppliesBonus = ExplorerConstants.getExplorerItemBonus(explorer, ItemConstants.itemBonusTypes.scavenge_supplies);
-					return "+" + UIConstants.getMultiplierBonusDisplayValue(suppliesBonus) + " chance to find more supplies when scavenging";
+					return "+" + UIConstants.getMultiplierBonusDisplayValue(suppliesBonus) + " 概率在拾荒时找到更多补给品";
 				case ExplorerConstants.abilityType.SCAVENGE_CAPACITY:
 					let capacityBonus = ExplorerConstants.getExplorerItemBonus(explorer, ItemConstants.itemBonusTypes.bag);
-					return "+" + capacityBonus + " carry capacity";
+					return "+" + capacityBonus + " 背包容量";
 				default:
 					log.w("no display name defined for abilityType: " + explorer.abilityType);
 					return explorer.abilityType;
@@ -301,9 +301,9 @@ define(['ash',
 			visitor = visitor || { id: "temp" };
 			let classes = "item";
 			let div = "<div class='" + classes + "' data-visitorid='" + visitor.id + "'>";
-			let calloutContent = "Visitor";//this.getNPCCallout(explorer, isRecruited, isInCamp);
+			let calloutContent = "访问者";//this.getNPCCallout(explorer, isRecruited, isInCamp);
 			let icon = "img/explorers/follower_yellow_m.png";
-			let name = "Visitor";
+			let name = "访问者";
 			
 			div += "<div class='info-callout-target info-callout-target-small' description='" + this.cleanupText(calloutContent) + "'>";
 			div += "<img src='" + icon + "' alt='" + name + "'/>";
@@ -362,7 +362,7 @@ define(['ash',
 
 		getBlueprintPieceLI: function (upgradeID) {
 			let name = Text.t(UpgradeConstants.getDisplayNameTextKey(upgradeID));
-			return "<li><div class='info-callout-target' description='Blueprint (" + name + ")'>" + this.getBlueprintPieceIcon(upgradeID) + " blueprint</li>";
+			return "<li><div class='info-callout-target' description='蓝图 (" + name + ")'>" + this.getBlueprintPieceIcon(upgradeID) + " 蓝图</li>";
 		},
 
 		getResourceList: function (resourceVO) {
@@ -409,26 +409,26 @@ define(['ash',
 
 		getItemBonusName: function (bonusType, short) {
 			switch (bonusType) {
-				case ItemConstants.itemBonusTypes.light: return "max vision";
-				case ItemConstants.itemBonusTypes.fight_att: return "attack";
-				case ItemConstants.itemBonusTypes.fight_def: return "defence";
-				case ItemConstants.itemBonusTypes.fight_shield: return "shield";
-				case ItemConstants.itemBonusTypes.fight_speed: return "attack speed";
-				case ItemConstants.itemBonusTypes.movement: return "movement cost";
-				case ItemConstants.itemBonusTypes.scavenge_cost: return "scavenge cost";
-				case ItemConstants.itemBonusTypes.scavenge_general: return "scavenge bonus";
-				case ItemConstants.itemBonusTypes.scavenge_supplies: return "scavenge bonus";
-				case ItemConstants.itemBonusTypes.scavenge_ingredients: return "scavenge bonus";
-				case ItemConstants.itemBonusTypes.scout_cost: return "scouting cost";
-				case ItemConstants.itemBonusTypes.bag: return "bag size";
-				case ItemConstants.itemBonusTypes.res_cold: return "warmth";
-				case ItemConstants.itemBonusTypes.res_radiation: return short ? "radiation prot" : "radiation protection";
-				case ItemConstants.itemBonusTypes.res_poison: return short ? "poison prot" : "poison protection";
-				case ItemConstants.itemBonusTypes.res_water: return short ? "water prot" : "water protection";
-				case ItemConstants.itemBonusTypes.shade: return short ? "sun prot" : "sunblindness protection";
-				case ItemConstants.itemBonusTypes.detect_hazards: return short ? "hazards" : "surveying (hazards)";
-				case ItemConstants.itemBonusTypes.detect_supplies: return short ? "supplies" : "surveying (supplies)";
-				case ItemConstants.itemBonusTypes.detect_ingredients: return short ? "ingredients" : "surveying (ingredients)";
+				case ItemConstants.itemBonusTypes.light: return "最大视野";
+				case ItemConstants.itemBonusTypes.fight_att: return "攻击";
+				case ItemConstants.itemBonusTypes.fight_def: return "防御";
+				case ItemConstants.itemBonusTypes.fight_shield: return "盾";
+				case ItemConstants.itemBonusTypes.fight_speed: return "攻速";
+				case ItemConstants.itemBonusTypes.movement: return "移动消耗";
+				case ItemConstants.itemBonusTypes.scavenge_cost: return "拾荒消耗";
+				case ItemConstants.itemBonusTypes.scavenge_general: return "拾荒收益";
+				case ItemConstants.itemBonusTypes.scavenge_supplies: return "拾荒收益";
+				case ItemConstants.itemBonusTypes.scavenge_ingredients: return "拾荒收益";
+				case ItemConstants.itemBonusTypes.scout_cost: return "探索消耗";
+				case ItemConstants.itemBonusTypes.bag: return "背包容量";
+				case ItemConstants.itemBonusTypes.res_cold: return "保暖";
+				case ItemConstants.itemBonusTypes.res_radiation: return short ? "辐抗" : "辐射抗性";
+				case ItemConstants.itemBonusTypes.res_poison: return short ? "毒抗" : "污染抗性";
+				case ItemConstants.itemBonusTypes.res_water: return short ? "水抗" : "淹水抗性";
+				case ItemConstants.itemBonusTypes.shade: return short ? "遮光" : "阳光抗性";
+				case ItemConstants.itemBonusTypes.detect_hazards: return short ? "危害" : "调研 (自然危害)";
+				case ItemConstants.itemBonusTypes.detect_supplies: return short ? "补给" : "调研 (补给)";
+				case ItemConstants.itemBonusTypes.detect_ingredients: return short ? "合成材料" : "调研 (合成材料)";
 				default:
 					log.w("no display name defined for item bonus type: " + bonusType);
 					return "";
@@ -498,17 +498,17 @@ define(['ash',
 			let effect = perk.type;
 			switch (perk.type) {
 				case PerkConstants.perkTypes.movement:
-					effect = "movement cost";
+					effect = "移动消耗";
 					break;
 				case PerkConstants.perkTypes.injury:
 				case PerkConstants.perkTypes.health:
-					effect = "health";
+					effect = "血量";
 					break;
 				case PerkConstants.perkTypes.luck:
 					if (perk.effect > 0) {
-						return "Lower probability of negative random events when exploring";
+						return "降低探索时遇到负面事件的概率";
 					} else { 
-						return "Higher probability of negative random events when exploring";
+						return "提高降低探索时遇到负面事件的概率";
 					}
 			}
 
