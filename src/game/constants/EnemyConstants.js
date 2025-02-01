@@ -8,60 +8,60 @@ function (Ash, EnemyVO, PerkConstants) {
 		enemyUsage: {}, // usage in current world, just for debug
 		
 		enemyTexts: {
-			bandit: {
-				nouns: [ "bandit", "thug" ],
-				groupNouns: [ "mob", "gang"],
-				verbsActive: [ "patrolled by", "controlled by", "guarded by", "occupied by"],
-				verbsDefeated: [ "driven away", "killed"],
-			},
-			big_animal: {
-				nouns: [ "aggressive animal", "wild animal", "animal", "hostile wildlife" ],
-				groupNouns: ["pack", "mob", "gang"],
-				verbsActive: ["overrun with", "guarded by", "occupied by"],
-				verbsDefeated: ["cleared", "killed"],
-			},
-			bird: {
-				nouns: ["urban pest", "birds", "animal", "aggressive animal", "hostile wildlife" ],
-				groupNouns: ["flock", "swarm", "gang", "mob"],
-				verbsActive: ["overrun with", "infested with", "occupied by", "guarded by"],
-				verbsDefeated: ["killed", "cleared", "driven away"],
-			},
-			flora: {
-				nouns: ["urban pest", "vicious plant", "hostile wildlife" ],
-				groupNouns: ["cluster", "group"],
-				verbsActive: ["infested with", "covered in", "overrun with"],
-				verbsDefeated: ["cleared"],
-			},
-			fungi: {
-				nouns: ["urban pest", "dangerous fungi", "hostile wildlife"],
-				groupNouns: ["cluster", "group"],
-				verbsActive: ["infested with", "covered in", "overrun with"],
-				verbsDefeated: ["cleared", "killed"],
-			},
-			humanoid: {
-				nouns: ["malevolent creatures"],
-				groupNouns: ["mob", "gang", "group"],
-				verbsActive: ["guarded by", "occupied by"],
-				verbsDefeated: ["driven away"],
-			},
-			robot: {
-				nouns: ["aggressive bot"],
-				groupNouns: ["mob", "gang", "group", "swarm", "cell"],
-				verbsActive: ["patrolled by", "controlled by", "guarded by", "occupied by"],
-				verbsDefeated: ["disabled", "cleared", "destroyed"],
-			},
-			small_animal: {
-				nouns: ["urban pest", "aggressive animal", "wild animal", "animal", "hostile wildlife"],
-				groupNouns: ["swarm", "pack", "mob", "group", "horde"],
-				verbsActive: ["infested with", "overrun with" ],
-				verbsDefeated: ["killed", "cleared"],
-			},
-			structure: {
-				nouns: ["automated structures"],
-				groupNouns: ["group", "set"],
-				verbsActive: ["blocked by"],
-				verbsDefeated: ["disabled"],
-			},
+		    bandit: {
+			nouns: [ "土匪", "暴徒" ],
+			groupNouns: [ "团", "帮" ],
+			verbsActive: [ "巡逻", "控制", "守卫", "占据" ],
+			verbsDefeated: [ "被驱逐", "被消灭" ],
+		    },
+		    big_animal: {
+			nouns: [ "具有攻击性的动物", "野生动物", "动物", "敌对生物" ],
+			groupNouns: ["群", "团", "帮"],
+			verbsActive: ["遍布", "守卫", "占据"],
+			verbsDefeated: ["被清除", "被消灭"],
+		    },
+		    bird: {
+			nouns: ["城市害鸟", "鸟群", "动物", "具有攻击性的动物", "敌对生物" ],
+			groupNouns: ["群", "群", "帮", "团"],
+			verbsActive: ["遍布", "滋生", "占据", "守卫"],
+			verbsDefeated: ["被消灭", "被清除", "被驱逐"],
+		    },
+		    flora: {
+			nouns: ["城市害植", "剧毒植物", "敌对生物" ],
+			groupNouns: ["丛", "群"],
+			verbsActive: ["滋生", "覆盖", "遍布"],
+			verbsDefeated: ["被清除"],
+		    },
+		    fungi: {
+			nouns: ["城市害菌", "危险真菌", "敌对生物"],
+			groupNouns: ["簇", "群"],
+			verbsActive: ["滋生", "覆盖", "遍布"],
+			verbsDefeated: ["被清除", "被消灭"],
+		    },
+		    humanoid: {
+			nouns: ["邪恶生物"],
+			groupNouns: ["团", "帮", "群"],
+			verbsActive: ["守卫", "占据"],
+			verbsDefeated: ["被驱逐"],
+		    },
+		    robot: {
+			nouns: ["攻击型机器人"],
+			groupNouns: ["暴民团伙", "帮派", "群组", "集群", "特工小组"],
+			verbsActive: ["巡逻", "控制", "守卫", "占据"],
+			verbsDefeated: ["被瘫痪", "被清除", "被摧毁"],
+		    },
+		    small_animal: {
+			nouns: ["城市害兽", "具有攻击性的动物", "野生动物", "动物", "敌对生物"],
+			groupNouns: ["群", "群", "团", "群", "群"],
+			verbsActive: ["滋生", "遍布" ],
+			verbsDefeated: ["被消灭", "被清除"],
+		    },
+		    structure: {
+			nouns: ["自动防御设施"],
+			groupNouns: ["群组", "装置组"],
+			verbsActive: ["阻挡"],
+			verbsDefeated: ["被瘫痪"],
+		    },
 		},
 		
 		enemyLoot: {
