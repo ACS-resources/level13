@@ -4,8 +4,8 @@ define(['ash', 'game/constants/OccurrenceConstants', 'game/constants/UIConstants
 		
 		milestones: [
 			{
-				name: "lone camp",
-				description: "A shelter for a few rugged outcasts with sparse belongings",
+				name: "孤独营地",
+				description: "一些身无一物却坚强的被遗弃者的小营地",
 				maxRumours: 100,
 				maxEvidence: 300,
 				maxHope: 0,
@@ -13,8 +13,8 @@ define(['ash', 'game/constants/OccurrenceConstants', 'game/constants/UIConstants
 				baseReputation: 0,
 			},
 			{
-				name: "small settlement",
-				description: "A safe place that several people call home and is starting to accumulate some resources",
+				name: "小定居点",
+				description: "被几个人称之为家的安全地带, 而且正在积攒一些资源",
 				maxRumours: 500,
 				maxEvidence: 400,
 				maxHope: 0,
@@ -23,8 +23,8 @@ define(['ash', 'game/constants/OccurrenceConstants', 'game/constants/UIConstants
 				unlockedEvents: [ OccurrenceConstants.campOccurrenceTypes.raid ],
 			},
 			{
-				name: "multi-level collective",
-				description: "The start of something that spans multiple levels",
+				name: "多层聚居点",
+				description: "一个横跨多层的聚居地的开始",
 				maxRumours: 1000,
 				maxEvidence: 500,
 				maxHope: 0,
@@ -32,8 +32,8 @@ define(['ash', 'game/constants/OccurrenceConstants', 'game/constants/UIConstants
 				baseReputation: 2,
 			},
 			{
-				name: "sanguine tribe",
-				description: "Enough people to call it a tribe",
+				name: "欣欣向荣的聚落",
+				description: "可以称之为聚落啦",
 				maxRumours: 3000,
 				maxEvidence: 700,
 				maxHope: 100,
@@ -41,8 +41,8 @@ define(['ash', 'game/constants/OccurrenceConstants', 'game/constants/UIConstants
 				baseReputation: 3,
 			},
 			{
-				name: "city within the City",
-				description: "An organized society with specialized labour and reliable means of food production",
+				name: "城中之城",
+				description: "一个有稳定食物供应和劳动力分工的有序社会",
 				maxRumours: 5000,
 				maxEvidence: 900,
 				maxHope: 400,
@@ -51,8 +51,8 @@ define(['ash', 'game/constants/OccurrenceConstants', 'game/constants/UIConstants
 				unlockedFeatures: [ UIConstants.UNLOCKABLE_FEATURE_WORKER_AUTO_ASSIGNMENT ],
 			},
 			{
-				name: "multiplex society",
-				description: "A tribe that spans multiple levels",
+				name: "多元社会",
+				description: "横跨多层的大型聚落",
 				maxRumours: 10000,
 				maxEvidence: 1200,
 				maxHope: 500,
@@ -60,8 +60,8 @@ define(['ash', 'game/constants/OccurrenceConstants', 'game/constants/UIConstants
 				baseReputation: 5,
 			},
 			{
-				name: "dominant state",
-				description: "A society that has shown it can not only survive, but progress",
+				name: "主导势力",
+				description: "一个社会, 证明了其不仅可以生存, 更可以向前发展",
 				maxRumours: 15000,
 				maxEvidence: 3000,
 				maxHope: 1000,
@@ -69,8 +69,8 @@ define(['ash', 'game/constants/OccurrenceConstants', 'game/constants/UIConstants
 				baseReputation: 6,
 			},
 			{
-				name: "civilization rebuilt",
-				description: "A new civilization born from the ruins of the old one",
+				name: "重建的文明",
+				description: "涅槃于失落文明的新生",
 				maxRumours: 20000,
 				maxEvidence: 6000,
 				maxHope: 2000,
@@ -157,23 +157,23 @@ define(['ash', 'game/constants/OccurrenceConstants', 'game/constants/UIConstants
 		
 		getLuxuryDisplayName: function (luxuryType) {
 			switch (luxuryType) {
-				case TribeConstants.luxuryType.HONEY: return "honey";
-				case TribeConstants.luxuryType.OLIVES: return "olives";
-				case TribeConstants.luxuryType.TRUFFLES: return "truffles";
-				case TribeConstants.luxuryType.CHOCOLATE: return "chocolate";
-				case TribeConstants.luxuryType.COFFEE: return "coffee";
-				case TribeConstants.luxuryType.SPICES: return "spices";
-				case TribeConstants.luxuryType.TOBACCO: return "tobacco";
-				case TribeConstants.luxuryType.TEA: return "tea";
-				case TribeConstants.luxuryType.AMBER: return "amber";
-				case TribeConstants.luxuryType.PEARLS: return "pearls";
-				case TribeConstants.luxuryType.IVORY: return "ivory";
-				case TribeConstants.luxuryType.SALT: return "salt";
-				case TribeConstants.luxuryType.DIAMONDS: return "diamonds";
-				case TribeConstants.luxuryType.EMERALDS: return "emeralds";
-				case TribeConstants.luxuryType.GOLD: return "gold";
-				case TribeConstants.luxuryType.JADE: return "jade";
-				case TribeConstants.luxuryType.SILVER: return "silver";
+				case TribeConstants.luxuryType.HONEY: return "蜂蜜";
+				case TribeConstants.luxuryType.OLIVES: return "橄榄";
+				case TribeConstants.luxuryType.TRUFFLES: return "块菌";
+				case TribeConstants.luxuryType.CHOCOLATE: return "巧克力";
+				case TribeConstants.luxuryType.COFFEE: return "咖啡";
+				case TribeConstants.luxuryType.SPICES: return "香料";
+				case TribeConstants.luxuryType.TOBACCO: return "烟草";
+				case TribeConstants.luxuryType.TEA: return "茶";
+				case TribeConstants.luxuryType.AMBER: return "琥珀";
+				case TribeConstants.luxuryType.PEARLS: return "珍珠";
+				case TribeConstants.luxuryType.IVORY: return "象牙";
+				case TribeConstants.luxuryType.SALT: return "纱露朵";
+				case TribeConstants.luxuryType.DIAMONDS: return "钻石";
+				case TribeConstants.luxuryType.EMERALDS: return "翡翠";
+				case TribeConstants.luxuryType.GOLD: return "金锭";
+				case TribeConstants.luxuryType.JADE: return "玉石";
+				case TribeConstants.luxuryType.SILVER: return "银锭";
 				
 				default:
 					log.w("unknown luxury resource type: " + luxuryType);
